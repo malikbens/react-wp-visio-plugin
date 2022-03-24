@@ -1,0 +1,15 @@
+{
+  "name": "multistep-visio-form",
+  "version": "1.0.0",
+  "description": "visio form",
+  "main": "index.js",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start"
+  },
+  "author": "Malik Benserradj",
+  "license": "ISC",
+  "devDependencies": {
+    "@wordpress/scripts": "^22.3.0"
+  }
+}
