@@ -1,12 +1,11 @@
-const { Component, render } = wp.element;
-import VisioForm from './components/VisioForm';
+const { Component, render } = wp.element
+import App from './App';
+import './index.css'
 
-class Index extends Component {     
+class Index extends Component {
     render() {
         return (
-            <div>
-                <VisioForm />
-            </div>
+           <App />
         );
     }
 }
