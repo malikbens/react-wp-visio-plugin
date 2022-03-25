@@ -7,6 +7,7 @@ import SelectBrand from "../section-components/SelectBrand"
 import ModelInput from "../section-components/ModelInput"
 
 
+
 export default class DeviceTab extends Component {
   continuer = e => {
     e.preventDefault();
@@ -14,7 +15,7 @@ export default class DeviceTab extends Component {
   }
 
   render() {
-
+    console.log(this.props)
     return (
       <Container maxWidth="md">
         <Typography
@@ -33,7 +34,7 @@ export default class DeviceTab extends Component {
           Choissisez votre appareil a réparer
         </Typography>
 
-        <SelectDevice />
+        <SelectDevice handleChange={this.props.handleChange} />
         <SelectBrand />
         <ModelInput />
         <br></br>
