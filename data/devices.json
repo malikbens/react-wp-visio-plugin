@@ -1,6 +1,7 @@
 {
     "devices": [
-        {   "id": 0 ,
+        {
+            "id": 0,
             "name": "Aspirateur",
             "brand": [
                 "Autre marque",
@@ -271,7 +272,7 @@
             ]
         },
         {
-            "id": 1 ,
+            "id": 1,
             "name": "Centrale vapeur",
             "brand": [
                 "Autre marque",
@@ -325,7 +326,7 @@
             ]
         },
         {
-            "id":  2,
+            "id": 2,
             "name": "Cuisinière",
             "brand": [
                 "Autres marques",
@@ -597,7 +598,7 @@
             ]
         },
         {
-            "id":  3,
+            "id": 3,
             "name": "Fer à repasser",
             "brand": [
                 ".Autres marques",
@@ -652,7 +653,7 @@
             ]
         },
         {
-            "id":  4,
+            "id": 4,
             "name": "Four",
             "brand": [
                 "Autres marques",
@@ -924,7 +925,7 @@
             ]
         },
         {
-            "id":  5,
+            "id": 5,
             "name": "Hotte",
             "brand": [
                 "Autres marques",
@@ -1067,7 +1068,7 @@
             ]
         },
         {
-            "id":  6,
+            "id": 6,
             "name": "Lavante-séchante",
             "brand": [
                 "Autres marques",
@@ -1442,7 +1443,7 @@
             ]
         },
         {
-            "id":  7,
+            "id": 7,
             "name": "Lave-linge",
             "brand": [
                 "Autres marques",
@@ -1817,7 +1818,7 @@
             ]
         },
         {
-            "id":  8,
+            "id": 8,
             "name": "Lave-vaisselle",
             "brand": [
                 "Autres marques",
@@ -2092,7 +2093,7 @@
             ]
         },
         {
-            "id":  9,
+            "id": 9,
             "name": "Nettoyeur Vapeur",
             "brand": [
                 ".Autres marques",
@@ -2147,7 +2148,7 @@
             ]
         },
         {
-            "id":  10,
+            "id": 10,
             "name": "Plaque de cuisson à induction",
             "brand": [
                 "Autres marques",
@@ -2334,7 +2335,7 @@
             ]
         },
         {
-            "id": 11 ,
+            "id": 11,
             "name": "Plaque de cuisson électrique",
             "brand": [
                 "Autres marques",
@@ -2521,7 +2522,7 @@
             ]
         },
         {
-            "id":  12,
+            "id": 12,
             "name": "Plaque de cuisson gaz",
             "brand": [
                 "Autres marques",
@@ -2708,7 +2709,7 @@
             ]
         },
         {
-            "id":  13,
+            "id": 13,
             "name": "Sèche-linge",
             "brand": [
                 "Autres marques",

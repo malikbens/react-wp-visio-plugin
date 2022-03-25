@@ -15,7 +15,6 @@ export default class DeviceTab extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <Container maxWidth="md">
         <Typography
@@ -34,8 +33,10 @@ export default class DeviceTab extends Component {
           Choissisez votre appareil a réparer
         </Typography>
 
-        <SelectDevice handleChange={this.props.handleChange} />
-        <SelectBrand />
+        <SelectDevice 
+          handleChange={this.props.handleChange} 
+        />
+        <SelectBrand values={this.props.values.device} />
         <ModelInput />
         <br></br>
 
