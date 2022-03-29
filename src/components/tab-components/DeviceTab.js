@@ -1,11 +1,11 @@
 const { Component, render } = wp.element
-import { Typography, Button, Container } from "@mui/material"
-import SelectDevice from '../section-components/SelectDevice'
+import { Typography, Button, Box } from "@mui/material"
+import SelectDevice from './device-components/SelectDevice'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
-import SymptomGrid from "../section-components/SymptomGrid"
-import SelectBrand from "../section-components/SelectBrand"
-import ModelInput from "../section-components/ModelInput"
-
+import SymptomGrid from "./device-components/SymptomGrid"
+import SelectBrand from "./device-components/SelectBrand"
+import ModelInput from "./device-components/ModelInput"
+import { makeStyles } from "@mui/material"
 
 
 export default class DeviceTab extends Component {
@@ -16,44 +16,52 @@ export default class DeviceTab extends Component {
 
   render() {
     return (
-      <Container maxWidth="md">
+      <Box sx={{width:'750px'}}>
         <Typography
           variant="h1"
           color="text"
           align="left"
+          mb={1}
         >
-          Aidez le technicien a comprendre votre problème
+         1. Aidez le technicien a comprendre votre problème
         </Typography>
 
         <Typography
           variant="h2"
           color="primary"
           align="left"
+          mb={1}
         >
           Choissisez votre appareil a réparer
         </Typography>
 
-        <SelectDevice 
-          handleChange={this.props.handleChange} 
-        />
-        <SelectBrand values={this.props.values.device} />
-        <ModelInput />
+        <Box >
+          <SelectDevice
+            handleChange={this.props.handleChange}
+            values={this.props.values}
+          />
+          <SelectBrand />
+          <ModelInput />
+        </Box>
         <br></br>
 
-        <Typography
-          variant="h2"
-          color="primary"
-          align="left"
-        >
-          Les symptomes de  panne
-        </Typography>
+        <Box>
+          <Typography
+            variant="h2"
+            color="primary"
+            align="left"
+            mb={1}
+          >
+            Les symptomes de panne
+          </Typography>
 
-        <SymptomGrid />
+          <SymptomGrid />
+        </Box>
 
         <Button variant="contained" onClick={this.continuer} endIcon={<ArrowForwardIcon />} >
           Continuer
         </Button>
-      </Container>
+      </Box>
     );
   }
 }

@@ -1,6 +1,5 @@
 export default [
   {
-      "id"
       'name': 'Aspirateur',
       'brand': [
           'Autre marque',

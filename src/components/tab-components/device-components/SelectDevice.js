@@ -7,11 +7,13 @@ import Select from '@mui/material/Select';
 import devices from "/data/devices.js"
 
 export default class SelectDevice extends Component {
+
     render() { 
         return (
-            <FormControl sx={{ minWidth: 120 }}>
+            <FormControl sx={{ minWidth: 120 , margin:'10px 10px 10px 0px'}}>
                 <InputLabel id="select-label">Appareil</InputLabel>
-                <Select
+                <Select 
+                    value={this.props.values.device}
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     label="Appareil"
@@ -20,7 +22,6 @@ export default class SelectDevice extends Component {
                     {devices.map(({ id, name, }) => (
                         <MenuItem key={id} value={name}>{name}</MenuItem>
                     ))}
-
                 </Select>
             </FormControl>
         );
