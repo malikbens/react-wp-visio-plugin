@@ -5,8 +5,6 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import SymptomGrid from "./device-components/SymptomGrid"
 import SelectBrand from "./device-components/SelectBrand"
 import ModelInput from "./device-components/ModelInput"
-import { makeStyles } from "@mui/material"
-
 
 export default class DeviceTab extends Component {
   continuer = e => {
@@ -35,12 +33,16 @@ export default class DeviceTab extends Component {
           Choissisez votre appareil a réparer
         </Typography>
 
+
         <Box >
           <SelectDevice
             handleChange={this.props.handleChange}
             values={this.props.values}
           />
-          <SelectBrand />
+          <SelectBrand 
+            handleChange={this.props.handleChange}
+            values={this.props.values}
+          />
           <ModelInput />
         </Box>
         <br></br>

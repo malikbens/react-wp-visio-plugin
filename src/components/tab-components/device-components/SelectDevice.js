@@ -1,29 +1,34 @@
-const { Component, render } = wp.element
-import * as React from 'react';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import devices from "/data/devices.js"
+import {useEffect, useState } from 'react'
+import { FormControl, InputLabel, Select, MenuItem } from "@mui/material"
+import SelectBrand from './SelectBrand'
+import devices from '/data/devices.json'
 
-export default class SelectDevice extends Component {
+const SelectDevice = (props) => {
 
-    render() { 
-        return (
-            <FormControl sx={{ minWidth: 120 , margin:'10px 10px 10px 0px'}}>
-                <InputLabel id="select-label">Appareil</InputLabel>
-                <Select 
-                    value={this.props.values.device}
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    label="Appareil"
-                    onChange={this.props.handleChange('device')}
-                >
-                    {devices.map(({ id, name, }) => (
-                        <MenuItem key={id} value={name}>{name}</MenuItem>
-                    ))}
-                </Select>
-            </FormControl>
-        );
-    }
+    const [devices, setDevice] =  useState([]) 
+
+    useEffect(() => {
+        fetch('http://localhost:3000/devices')
+        .then(res => res.json())
+        .then(data =>setDevice(data));
+    },[])
+
+    return (
+        <FormControl sx={{ minWidth: 120, margin: '10px 10px 10px 0px' }}>
+            <InputLabel id="select-label">Appareil</InputLabel>
+            <Select
+                value={props.values.device}
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                label="Appareil"
+                onChange={props.handleChange('device')}
+            >
+                {devices.map(device => (
+                <MenuItem key={device.id} value={device.name}>{device.name}</MenuItem>
+            ))}
+            </Select> 
+        </FormControl>
+    )
 }
+
+export default SelectDevice 

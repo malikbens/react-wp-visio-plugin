@@ -40,7 +40,7 @@ export class VisioForm extends Component {
 
     render() {
         const { step } = this.state;
-        const { device, brand,model, symptom, need, piece, prbDesc, deviceAge, access, level, tools } = this.state ;
+        const { device, brand, model, symptom, need, piece, prbDesc, deviceAge, access, level, tools } = this.state ;
         const values = {device, brand,model, symptom, need, piece, prbDesc, deviceAge, access, level, tools};
 
         switch (step) {
