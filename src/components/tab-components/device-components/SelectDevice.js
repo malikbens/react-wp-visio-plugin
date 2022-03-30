@@ -1,17 +1,16 @@
-import {useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material"
-import SelectBrand from './SelectBrand'
 import devices from '/data/devices.json'
 
 const SelectDevice = (props) => {
 
-    const [devices, setDevice] =  useState([]) 
+    const [devices, setDevice] = useState([])
 
     useEffect(() => {
         fetch('http://localhost:3000/devices')
-        .then(res => res.json())
-        .then(data =>setDevice(data));
-    },[])
+            .then(res => res.json())
+            .then(data => setDevice(data));
+    }, [])
 
     return (
         <FormControl sx={{ minWidth: 120, margin: '10px 10px 10px 0px' }}>
@@ -24,9 +23,9 @@ const SelectDevice = (props) => {
                 onChange={props.handleChange('device')}
             >
                 {devices.map(device => (
-                <MenuItem key={device.id} value={device.name}>{device.name}</MenuItem>
-            ))}
-            </Select> 
+                    <MenuItem  key={device.id} value={device.name}>{device.name}</MenuItem>
+                ))}
+            </Select>
         </FormControl>
     )
 }

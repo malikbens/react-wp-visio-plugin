@@ -5,6 +5,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import SymptomGrid from "./device-components/SymptomGrid"
 import SelectBrand from "./device-components/SelectBrand"
 import ModelInput from "./device-components/ModelInput"
+import Test from './device-components/test'
 
 export default class DeviceTab extends Component {
   continuer = e => {
@@ -14,14 +15,14 @@ export default class DeviceTab extends Component {
 
   render() {
     return (
-      <Box sx={{width:'750px'}}>
+      <Box sx={{ width: '750px' }}>
         <Typography
           variant="h1"
           color="text"
           align="left"
           mb={1}
         >
-         1. Aidez le technicien a comprendre votre problème
+          1. Aidez le technicien a comprendre votre problème
         </Typography>
 
         <Typography
@@ -39,26 +40,26 @@ export default class DeviceTab extends Component {
             handleChange={this.props.handleChange}
             values={this.props.values}
           />
-          <SelectBrand 
+          {/* <Test 
+            values={this.props.values}
+            handleChange={this.props.handleChange}
+          /> */}
+          <SelectBrand
             handleChange={this.props.handleChange}
             values={this.props.values}
           />
-          <ModelInput />
+          <ModelInput
+            handleChange={this.props.handleChange}
+            values={this.props.values}
+          />
         </Box>
         <br></br>
 
-        <Box>
-          <Typography
-            variant="h2"
-            color="primary"
-            align="left"
-            mb={1}
-          >
-            Les symptomes de panne
-          </Typography>
+        <SymptomGrid
+          handleChange={this.props.handleChange}
+          values={this.props.values}
+        />
 
-          <SymptomGrid />
-        </Box>
 
         <Button variant="contained" onClick={this.continuer} endIcon={<ArrowForwardIcon />} >
           Continuer

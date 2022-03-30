@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import { TextField  } from '@mui/material'
+import { TextField } from "@mui/material"
 
-export class ModelInput extends Component {
-    render() {
-        return (
+function modelInput(props){
+    if(props.values.device != ""){
+        return(
             <TextField  label="Modèle" sx={{ minWidth: 120 , margin:'10px 10px 10px 0px'}} />
         )
-    }
+    }return <></>
 }
 
-export default ModelInput
+export default modelInput
+
