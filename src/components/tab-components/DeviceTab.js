@@ -1,11 +1,9 @@
-const { Component, render } = wp.element
+const { Component } = wp.element
 import { Typography, Button, Box } from "@mui/material"
 import SelectDevice from './device-components/SelectDevice'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
-import SymptomGrid from "./device-components/SymptomGrid"
-import SelectBrand from "./device-components/SelectBrand"
-import ModelInput from "./device-components/ModelInput"
-import Test from './device-components/test'
+import SelectOptions from "./device-components/SelectOptions"
+
 
 export default class DeviceTab extends Component {
   continuer = e => {
@@ -39,22 +37,12 @@ export default class DeviceTab extends Component {
             handleChange={this.props.handleChange}
             values={this.props.values}
           />
-          <SelectBrand
+          <SelectOptions
             handleChange={this.props.handleChange}
             values={this.props.values}
           />
-          {/* <ModelInput
-            handleChange={this.props.handleChange}
-            values={this.props.values}
-          /> */}
         </Box>
         <br></br>
-
-        {/* <SymptomGrid
-          handleChange={this.props.handleChange}
-          values={this.props.values}
-        /> */}
-
 
         <Button variant="contained" onClick={this.continuer} endIcon={<ArrowForwardIcon />} >
           Continuer

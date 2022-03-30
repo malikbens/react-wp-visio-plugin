@@ -3,6 +3,7 @@ import { Box } from '@mui/system'
 
 export class SideBar extends Component {
   render() {
+    console.log(this.props)
     return (
      <Box>
           SideBar

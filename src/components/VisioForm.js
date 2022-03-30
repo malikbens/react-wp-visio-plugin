@@ -7,7 +7,6 @@ import ProblemTab from './tab-components/ProblemTab'
 export class VisioForm extends Component {
     state = {
         step: 1,
-        displayed: false ,
         device: '',
         brand: '',
         model: '',
@@ -35,20 +34,14 @@ export class VisioForm extends Component {
         });
     };
 
-    displayInput = () => {
-        this.setState({
-            displayed: true
-        })
-    }
-
     handleChange = input => e => {
         this.setState({ [input]: e.target.value });
     };
 
     render() {
         const { step } = this.state;
-        const { device, brand, model, symptom, need, piece, prbDesc, deviceAge, access, level, tools, displayed } = this.state ;
-        const values = {device, brand,model, symptom, need, piece, prbDesc, deviceAge, access, level, tools, displayed};
+        const { device, brand, model, symptom, need, piece, prbDesc, deviceAge, access, level, tools, } = this.state ;
+        const values = {device, brand,model, symptom, need, piece, prbDesc, deviceAge, access, level, tools, };
 
         switch (step) {
             case 1:
@@ -57,8 +50,6 @@ export class VisioForm extends Component {
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
                         values={values}
-                        displayed={this.displayInput}
-                        displayInput={this.displayInput}
                     />
                 );
             case 2:

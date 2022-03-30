@@ -3,7 +3,7 @@ import devices from '/data/devices.json'
 import { useState, useEffect, useCallback } from 'react'
 
 
-function SelectBrand(props) {
+function SelectOptions(props) {
 
     const [brand, setBrand] = useState([])
     const [symptoms, setSymptom] = useState([])
@@ -72,4 +72,4 @@ function SelectBrand(props) {
     return <></>
 }
 
-export default SelectBrand
+export default SelectOptions
