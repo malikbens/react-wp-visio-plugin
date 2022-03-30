@@ -22984,13 +22984,7 @@ class DeviceTab extends Component {
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_device_components_SelectBrand__WEBPACK_IMPORTED_MODULE_4__["default"], {
       handleChange: this.props.handleChange,
       values: this.props.values
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_device_components_ModelInput__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      handleChange: this.props.handleChange,
-      values: this.props.values
-    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("br", null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_device_components_SymptomGrid__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      handleChange: this.props.handleChange,
-      values: this.props.values
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("br", null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], {
       variant: "contained",
       onClick: this.continuer,
       endIcon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_10__["default"], null)
@@ -23097,6 +23091,7 @@ __webpack_require__.r(__webpack_exports__);
 function modelInput(props) {
   if (props.values.device != "") {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      onChange: props.handleChange('model'),
       label: "Mod\xE8le",
       sx: {
         minWidth: 120,
@@ -23126,6 +23121,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/InputLabel/InputLabel.js");
 /* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Select/Select.js");
 /* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/MenuItem/MenuItem.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/TextField/TextField.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/RadioGroup/RadioGroup.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Grid/Grid.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/FormControlLabel/FormControlLabel.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Radio/Radio.js");
 /* harmony import */ var _data_devices_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../data/devices.json */ "./data/devices.json");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
@@ -23134,20 +23136,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function test(props) {
+function SelectBrand(props) {
   const [brand, setBrand] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]);
-
-  const fetchBrand = async () => {
+  const [symptoms, setSymptom] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]);
+  const fetchData = (0,react__WEBPACK_IMPORTED_MODULE_2__.useCallback)(async () => {
     const res = await fetch('http://localhost:3000/devices?name=' + props.values.device);
     const data = await res.json();
-    console.log(data[0].brand);
+    console.log(data[0].symptoms);
+    setSymptom(data[0].symptoms);
     setBrand(data[0].brand);
-  };
+  }, [props.values.device]);
+  (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
+    fetchData();
+  }, [fetchData]);
 
   if (props.values.device != "") {
-    fetchBrand();
-    console.log(brand);
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    console.log(props.values.brand);
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
       sx: {
         minWidth: 120,
         margin: '10px 10px 10px 0px'
@@ -23162,14 +23167,41 @@ function test(props) {
       onChange: props.handleChange('brand')
     }, brand.map(device => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
       key: device.id,
-      value: device.brand
-    }, device))));
+      value: device
+    }, device)))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      onChange: props.handleChange('model'),
+      label: "Mod\xE8le",
+      sx: {
+        minWidth: 120,
+        margin: '10px 10px 10px 0px'
+      }
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      variant: "h2",
+      color: "primary",
+      align: "left",
+      mb: 1
+    }, "Les symptomes de panne"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      "aria-labelledby": "demo-radio-buttons-group-label",
+      defaultValue: "female",
+      name: "radio-buttons-group"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_11__["default"], {
+      container: true
+    }, symptoms.map(symptom => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_11__["default"], {
+      item: true,
+      xs: 12,
+      md: 6
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_12__["default"], {
+      onChange: props.handleChange('symptom'),
+      value: symptom,
+      control: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_13__["default"], null),
+      label: symptom
+    }))))))));
   }
 
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null);
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (test);
+/* harmony default export */ __webpack_exports__["default"] = (SelectBrand);
 
 /***/ }),
 
@@ -23255,7 +23287,7 @@ function SymptomGrid(props) {
       color: "primary",
       align: "left",
       mb: 1
-    }, "Les symptoms de panne"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    }, "Les symptomes de panne"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
       "aria-labelledby": "demo-radio-buttons-group-label",
       defaultValue: "female",
       name: "radio-buttons-group"

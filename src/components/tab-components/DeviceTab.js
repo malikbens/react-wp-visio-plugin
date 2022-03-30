@@ -12,7 +12,7 @@ export default class DeviceTab extends Component {
     e.preventDefault();
     this.props.nextStep();
   }
-
+  
   render() {
     return (
       <Box sx={{ width: '750px' }}>
@@ -34,31 +34,26 @@ export default class DeviceTab extends Component {
           Choissisez votre appareil a réparer
         </Typography>
 
-
         <Box >
           <SelectDevice
             handleChange={this.props.handleChange}
             values={this.props.values}
           />
-          {/* <Test 
-            values={this.props.values}
-            handleChange={this.props.handleChange}
-          /> */}
           <SelectBrand
             handleChange={this.props.handleChange}
             values={this.props.values}
           />
-          <ModelInput
+          {/* <ModelInput
             handleChange={this.props.handleChange}
             values={this.props.values}
-          />
+          /> */}
         </Box>
         <br></br>
 
-        <SymptomGrid
+        {/* <SymptomGrid
           handleChange={this.props.handleChange}
           values={this.props.values}
-        />
+        /> */}
 
 
         <Button variant="contained" onClick={this.continuer} endIcon={<ArrowForwardIcon />} >

@@ -5,7 +5,6 @@ function SymptomGrid(props) {
     console.log(props)
     if (props.values.device != "") {
         return (
-
             <Box>
                 <Typography
                     variant="h2"
@@ -13,7 +12,7 @@ function SymptomGrid(props) {
                     align="left"
                     mb={1}
                 >
-                    Les symptoms de panne
+                    Les symptomes de panne
                 </Typography>
                 <FormControl>
                     <RadioGroup
