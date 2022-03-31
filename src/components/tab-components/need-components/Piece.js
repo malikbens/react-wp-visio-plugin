@@ -17,7 +17,7 @@ const Piece = (props) => {
 
         <Grid container>
           <Grid item  sx={{ mb: 2 }} >
-            <ToggleButton  sx={{ textTransform: "lowercase", width: 550 }}
+            <ToggleButton  sx={{ textTransform: "lowercase", width: 500 , justifyContent:'flex-start' }}
               onChange={props.handleChange('piece')}
               value="J'ai déjà ma pièce"
               fullWidth="true"
@@ -26,7 +26,7 @@ const Piece = (props) => {
             </ToggleButton>
           </Grid>
           <Grid item sx={{ mb: 2 }} >
-            <ToggleButton sx={{ textTransform: "lowercase", width: 550 }}
+            <ToggleButton sx={{ textTransform: "lowercase", width: 500, justifyContent:'flex-start' }}
               onChange={props.handleChange('piece')}
               value="Je ne l'ai pas"
               fullWidth="true"
@@ -36,6 +36,7 @@ const Piece = (props) => {
           </Grid>
           <p>*Nous vous ferons parvenir un lien en fin de parcours pour acheter votre pièce</p>
         </Grid>
+
       </Box>
     )
   }

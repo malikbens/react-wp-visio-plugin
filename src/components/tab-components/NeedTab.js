@@ -1,6 +1,7 @@
 const { Component, render } = wp.element;
 import Piece from "./need-components/Piece";
-import { Typography, Button, Box, Grid, ToggleButton } from "@mui/material";
+import SelectInput from "./need-components/SelectInput";
+import { Typography, Button, Box} from "@mui/material";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 
@@ -24,47 +25,13 @@ export default class DeviceTab extends Component {
           color="text"
           align="left"
         >
-          Décrivez ce dont vous avez besoin
+          2. Décrivez ce dont vous avez besoin
         </Typography>
 
-        <Grid container >
-          <Grid item sx={{ mb: 2 }} >
-            <ToggleButton sx={{ textTransform: "lowercase", width: 550 }}
-              onChange={this.props.handleChange('need')}
-              value="Je cherche la panne de mon appareil"
-              fullWidth="true"
-            >
-              Je cherche la panne de mon appareil
-            </ToggleButton>
-          </Grid>
-          <Grid item sx={{ mb: 2 }} >
-            <ToggleButton sx={{ textTransform: "lowercase", width: 550 }}
-              onChange={this.props.handleChange('need')}
-              value="J'ai besoin d'une confirmation de diagnostique"
-              fullWidth="true"
-            >
-              J'ai besoin d'une confirmation de diagnostique
-            </ToggleButton>
-          </Grid>
-          <Grid item sx={{ mb: 2 }} >
-            <ToggleButton sx={{ textTransform: "lowercase", width: 550 }}
-              onChange={this.props.handleChange('need')}
-              value="J'ai quelques questions techniques concernat mon appareil"
-              fullWidth="true"
-            >
-              J'ai quelques questions techniques concernat mon appareil
-            </ToggleButton>
-          </Grid>
-          <Grid item >
-            <ToggleButton sx={{ textTransform: "lowercase", width: 550 }}
-              onChange={this.props.handleChange('need')}
-              value="J'ai besoin d'aide pour remplacer ma pièce"
-              fullWidth="true"
-            >
-              J'ai besoin d'aide pour remplacer ma pièce
-            </ToggleButton>
-          </Grid>
-        </Grid>
+        <SelectInput handleChange={this.props.handleChange} label="Je cherche la panne de mon appareil"/>
+        <SelectInput handleChange={this.props.handleChange} label="J'ai besoin d'une confirmation de diagnostique"/>
+        <SelectInput handleChange={this.props.handleChange} label="J'ai quelques questions techniques concernat mon appareil"/>
+        <SelectInput handleChange={this.props.handleChange} label="J'ai besoin d'aide pour remplacer ma pièce"/>
 
         <Piece
           handleChange={this.props.handleChange}

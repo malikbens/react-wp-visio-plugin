@@ -1,4 +1,4 @@
-import { List, ListItem, Typography, Box, Button, TextField } from "@mui/material";
+import { List, ListItem, Typography, Box, Button, TextField, ListItemText } from "@mui/material";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const { Component, render } = wp.element;
@@ -31,15 +31,16 @@ export default class InfoTab extends Component {
                 >
                     Plus nous aurons de détails, mieux nous pourrons vous aider à réparer. Voici quelques exemples :
                 </Typography>
-                <List>
-                    <ListItem>Précisez la référence de l’appareil mis en cause,</ListItem>
-                    <ListItem>Les problèmes rencontrés et les pièces mises en cause,</ListItem>
-                    <ListItem>Ce que vous avez éventuellement déjà effectué comme manipulation pour essayer de dépanner votre appareil </ListItem>
+                <List sx={{ listStyle: 'initial' }}>
+                    <ListItemText sx={{display:'list-item'}} >Précisez la référence de l’appareil mis en cause,</ListItemText>
+                    <ListItemText sx={{display:'list-item'}} >Les problèmes rencontrés et les pièces mises en cause,</ListItemText>
+                    <ListItemText sx={{display:'list-item'}} >Ce que vous avez éventuellement déjà effectué comme manipulation pour essayer de dépanner votre appareil </ListItemText>
                 </List>
 
                 <TextField
                     id="outlined-multiline-static"
                     label="Quand j'essaye d'allumer mon appareil ..."
+                    defaultValue={this.props.values.prbDesc}
                     multiline
                     rows={4}
                     fullWidth

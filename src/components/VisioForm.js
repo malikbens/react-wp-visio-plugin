@@ -3,6 +3,7 @@ import DeviceTab from "./tab-components/DeviceTab";
 import InfoTab from './tab-components/InfoTab';
 import NeedTab from './tab-components/NeedTab';
 import ProblemTab from './tab-components/ProblemTab'
+import Test from "./tab-components/test";
 
 export class VisioForm extends Component {
     state = {

@@ -36,7 +36,12 @@ function SelectOptions(props) {
                         ))}
                     </Select>
                 </FormControl>
-                <TextField onChange={props.handleChange('model')} label="Modèle" sx={{ margin: '10px 10px 10px 0px' }} />
+                <TextField
+                    defaultValue={props.values.model}
+                    onChange={props.handleChange('model')}
+                    label="Modèle"
+                    sx={{ margin: '10px 10px 10px 0px' }}
+                />
                 <Box >
                     <Typography
                         variant="h2"
@@ -46,30 +51,27 @@ function SelectOptions(props) {
                         Les symptomes de panne
                     </Typography>
                     <FormControl>
-                        <RadioGroup
-                            aria-labelledby="demo-radio-buttons-group-label"
-                            defaultValue="female"
-                            name="radio-buttons-group"
-                        >
-                            <Grid container>
-                                {symptoms.map(symptom => (
-                                    <Grid item xs={12} md={6} sx={{ mb: 2 }}>
-                                        <ToggleButton sx={{ textTransform: "lowercase", width: 350 }}
-                                            onChange={props.handleChange('symptom')}
-                                            value={symptom}
-                                        >
-                                            {symptom}
-                                        </ToggleButton>
-                                    </Grid>
-                                ))}
+                        <Grid container>
+
+                            {symptoms.map(symptom => (
                                 <Grid item xs={12} md={6} sx={{ mb: 2 }}>
-                                    <TextField sx={{width:350}}
-                                        label='Autre'
+                                    <ToggleButton sx={{ textTransform: "lowercase", width: 350, justifyContent: 'flex-start' }}
                                         onChange={props.handleChange('symptom')}
-                                    />
+                                        value={symptom}
+                                    >
+                                        {symptom}
+                                    </ToggleButton>
                                 </Grid>
+                            ))}
+                            <Grid item xs={12} md={6} sx={{ mb: 2 }}>
+                                <TextField
+                                    defaultValue={props.values.symptoml}
+                                    sx={{ width: 350 }}
+                                    label='Autre'
+                                    onChange={props.handleChange('symptom')}
+                                />
                             </Grid>
-                        </RadioGroup>
+                        </Grid>
                     </FormControl>
                 </Box>
             </>
