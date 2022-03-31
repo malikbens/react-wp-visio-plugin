@@ -28,27 +28,27 @@ export default class DeviceTab extends Component {
         </Typography>
 
         <Grid container >
-          <Grid item >
-            <ToggleButton 
-              onChange={this.props.handleChange('symptom')}
+          <Grid item sx={{ mb: 2 }} >
+            <ToggleButton sx={{ textTransform: "lowercase", width: 550 }}
+              onChange={this.props.handleChange('need')}
               value="Je cherche la panne de mon appareil"
               fullWidth="true"
             >
               Je cherche la panne de mon appareil
             </ToggleButton>
           </Grid>
-          <Grid item >
-            <ToggleButton 
-              onChange={this.props.handleChange('symptom')}
+          <Grid item sx={{ mb: 2 }} >
+            <ToggleButton sx={{ textTransform: "lowercase", width: 550 }}
+              onChange={this.props.handleChange('need')}
               value="J'ai besoin d'une confirmation de diagnostique"
               fullWidth="true"
             >
               J'ai besoin d'une confirmation de diagnostique
             </ToggleButton>
           </Grid>
-          <Grid item >
-            <ToggleButton 
-              onChange={this.props.handleChange('symptom')}
+          <Grid item sx={{ mb: 2 }} >
+            <ToggleButton sx={{ textTransform: "lowercase", width: 550 }}
+              onChange={this.props.handleChange('need')}
               value="J'ai quelques questions techniques concernat mon appareil"
               fullWidth="true"
             >
@@ -56,8 +56,8 @@ export default class DeviceTab extends Component {
             </ToggleButton>
           </Grid>
           <Grid item >
-            <ToggleButton 
-              onChange={this.props.handleChange('symptom')}
+            <ToggleButton sx={{ textTransform: "lowercase", width: 550 }}
+              onChange={this.props.handleChange('need')}
               value="J'ai besoin d'aide pour remplacer ma pièce"
               fullWidth="true"
             >
@@ -66,7 +66,7 @@ export default class DeviceTab extends Component {
           </Grid>
         </Grid>
 
-        <Piece 
+        <Piece
           handleChange={this.props.handleChange}
           values={this.props.values}
         />

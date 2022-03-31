@@ -17,7 +17,7 @@ export class VisioForm extends Component {
         deviceAge:'',
         access:'',
         level:'',
-        tools:'',
+        tools:[],
     }
 
     nextStep = () => {

@@ -2,21 +2,22 @@ import { Typography, Box, Grid, ToggleButton } from '@mui/material'
 import React from 'react'
 
 const Piece = (props) => {
-  if (props.values.symptom === "J'ai besoin d'aide pour remplacer ma pièce") {
+  if (props.values.need === "J'ai besoin d'aide pour remplacer ma pièce") {
     return (
       <Box>
         <Typography
           variant="h2"
-          color="text"
+          color="primary"
           align="left"
           mb={3}
+          mt={3}
         >
           Possédez vous la nouvelle pièce ?
         </Typography>
 
         <Grid container>
-          <Grid item >
-            <ToggleButton
+          <Grid item  sx={{ mb: 2 }} >
+            <ToggleButton  sx={{ textTransform: "lowercase", width: 550 }}
               onChange={props.handleChange('piece')}
               value="J'ai déjà ma pièce"
               fullWidth="true"
@@ -24,8 +25,8 @@ const Piece = (props) => {
               J'ai déjà ma pièce
             </ToggleButton>
           </Grid>
-          <Grid item >
-            <ToggleButton
+          <Grid item sx={{ mb: 2 }} >
+            <ToggleButton sx={{ textTransform: "lowercase", width: 550 }}
               onChange={props.handleChange('piece')}
               value="Je ne l'ai pas"
               fullWidth="true"

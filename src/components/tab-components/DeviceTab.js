@@ -10,7 +10,7 @@ export default class DeviceTab extends Component {
     e.preventDefault();
     this.props.nextStep();
   }
-  
+
   render() {
     return (
       <Box sx={{ width: '730px' }}>
@@ -18,7 +18,7 @@ export default class DeviceTab extends Component {
           variant="h1"
           color="text"
           align="left"
-          mb={3}
+          
         >
           1. Aidez le technicien a comprendre votre problème
         </Typography>
@@ -27,7 +27,6 @@ export default class DeviceTab extends Component {
           variant="h2"
           color="primary"
           align="left"
-          mb={1}
         >
           Choissisez votre appareil a réparer
         </Typography>
@@ -43,10 +42,11 @@ export default class DeviceTab extends Component {
           />
         </Box>
         <br></br>
-
-        <Button variant="contained" onClick={this.continuer} endIcon={<ArrowForwardIcon />} >
-          Continuer
-        </Button>
+        <Box sx={{display: 'flex', justifyContent:'flex-end'}}>
+          <Button variant="contained" onClick={this.continuer} endIcon={<ArrowForwardIcon/>} >
+            Continuer
+          </Button>
+        </Box>
       </Box>
     );
   }

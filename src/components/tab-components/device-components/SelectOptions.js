@@ -42,8 +42,6 @@ function SelectOptions(props) {
                         variant="h2"
                         color="primary"
                         align="left"
-                        mb={4}
-                        mt={3}
                     >
                         Les symptomes de panne
                     </Typography>

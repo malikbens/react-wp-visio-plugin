@@ -29,11 +29,14 @@ const theme = createTheme({
       fontWeight: 700,
       lineHeight: 1.7,
       letterSpacing: 1.92 ,
+      marginBottom: 25
     },
     h2: {
       fontSize: 18,
       fontWeight: 600,
       letterSpacing: 1.92,
+      marginBottom: 15,
+      marginTop : 15
     },
     body1: {
       fontSize: 18,
