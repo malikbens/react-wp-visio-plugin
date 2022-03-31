@@ -1,5 +1,4 @@
-import { FormControl, InputLabel, Select, MenuItem, Box, Typography, RadioGroup, Grid, FormControlLabel, Radio, TextField } from "@mui/material"
-import devices from '/data/devices.json'
+import { FormControl, InputLabel, Select, MenuItem, Box, Typography, RadioGroup, Grid, ToggleButton, TextField, ToggleButtonGroup } from "@mui/material"
 import { useState, useEffect, useCallback } from 'react'
 
 
@@ -11,7 +10,6 @@ function SelectOptions(props) {
     const fetchData = useCallback(async () => {
         const res = await fetch('http://localhost:3000/devices?name=' + props.values.device)
         const data = await res.json();
-        console.log(data[0].symptoms)
 
         setSymptom(data[0].symptoms)
         setBrand(data[0].brand)
@@ -22,7 +20,6 @@ function SelectOptions(props) {
     }, [fetchData])
 
     if (props.values.device != "") {
-        console.log(props.values.brand)
         return (
             <>
                 <FormControl sx={{ minWidth: 120, margin: '10px 10px 10px 0px' }}>
@@ -39,13 +36,14 @@ function SelectOptions(props) {
                         ))}
                     </Select>
                 </FormControl>
-                <TextField onChange={props.handleChange('model')} label="Modèle" sx={{ minWidth: 120, margin: '10px 10px 10px 0px' }} />
-                <Box>
+                <TextField onChange={props.handleChange('model')} label="Modèle" sx={{ margin: '10px 10px 10px 0px' }} />
+                <Box >
                     <Typography
                         variant="h2"
                         color="primary"
                         align="left"
-                        mb={1}
+                        mb={4}
+                        mt={3}
                     >
                         Les symptomes de panne
                     </Typography>
@@ -55,12 +53,23 @@ function SelectOptions(props) {
                             defaultValue="female"
                             name="radio-buttons-group"
                         >
-                            <Grid container >
+                            <Grid container>
                                 {symptoms.map(symptom => (
-                                    <Grid item xs={12} md={6}>
-                                        <FormControlLabel onChange={props.handleChange('symptom')} value={symptom} control={<Radio />} label={symptom} />
+                                    <Grid item xs={12} md={6} sx={{ mb: 2 }}>
+                                        <ToggleButton sx={{ textTransform: "lowercase", width: 350 }}
+                                            onChange={props.handleChange('symptom')}
+                                            value={symptom}
+                                        >
+                                            {symptom}
+                                        </ToggleButton>
                                     </Grid>
                                 ))}
+                                <Grid item xs={12} md={6} sx={{ mb: 2 }}>
+                                    <TextField sx={{width:350}}
+                                        label='Autre'
+                                        onChange={props.handleChange('symptom')}
+                                    />
+                                </Grid>
                             </Grid>
                         </RadioGroup>
                     </FormControl>

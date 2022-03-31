@@ -6614,290 +6614,6 @@ const filledInputClasses = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORT
 
 /***/ }),
 
-/***/ "./node_modules/@mui/material/FormControlLabel/FormControlLabel.js":
-/*!*************************************************************************!*\
-  !*** ./node_modules/@mui/material/FormControlLabel/FormControlLabel.js ***!
-  \*************************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "FormControlLabelRoot": function() { return /* binding */ FormControlLabelRoot; }
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
-/* harmony import */ var _mui_utils__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @mui/utils */ "./node_modules/@mui/utils/esm/refType.js");
-/* harmony import */ var _mui_base__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/base */ "./node_modules/@mui/base/composeClasses/composeClasses.js");
-/* harmony import */ var _FormControl__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../FormControl */ "./node_modules/@mui/material/FormControl/useFormControl.js");
-/* harmony import */ var _Typography__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Typography */ "./node_modules/@mui/material/Typography/Typography.js");
-/* harmony import */ var _utils_capitalize__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/capitalize */ "./node_modules/@mui/material/utils/capitalize.js");
-/* harmony import */ var _styles_styled__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../styles/styled */ "./node_modules/@mui/material/styles/styled.js");
-/* harmony import */ var _styles_useThemeProps__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../styles/useThemeProps */ "./node_modules/@mui/material/styles/useThemeProps.js");
-/* harmony import */ var _formControlLabelClasses__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./formControlLabelClasses */ "./node_modules/@mui/material/FormControlLabel/formControlLabelClasses.js");
-/* harmony import */ var _FormControl_formControlState__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../FormControl/formControlState */ "./node_modules/@mui/material/FormControl/formControlState.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-const _excluded = ["checked", "className", "componentsProps", "control", "disabled", "disableTypography", "inputRef", "label", "labelPlacement", "name", "onChange", "value"];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const useUtilityClasses = ownerState => {
-  const {
-    classes,
-    disabled,
-    labelPlacement,
-    error
-  } = ownerState;
-  const slots = {
-    root: ['root', disabled && 'disabled', `labelPlacement${(0,_utils_capitalize__WEBPACK_IMPORTED_MODULE_5__["default"])(labelPlacement)}`, error && 'error'],
-    label: ['label', disabled && 'disabled']
-  };
-  return (0,_mui_base__WEBPACK_IMPORTED_MODULE_6__["default"])(slots, _formControlLabelClasses__WEBPACK_IMPORTED_MODULE_7__.getFormControlLabelUtilityClasses, classes);
-};
-
-const FormControlLabelRoot = (0,_styles_styled__WEBPACK_IMPORTED_MODULE_8__["default"])('label', {
-  name: 'MuiFormControlLabel',
-  slot: 'Root',
-  overridesResolver: (props, styles) => {
-    const {
-      ownerState
-    } = props;
-    return [{
-      [`& .${_formControlLabelClasses__WEBPACK_IMPORTED_MODULE_7__["default"].label}`]: styles.label
-    }, styles.root, styles[`labelPlacement${(0,_utils_capitalize__WEBPACK_IMPORTED_MODULE_5__["default"])(ownerState.labelPlacement)}`]];
-  }
-})(({
-  theme,
-  ownerState
-}) => (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({
-  display: 'inline-flex',
-  alignItems: 'center',
-  cursor: 'pointer',
-  // For correct alignment with the text.
-  verticalAlign: 'middle',
-  WebkitTapHighlightColor: 'transparent',
-  marginLeft: -11,
-  marginRight: 16,
-  // used for row presentation of radio/checkbox
-  [`&.${_formControlLabelClasses__WEBPACK_IMPORTED_MODULE_7__["default"].disabled}`]: {
-    cursor: 'default'
-  }
-}, ownerState.labelPlacement === 'start' && {
-  flexDirection: 'row-reverse',
-  marginLeft: 16,
-  // used for row presentation of radio/checkbox
-  marginRight: -11
-}, ownerState.labelPlacement === 'top' && {
-  flexDirection: 'column-reverse',
-  marginLeft: 16
-}, ownerState.labelPlacement === 'bottom' && {
-  flexDirection: 'column',
-  marginLeft: 16
-}, {
-  [`& .${_formControlLabelClasses__WEBPACK_IMPORTED_MODULE_7__["default"].label}`]: {
-    [`&.${_formControlLabelClasses__WEBPACK_IMPORTED_MODULE_7__["default"].disabled}`]: {
-      color: theme.palette.text.disabled
-    }
-  }
-}));
-/**
- * Drop-in replacement of the `Radio`, `Switch` and `Checkbox` component.
- * Use this component if you want to display an extra label.
- */
-
-const FormControlLabel = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.forwardRef(function FormControlLabel(inProps, ref) {
-  const props = (0,_styles_useThemeProps__WEBPACK_IMPORTED_MODULE_9__["default"])({
-    props: inProps,
-    name: 'MuiFormControlLabel'
-  });
-
-  const {
-    className,
-    componentsProps = {},
-    control,
-    disabled: disabledProp,
-    disableTypography,
-    label,
-    labelPlacement = 'end'
-  } = props,
-        other = (0,_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(props, _excluded);
-
-  const muiFormControl = (0,_FormControl__WEBPACK_IMPORTED_MODULE_10__["default"])();
-  let disabled = disabledProp;
-
-  if (typeof disabled === 'undefined' && typeof control.props.disabled !== 'undefined') {
-    disabled = control.props.disabled;
-  }
-
-  if (typeof disabled === 'undefined' && muiFormControl) {
-    disabled = muiFormControl.disabled;
-  }
-
-  const controlProps = {
-    disabled
-  };
-  ['checked', 'name', 'onChange', 'value', 'inputRef'].forEach(key => {
-    if (typeof control.props[key] === 'undefined' && typeof props[key] !== 'undefined') {
-      controlProps[key] = props[key];
-    }
-  });
-  const fcs = (0,_FormControl_formControlState__WEBPACK_IMPORTED_MODULE_11__["default"])({
-    props,
-    muiFormControl,
-    states: ['error']
-  });
-
-  const ownerState = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, props, {
-    disabled,
-    label,
-    labelPlacement,
-    error: fcs.error
-  });
-
-  const classes = useUtilityClasses(ownerState);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(FormControlLabelRoot, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({
-    className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])(classes.root, className),
-    ownerState: ownerState,
-    ref: ref
-  }, other, {
-    children: [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.cloneElement(control, controlProps), label.type === _Typography__WEBPACK_IMPORTED_MODULE_12__["default"] || disableTypography ? label : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Typography__WEBPACK_IMPORTED_MODULE_12__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({
-      component: "span",
-      className: classes.label
-    }, componentsProps.typography, {
-      children: label
-    }))]
-  }));
-});
- true ? FormControlLabel.propTypes
-/* remove-proptypes */
-= {
-  // ----------------------------- Warning --------------------------------
-  // | These PropTypes are generated from the TypeScript type definitions |
-  // |     To update them edit the d.ts file and run "yarn proptypes"     |
-  // ----------------------------------------------------------------------
-
-  /**
-   * If `true`, the component appears selected.
-   */
-  checked: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool),
-
-  /**
-   * Override or extend the styles applied to the component.
-   */
-  classes: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().object),
-
-  /**
-   * @ignore
-   */
-  className: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().string),
-
-  /**
-   * The props used for each slot inside.
-   * @default {}
-   */
-  componentsProps: prop_types__WEBPACK_IMPORTED_MODULE_13___default().shape({
-    typography: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().object)
-  }),
-
-  /**
-   * A control element. For instance, it can be a `Radio`, a `Switch` or a `Checkbox`.
-   */
-  control: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().element.isRequired),
-
-  /**
-   * If `true`, the control is disabled.
-   */
-  disabled: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool),
-
-  /**
-   * If `true`, the label is rendered as it is passed without an additional typography node.
-   */
-  disableTypography: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool),
-
-  /**
-   * Pass a ref to the `input` element.
-   */
-  inputRef: _mui_utils__WEBPACK_IMPORTED_MODULE_14__["default"],
-
-  /**
-   * A text or an element to be used in an enclosing label element.
-   */
-  label: prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_13___default().element), (prop_types__WEBPACK_IMPORTED_MODULE_13___default().number), (prop_types__WEBPACK_IMPORTED_MODULE_13___default().string)]).isRequired,
-
-  /**
-   * The position of the label.
-   * @default 'end'
-   */
-  labelPlacement: prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOf(['bottom', 'end', 'start', 'top']),
-
-  /**
-   * @ignore
-   */
-  name: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().string),
-
-  /**
-   * Callback fired when the state is changed.
-   *
-   * @param {React.SyntheticEvent} event The event source of the callback.
-   * You can pull out the new checked state by accessing `event.target.checked` (boolean).
-   */
-  onChange: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().func),
-
-  /**
-   * The system prop that allows defining system overrides as well as additional CSS styles.
-   */
-  sx: prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_13___default().arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_13___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_13___default().func), (prop_types__WEBPACK_IMPORTED_MODULE_13___default().object), (prop_types__WEBPACK_IMPORTED_MODULE_13___default().bool)])), (prop_types__WEBPACK_IMPORTED_MODULE_13___default().func), (prop_types__WEBPACK_IMPORTED_MODULE_13___default().object)]),
-
-  /**
-   * The value of the component.
-   */
-  value: (prop_types__WEBPACK_IMPORTED_MODULE_13___default().any)
-} : 0;
-/* harmony default export */ __webpack_exports__["default"] = (FormControlLabel);
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/FormControlLabel/formControlLabelClasses.js":
-/*!********************************************************************************!*\
-  !*** ./node_modules/@mui/material/FormControlLabel/formControlLabelClasses.js ***!
-  \********************************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getFormControlLabelUtilityClasses": function() { return /* binding */ getFormControlLabelUtilityClasses; }
-/* harmony export */ });
-/* harmony import */ var _mui_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/base */ "./node_modules/@mui/base/generateUtilityClass/generateUtilityClass.js");
-/* harmony import */ var _mui_base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @mui/base */ "./node_modules/@mui/base/generateUtilityClasses/generateUtilityClasses.js");
-
-function getFormControlLabelUtilityClasses(slot) {
-  return (0,_mui_base__WEBPACK_IMPORTED_MODULE_0__["default"])('MuiFormControlLabel', slot);
-}
-const formControlLabelClasses = (0,_mui_base__WEBPACK_IMPORTED_MODULE_1__["default"])('MuiFormControlLabel', ['root', 'labelPlacementStart', 'labelPlacementTop', 'labelPlacementBottom', 'disabled', 'label', 'error']);
-/* harmony default export */ __webpack_exports__["default"] = (formControlLabelClasses);
-
-/***/ }),
-
 /***/ "./node_modules/@mui/material/FormControl/FormControl.js":
 /*!***************************************************************!*\
   !*** ./node_modules/@mui/material/FormControl/FormControl.js ***!
@@ -13757,412 +13473,6 @@ if (true) {
 
 /***/ }),
 
-/***/ "./node_modules/@mui/material/RadioGroup/useRadioGroup.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/@mui/material/RadioGroup/useRadioGroup.js ***!
-  \****************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ useRadioGroup; }
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _RadioGroupContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RadioGroupContext */ "./node_modules/@mui/material/RadioGroup/RadioGroupContext.js");
-
-
-function useRadioGroup() {
-  return react__WEBPACK_IMPORTED_MODULE_0__.useContext(_RadioGroupContext__WEBPACK_IMPORTED_MODULE_1__["default"]);
-}
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/Radio/Radio.js":
-/*!***************************************************!*\
-  !*** ./node_modules/@mui/material/Radio/Radio.js ***!
-  \***************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var _mui_utils__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @mui/utils */ "./node_modules/@mui/utils/esm/refType.js");
-/* harmony import */ var _mui_base__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/base */ "./node_modules/@mui/base/composeClasses/composeClasses.js");
-/* harmony import */ var _mui_system__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/system */ "./node_modules/@mui/system/esm/colorManipulator.js");
-/* harmony import */ var _internal_SwitchBase__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../internal/SwitchBase */ "./node_modules/@mui/material/internal/SwitchBase.js");
-/* harmony import */ var _styles_useThemeProps__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../styles/useThemeProps */ "./node_modules/@mui/material/styles/useThemeProps.js");
-/* harmony import */ var _RadioButtonIcon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./RadioButtonIcon */ "./node_modules/@mui/material/Radio/RadioButtonIcon.js");
-/* harmony import */ var _utils_capitalize__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/capitalize */ "./node_modules/@mui/material/utils/capitalize.js");
-/* harmony import */ var _utils_createChainedFunction__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../utils/createChainedFunction */ "./node_modules/@mui/material/utils/createChainedFunction.js");
-/* harmony import */ var _RadioGroup_useRadioGroup__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../RadioGroup/useRadioGroup */ "./node_modules/@mui/material/RadioGroup/useRadioGroup.js");
-/* harmony import */ var _radioClasses__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./radioClasses */ "./node_modules/@mui/material/Radio/radioClasses.js");
-/* harmony import */ var _styles_styled__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../styles/styled */ "./node_modules/@mui/material/styles/styled.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-const _excluded = ["checked", "checkedIcon", "color", "icon", "name", "onChange", "size"];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const useUtilityClasses = ownerState => {
-  const {
-    classes,
-    color
-  } = ownerState;
-  const slots = {
-    root: ['root', `color${(0,_utils_capitalize__WEBPACK_IMPORTED_MODULE_4__["default"])(color)}`]
-  };
-  return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, classes, (0,_mui_base__WEBPACK_IMPORTED_MODULE_5__["default"])(slots, _radioClasses__WEBPACK_IMPORTED_MODULE_6__.getRadioUtilityClass, classes));
-};
-
-const RadioRoot = (0,_styles_styled__WEBPACK_IMPORTED_MODULE_7__["default"])(_internal_SwitchBase__WEBPACK_IMPORTED_MODULE_8__["default"], {
-  shouldForwardProp: prop => (0,_styles_styled__WEBPACK_IMPORTED_MODULE_7__.rootShouldForwardProp)(prop) || prop === 'classes',
-  name: 'MuiRadio',
-  slot: 'Root',
-  overridesResolver: (props, styles) => {
-    const {
-      ownerState
-    } = props;
-    return [styles.root, styles[`color${(0,_utils_capitalize__WEBPACK_IMPORTED_MODULE_4__["default"])(ownerState.color)}`]];
-  }
-})(({
-  theme,
-  ownerState
-}) => (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({
-  color: theme.palette.text.secondary,
-  '&:hover': {
-    backgroundColor: (0,_mui_system__WEBPACK_IMPORTED_MODULE_9__.alpha)(ownerState.color === 'default' ? theme.palette.action.active : theme.palette[ownerState.color].main, theme.palette.action.hoverOpacity),
-    // Reset on touch devices, it doesn't add specificity
-    '@media (hover: none)': {
-      backgroundColor: 'transparent'
-    }
-  }
-}, ownerState.color !== 'default' && {
-  [`&.${_radioClasses__WEBPACK_IMPORTED_MODULE_6__["default"].checked}`]: {
-    color: theme.palette[ownerState.color].main
-  }
-}, {
-  [`&.${_radioClasses__WEBPACK_IMPORTED_MODULE_6__["default"].disabled}`]: {
-    color: theme.palette.action.disabled
-  }
-}));
-
-function areEqualValues(a, b) {
-  if (typeof b === 'object' && b !== null) {
-    return a === b;
-  } // The value could be a number, the DOM will stringify it anyway.
-
-
-  return String(a) === String(b);
-}
-
-const defaultCheckedIcon = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_RadioButtonIcon__WEBPACK_IMPORTED_MODULE_10__["default"], {
-  checked: true
-});
-
-const defaultIcon = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_RadioButtonIcon__WEBPACK_IMPORTED_MODULE_10__["default"], {});
-
-const Radio = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.forwardRef(function Radio(inProps, ref) {
-  var _defaultIcon$props$fo, _defaultCheckedIcon$p;
-
-  const props = (0,_styles_useThemeProps__WEBPACK_IMPORTED_MODULE_11__["default"])({
-    props: inProps,
-    name: 'MuiRadio'
-  });
-
-  const {
-    checked: checkedProp,
-    checkedIcon = defaultCheckedIcon,
-    color = 'primary',
-    icon = defaultIcon,
-    name: nameProp,
-    onChange: onChangeProp,
-    size = 'medium'
-  } = props,
-        other = (0,_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(props, _excluded);
-
-  const ownerState = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, props, {
-    color,
-    size
-  });
-
-  const classes = useUtilityClasses(ownerState);
-  const radioGroup = (0,_RadioGroup_useRadioGroup__WEBPACK_IMPORTED_MODULE_12__["default"])();
-  let checked = checkedProp;
-  const onChange = (0,_utils_createChainedFunction__WEBPACK_IMPORTED_MODULE_13__["default"])(onChangeProp, radioGroup && radioGroup.onChange);
-  let name = nameProp;
-
-  if (radioGroup) {
-    if (typeof checked === 'undefined') {
-      checked = areEqualValues(radioGroup.value, props.value);
-    }
-
-    if (typeof name === 'undefined') {
-      name = radioGroup.name;
-    }
-  }
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(RadioRoot, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({
-    type: "radio",
-    icon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.cloneElement(icon, {
-      fontSize: (_defaultIcon$props$fo = defaultIcon.props.fontSize) != null ? _defaultIcon$props$fo : size
-    }),
-    checkedIcon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.cloneElement(checkedIcon, {
-      fontSize: (_defaultCheckedIcon$p = defaultCheckedIcon.props.fontSize) != null ? _defaultCheckedIcon$p : size
-    }),
-    ownerState: ownerState,
-    classes: classes,
-    name: name,
-    checked: checked,
-    onChange: onChange,
-    ref: ref
-  }, other));
-});
- true ? Radio.propTypes
-/* remove-proptypes */
-= {
-  // ----------------------------- Warning --------------------------------
-  // | These PropTypes are generated from the TypeScript type definitions |
-  // |     To update them edit the d.ts file and run "yarn proptypes"     |
-  // ----------------------------------------------------------------------
-
-  /**
-   * If `true`, the component is checked.
-   */
-  checked: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().bool),
-
-  /**
-   * The icon to display when the component is checked.
-   * @default <RadioButtonIcon checked />
-   */
-  checkedIcon: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().node),
-
-  /**
-   * Override or extend the styles applied to the component.
-   */
-  classes: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().object),
-
-  /**
-   * The color of the component. It supports those theme colors that make sense for this component.
-   * @default 'primary'
-   */
-  color: prop_types__WEBPACK_IMPORTED_MODULE_14___default().oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_14___default().oneOf(['default', 'primary', 'secondary', 'error', 'info', 'success', 'warning']), (prop_types__WEBPACK_IMPORTED_MODULE_14___default().string)]),
-
-  /**
-   * If `true`, the component is disabled.
-   */
-  disabled: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().bool),
-
-  /**
-   * If `true`, the ripple effect is disabled.
-   */
-  disableRipple: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().bool),
-
-  /**
-   * The icon to display when the component is unchecked.
-   * @default <RadioButtonIcon />
-   */
-  icon: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().node),
-
-  /**
-   * The id of the `input` element.
-   */
-  id: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().string),
-
-  /**
-   * [Attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes) applied to the `input` element.
-   */
-  inputProps: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().object),
-
-  /**
-   * Pass a ref to the `input` element.
-   */
-  inputRef: _mui_utils__WEBPACK_IMPORTED_MODULE_15__["default"],
-
-  /**
-   * Name attribute of the `input` element.
-   */
-  name: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().string),
-
-  /**
-   * Callback fired when the state is changed.
-   *
-   * @param {React.ChangeEvent<HTMLInputElement>} event The event source of the callback.
-   * You can pull out the new value by accessing `event.target.value` (string).
-   * You can pull out the new checked state by accessing `event.target.checked` (boolean).
-   */
-  onChange: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().func),
-
-  /**
-   * If `true`, the `input` element is required.
-   */
-  required: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().bool),
-
-  /**
-   * The size of the component.
-   * `small` is equivalent to the dense radio styling.
-   * @default 'medium'
-   */
-  size: prop_types__WEBPACK_IMPORTED_MODULE_14___default().oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_14___default().oneOf(['medium', 'small']), (prop_types__WEBPACK_IMPORTED_MODULE_14___default().string)]),
-
-  /**
-   * The system prop that allows defining system overrides as well as additional CSS styles.
-   */
-  sx: prop_types__WEBPACK_IMPORTED_MODULE_14___default().oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_14___default().arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_14___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_14___default().func), (prop_types__WEBPACK_IMPORTED_MODULE_14___default().object), (prop_types__WEBPACK_IMPORTED_MODULE_14___default().bool)])), (prop_types__WEBPACK_IMPORTED_MODULE_14___default().func), (prop_types__WEBPACK_IMPORTED_MODULE_14___default().object)]),
-
-  /**
-   * The value of the component. The DOM API casts this to a string.
-   */
-  value: (prop_types__WEBPACK_IMPORTED_MODULE_14___default().any)
-} : 0;
-/* harmony default export */ __webpack_exports__["default"] = (Radio);
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/Radio/RadioButtonIcon.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/@mui/material/Radio/RadioButtonIcon.js ***!
-  \*************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _internal_svg_icons_RadioButtonUnchecked__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../internal/svg-icons/RadioButtonUnchecked */ "./node_modules/@mui/material/internal/svg-icons/RadioButtonUnchecked.js");
-/* harmony import */ var _internal_svg_icons_RadioButtonChecked__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../internal/svg-icons/RadioButtonChecked */ "./node_modules/@mui/material/internal/svg-icons/RadioButtonChecked.js");
-/* harmony import */ var _styles_styled__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../styles/styled */ "./node_modules/@mui/material/styles/styled.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-
-
-
-const RadioButtonIconRoot = (0,_styles_styled__WEBPACK_IMPORTED_MODULE_3__["default"])('span')({
-  position: 'relative',
-  display: 'flex'
-});
-const RadioButtonIconBackground = (0,_styles_styled__WEBPACK_IMPORTED_MODULE_3__["default"])(_internal_svg_icons_RadioButtonUnchecked__WEBPACK_IMPORTED_MODULE_4__["default"])({
-  // Scale applied to prevent dot misalignment in Safari
-  transform: 'scale(1)'
-});
-const RadioButtonIconDot = (0,_styles_styled__WEBPACK_IMPORTED_MODULE_3__["default"])(_internal_svg_icons_RadioButtonChecked__WEBPACK_IMPORTED_MODULE_5__["default"])(({
-  theme,
-  ownerState
-}) => (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
-  left: 0,
-  position: 'absolute',
-  transform: 'scale(0)',
-  transition: theme.transitions.create('transform', {
-    easing: theme.transitions.easing.easeIn,
-    duration: theme.transitions.duration.shortest
-  })
-}, ownerState.checked && {
-  transform: 'scale(1)',
-  transition: theme.transitions.create('transform', {
-    easing: theme.transitions.easing.easeOut,
-    duration: theme.transitions.duration.shortest
-  })
-}));
-/**
- * @ignore - internal component.
- */
-
-function RadioButtonIcon(props) {
-  const {
-    checked = false,
-    classes = {},
-    fontSize
-  } = props;
-
-  const ownerState = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
-    checked
-  });
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(RadioButtonIconRoot, {
-    className: classes.root,
-    ownerState: ownerState,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(RadioButtonIconBackground, {
-      fontSize: fontSize,
-      className: classes.background,
-      ownerState: ownerState
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(RadioButtonIconDot, {
-      fontSize: fontSize,
-      className: classes.dot,
-      ownerState: ownerState
-    })]
-  });
-}
-
- true ? RadioButtonIcon.propTypes = {
-  /**
-   * If `true`, the component is checked.
-   */
-  checked: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().bool),
-
-  /**
-   * Override or extend the styles applied to the component.
-   * See [CSS API](#css) below for more details.
-   */
-  classes: (prop_types__WEBPACK_IMPORTED_MODULE_6___default().object),
-
-  /**
-   * The size of the component.
-   * `small` is equivalent to the dense radio styling.
-   */
-  fontSize: prop_types__WEBPACK_IMPORTED_MODULE_6___default().oneOf(['small', 'medium'])
-} : 0;
-/* harmony default export */ __webpack_exports__["default"] = (RadioButtonIcon);
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/Radio/radioClasses.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/@mui/material/Radio/radioClasses.js ***!
-  \**********************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getRadioUtilityClass": function() { return /* binding */ getRadioUtilityClass; }
-/* harmony export */ });
-/* harmony import */ var _mui_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/base */ "./node_modules/@mui/base/generateUtilityClass/generateUtilityClass.js");
-/* harmony import */ var _mui_base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @mui/base */ "./node_modules/@mui/base/generateUtilityClasses/generateUtilityClasses.js");
-
-function getRadioUtilityClass(slot) {
-  return (0,_mui_base__WEBPACK_IMPORTED_MODULE_0__["default"])('MuiRadio', slot);
-}
-const radioClasses = (0,_mui_base__WEBPACK_IMPORTED_MODULE_1__["default"])('MuiRadio', ['root', 'checked', 'disabled', 'colorPrimary', 'colorSecondary']);
-/* harmony default export */ __webpack_exports__["default"] = (radioClasses);
-
-/***/ }),
-
 /***/ "./node_modules/@mui/material/Select/Select.js":
 /*!*****************************************************!*\
   !*** ./node_modules/@mui/material/Select/Select.js ***!
@@ -15987,6 +15297,293 @@ const textFieldClasses = (0,_mui_base__WEBPACK_IMPORTED_MODULE_1__["default"])('
 
 /***/ }),
 
+/***/ "./node_modules/@mui/material/ToggleButton/ToggleButton.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@mui/material/ToggleButton/ToggleButton.js ***!
+  \*****************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _mui_base__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/base */ "./node_modules/@mui/base/composeClasses/composeClasses.js");
+/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../styles */ "./node_modules/@mui/system/esm/colorManipulator.js");
+/* harmony import */ var _ButtonBase__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../ButtonBase */ "./node_modules/@mui/material/ButtonBase/ButtonBase.js");
+/* harmony import */ var _utils_capitalize__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/capitalize */ "./node_modules/@mui/material/utils/capitalize.js");
+/* harmony import */ var _styles_useThemeProps__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../styles/useThemeProps */ "./node_modules/@mui/material/styles/useThemeProps.js");
+/* harmony import */ var _styles_styled__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../styles/styled */ "./node_modules/@mui/material/styles/styled.js");
+/* harmony import */ var _toggleButtonClasses__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./toggleButtonClasses */ "./node_modules/@mui/material/ToggleButton/toggleButtonClasses.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+const _excluded = ["children", "className", "color", "disabled", "disableFocusRipple", "fullWidth", "onChange", "onClick", "selected", "size", "value"];
+// @inheritedComponent ButtonBase
+
+
+
+
+
+
+
+
+
+
+
+
+const useUtilityClasses = ownerState => {
+  const {
+    classes,
+    fullWidth,
+    selected,
+    disabled,
+    size,
+    color
+  } = ownerState;
+  const slots = {
+    root: ['root', selected && 'selected', disabled && 'disabled', fullWidth && 'fullWidth', `size${(0,_utils_capitalize__WEBPACK_IMPORTED_MODULE_5__["default"])(size)}`, color]
+  };
+  return (0,_mui_base__WEBPACK_IMPORTED_MODULE_6__["default"])(slots, _toggleButtonClasses__WEBPACK_IMPORTED_MODULE_7__.getToggleButtonUtilityClass, classes);
+};
+
+const ToggleButtonRoot = (0,_styles_styled__WEBPACK_IMPORTED_MODULE_8__["default"])(_ButtonBase__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  name: 'MuiToggleButton',
+  slot: 'Root',
+  overridesResolver: (props, styles) => {
+    const {
+      ownerState
+    } = props;
+    return [styles.root, styles[`size${(0,_utils_capitalize__WEBPACK_IMPORTED_MODULE_5__["default"])(ownerState.size)}`]];
+  }
+})(({
+  theme,
+  ownerState
+}) => {
+  const selectedColor = ownerState.color === 'standard' ? theme.palette.text.primary : theme.palette[ownerState.color].main;
+  return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, theme.typography.button, {
+    borderRadius: theme.shape.borderRadius,
+    padding: 11,
+    border: `1px solid ${theme.palette.divider}`,
+    color: theme.palette.action.active
+  }, ownerState.fullWidth && {
+    width: '100%'
+  }, {
+    [`&.${_toggleButtonClasses__WEBPACK_IMPORTED_MODULE_7__["default"].disabled}`]: {
+      color: theme.palette.action.disabled,
+      border: `1px solid ${theme.palette.action.disabledBackground}`
+    },
+    '&:hover': {
+      textDecoration: 'none',
+      // Reset on mouse devices
+      backgroundColor: (0,_styles__WEBPACK_IMPORTED_MODULE_10__.alpha)(theme.palette.text.primary, theme.palette.action.hoverOpacity),
+      '@media (hover: none)': {
+        backgroundColor: 'transparent'
+      }
+    },
+    [`&.${_toggleButtonClasses__WEBPACK_IMPORTED_MODULE_7__["default"].selected}`]: {
+      color: selectedColor,
+      backgroundColor: (0,_styles__WEBPACK_IMPORTED_MODULE_10__.alpha)(selectedColor, theme.palette.action.selectedOpacity),
+      '&:hover': {
+        backgroundColor: (0,_styles__WEBPACK_IMPORTED_MODULE_10__.alpha)(selectedColor, theme.palette.action.selectedOpacity + theme.palette.action.hoverOpacity),
+        // Reset on touch devices, it doesn't add specificity
+        '@media (hover: none)': {
+          backgroundColor: (0,_styles__WEBPACK_IMPORTED_MODULE_10__.alpha)(selectedColor, theme.palette.action.selectedOpacity)
+        }
+      }
+    }
+  }, ownerState.size === 'small' && {
+    padding: 7,
+    fontSize: theme.typography.pxToRem(13)
+  }, ownerState.size === 'large' && {
+    padding: 15,
+    fontSize: theme.typography.pxToRem(15)
+  });
+});
+const ToggleButton = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.forwardRef(function ToggleButton(inProps, ref) {
+  const props = (0,_styles_useThemeProps__WEBPACK_IMPORTED_MODULE_11__["default"])({
+    props: inProps,
+    name: 'MuiToggleButton'
+  });
+
+  const {
+    children,
+    className,
+    color = 'standard',
+    disabled = false,
+    disableFocusRipple = false,
+    fullWidth = false,
+    onChange,
+    onClick,
+    selected,
+    size = 'medium',
+    value
+  } = props,
+        other = (0,_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(props, _excluded);
+
+  const ownerState = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, props, {
+    color,
+    disabled,
+    disableFocusRipple,
+    fullWidth,
+    size
+  });
+
+  const classes = useUtilityClasses(ownerState);
+
+  const handleChange = event => {
+    if (onClick) {
+      onClick(event, value);
+
+      if (event.defaultPrevented) {
+        return;
+      }
+    }
+
+    if (onChange) {
+      onChange(event, value);
+    }
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(ToggleButtonRoot, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({
+    className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])(classes.root, className),
+    disabled: disabled,
+    focusRipple: !disableFocusRipple,
+    ref: ref,
+    onClick: handleChange,
+    onChange: onChange,
+    value: value,
+    ownerState: ownerState,
+    "aria-pressed": selected
+  }, other, {
+    children: children
+  }));
+});
+ true ? ToggleButton.propTypes
+/* remove-proptypes */
+= {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * The content of the component.
+   */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().node),
+
+  /**
+   * Override or extend the styles applied to the component.
+   */
+  classes: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().object),
+
+  /**
+   * @ignore
+   */
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().string),
+
+  /**
+   * The color of the button when it is in an active state.
+   * @default 'standard'
+   */
+  color: prop_types__WEBPACK_IMPORTED_MODULE_12___default().oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_12___default().oneOf(['standard', 'primary', 'secondary', 'error', 'info', 'success', 'warning']), (prop_types__WEBPACK_IMPORTED_MODULE_12___default().string)]),
+
+  /**
+   * If `true`, the component is disabled.
+   * @default false
+   */
+  disabled: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
+
+  /**
+   * If `true`, the  keyboard focus ripple is disabled.
+   * @default false
+   */
+  disableFocusRipple: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
+
+  /**
+   * If `true`, the ripple effect is disabled.
+   *
+   * ⚠️ Without a ripple there is no styling for :focus-visible by default. Be sure
+   * to highlight the element by applying separate styles with the `.Mui-focusVisible` class.
+   * @default false
+   */
+  disableRipple: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
+
+  /**
+   * If `true`, the button will take up the full width of its container.
+   * @default false
+   */
+  fullWidth: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
+
+  /**
+   * Callback fired when the state changes.
+   *
+   * @param {React.MouseEvent<HTMLElement>} event The event source of the callback.
+   * @param {any} value of the selected button.
+   */
+  onChange: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().func),
+
+  /**
+   * Callback fired when the button is clicked.
+   *
+   * @param {React.MouseEvent<HTMLElement>} event The event source of the callback.
+   * @param {any} value of the selected button.
+   */
+  onClick: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().func),
+
+  /**
+   * If `true`, the button is rendered in an active state.
+   */
+  selected: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
+
+  /**
+   * The size of the component.
+   * The prop defaults to the value inherited from the parent ToggleButtonGroup component.
+   * @default 'medium'
+   */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_12___default().oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_12___default().oneOf(['small', 'medium', 'large']), (prop_types__WEBPACK_IMPORTED_MODULE_12___default().string)]),
+
+  /**
+   * The system prop that allows defining system overrides as well as additional CSS styles.
+   */
+  sx: prop_types__WEBPACK_IMPORTED_MODULE_12___default().oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_12___default().arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_12___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_12___default().func), (prop_types__WEBPACK_IMPORTED_MODULE_12___default().object), (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool)])), (prop_types__WEBPACK_IMPORTED_MODULE_12___default().func), (prop_types__WEBPACK_IMPORTED_MODULE_12___default().object)]),
+
+  /**
+   * The value to associate with the button when selected in a
+   * ToggleButtonGroup.
+   */
+  value: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().any.isRequired)
+} : 0;
+/* harmony default export */ __webpack_exports__["default"] = (ToggleButton);
+
+/***/ }),
+
+/***/ "./node_modules/@mui/material/ToggleButton/toggleButtonClasses.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@mui/material/ToggleButton/toggleButtonClasses.js ***!
+  \************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getToggleButtonUtilityClass": function() { return /* binding */ getToggleButtonUtilityClass; }
+/* harmony export */ });
+/* harmony import */ var _mui_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/base */ "./node_modules/@mui/base/generateUtilityClass/generateUtilityClass.js");
+/* harmony import */ var _mui_base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @mui/base */ "./node_modules/@mui/base/generateUtilityClasses/generateUtilityClasses.js");
+
+function getToggleButtonUtilityClass(slot) {
+  return (0,_mui_base__WEBPACK_IMPORTED_MODULE_0__["default"])('MuiToggleButton', slot);
+}
+const toggleButtonClasses = (0,_mui_base__WEBPACK_IMPORTED_MODULE_1__["default"])('MuiToggleButton', ['root', 'disabled', 'selected', 'standard', 'primary', 'secondary', 'sizeSmall', 'sizeMedium', 'sizeLarge']);
+/* harmony default export */ __webpack_exports__["default"] = (toggleButtonClasses);
+
+/***/ }),
+
 /***/ "./node_modules/@mui/material/Typography/Typography.js":
 /*!*************************************************************!*\
   !*** ./node_modules/@mui/material/Typography/Typography.js ***!
@@ -16461,339 +16058,6 @@ const red = {
 
 /***/ }),
 
-/***/ "./node_modules/@mui/material/internal/SwitchBase.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/@mui/material/internal/SwitchBase.js ***!
-  \***********************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
-/* harmony import */ var _mui_utils__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @mui/utils */ "./node_modules/@mui/utils/esm/refType.js");
-/* harmony import */ var _mui_base__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/base */ "./node_modules/@mui/base/composeClasses/composeClasses.js");
-/* harmony import */ var _utils_capitalize__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/capitalize */ "./node_modules/@mui/material/utils/capitalize.js");
-/* harmony import */ var _styles_styled__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../styles/styled */ "./node_modules/@mui/material/styles/styled.js");
-/* harmony import */ var _utils_useControlled__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../utils/useControlled */ "./node_modules/@mui/material/utils/useControlled.js");
-/* harmony import */ var _FormControl_useFormControl__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../FormControl/useFormControl */ "./node_modules/@mui/material/FormControl/useFormControl.js");
-/* harmony import */ var _ButtonBase__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../ButtonBase */ "./node_modules/@mui/material/ButtonBase/ButtonBase.js");
-/* harmony import */ var _switchBaseClasses__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./switchBaseClasses */ "./node_modules/@mui/material/internal/switchBaseClasses.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-const _excluded = ["autoFocus", "checked", "checkedIcon", "className", "defaultChecked", "disabled", "disableFocusRipple", "edge", "icon", "id", "inputProps", "inputRef", "name", "onBlur", "onChange", "onFocus", "readOnly", "required", "tabIndex", "type", "value"];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const useUtilityClasses = ownerState => {
-  const {
-    classes,
-    checked,
-    disabled,
-    edge
-  } = ownerState;
-  const slots = {
-    root: ['root', checked && 'checked', disabled && 'disabled', edge && `edge${(0,_utils_capitalize__WEBPACK_IMPORTED_MODULE_5__["default"])(edge)}`],
-    input: ['input']
-  };
-  return (0,_mui_base__WEBPACK_IMPORTED_MODULE_6__["default"])(slots, _switchBaseClasses__WEBPACK_IMPORTED_MODULE_7__.getSwitchBaseUtilityClass, classes);
-};
-
-const SwitchBaseRoot = (0,_styles_styled__WEBPACK_IMPORTED_MODULE_8__["default"])(_ButtonBase__WEBPACK_IMPORTED_MODULE_9__["default"])(({
-  ownerState
-}) => (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({
-  padding: 9,
-  borderRadius: '50%'
-}, ownerState.edge === 'start' && {
-  marginLeft: ownerState.size === 'small' ? -3 : -12
-}, ownerState.edge === 'end' && {
-  marginRight: ownerState.size === 'small' ? -3 : -12
-}));
-const SwitchBaseInput = (0,_styles_styled__WEBPACK_IMPORTED_MODULE_8__["default"])('input')({
-  cursor: 'inherit',
-  position: 'absolute',
-  opacity: 0,
-  width: '100%',
-  height: '100%',
-  top: 0,
-  left: 0,
-  margin: 0,
-  padding: 0,
-  zIndex: 1
-});
-/**
- * @ignore - internal component.
- */
-
-const SwitchBase = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.forwardRef(function SwitchBase(props, ref) {
-  const {
-    autoFocus,
-    checked: checkedProp,
-    checkedIcon,
-    className,
-    defaultChecked,
-    disabled: disabledProp,
-    disableFocusRipple = false,
-    edge = false,
-    icon,
-    id,
-    inputProps,
-    inputRef,
-    name,
-    onBlur,
-    onChange,
-    onFocus,
-    readOnly,
-    required,
-    tabIndex,
-    type,
-    value
-  } = props,
-        other = (0,_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(props, _excluded);
-
-  const [checked, setCheckedState] = (0,_utils_useControlled__WEBPACK_IMPORTED_MODULE_10__["default"])({
-    controlled: checkedProp,
-    default: Boolean(defaultChecked),
-    name: 'SwitchBase',
-    state: 'checked'
-  });
-  const muiFormControl = (0,_FormControl_useFormControl__WEBPACK_IMPORTED_MODULE_11__["default"])();
-
-  const handleFocus = event => {
-    if (onFocus) {
-      onFocus(event);
-    }
-
-    if (muiFormControl && muiFormControl.onFocus) {
-      muiFormControl.onFocus(event);
-    }
-  };
-
-  const handleBlur = event => {
-    if (onBlur) {
-      onBlur(event);
-    }
-
-    if (muiFormControl && muiFormControl.onBlur) {
-      muiFormControl.onBlur(event);
-    }
-  };
-
-  const handleInputChange = event => {
-    // Workaround for https://github.com/facebook/react/issues/9023
-    if (event.nativeEvent.defaultPrevented) {
-      return;
-    }
-
-    const newChecked = event.target.checked;
-    setCheckedState(newChecked);
-
-    if (onChange) {
-      // TODO v6: remove the second argument.
-      onChange(event, newChecked);
-    }
-  };
-
-  let disabled = disabledProp;
-
-  if (muiFormControl) {
-    if (typeof disabled === 'undefined') {
-      disabled = muiFormControl.disabled;
-    }
-  }
-
-  const hasLabelFor = type === 'checkbox' || type === 'radio';
-
-  const ownerState = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, props, {
-    checked,
-    disabled,
-    disableFocusRipple,
-    edge
-  });
-
-  const classes = useUtilityClasses(ownerState);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(SwitchBaseRoot, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({
-    component: "span",
-    className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])(classes.root, className),
-    centerRipple: true,
-    focusRipple: !disableFocusRipple,
-    disabled: disabled,
-    tabIndex: null,
-    role: undefined,
-    onFocus: handleFocus,
-    onBlur: handleBlur,
-    ownerState: ownerState,
-    ref: ref
-  }, other, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(SwitchBaseInput, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({
-      autoFocus: autoFocus,
-      checked: checkedProp,
-      defaultChecked: defaultChecked,
-      className: classes.input,
-      disabled: disabled,
-      id: hasLabelFor && id,
-      name: name,
-      onChange: handleInputChange,
-      readOnly: readOnly,
-      ref: inputRef,
-      required: required,
-      ownerState: ownerState,
-      tabIndex: tabIndex,
-      type: type
-    }, type === 'checkbox' && value === undefined ? {} : {
-      value
-    }, inputProps)), checked ? checkedIcon : icon]
-  }));
-}); // NB: If changed, please update Checkbox, Switch and Radio
-// so that the API documentation is updated.
-
- true ? SwitchBase.propTypes = {
-  /**
-   * If `true`, the `input` element is focused during the first mount.
-   */
-  autoFocus: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
-
-  /**
-   * If `true`, the component is checked.
-   */
-  checked: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
-
-  /**
-   * The icon to display when the component is checked.
-   */
-  checkedIcon: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().node.isRequired),
-
-  /**
-   * Override or extend the styles applied to the component.
-   * See [CSS API](#css) below for more details.
-   */
-  classes: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().object),
-
-  /**
-   * @ignore
-   */
-  className: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().string),
-
-  /**
-   * @ignore
-   */
-  defaultChecked: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
-
-  /**
-   * If `true`, the component is disabled.
-   */
-  disabled: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
-
-  /**
-   * If `true`, the  keyboard focus ripple is disabled.
-   * @default false
-   */
-  disableFocusRipple: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
-
-  /**
-   * If given, uses a negative margin to counteract the padding on one
-   * side (this is often helpful for aligning the left or right
-   * side of the icon with content above or below, without ruining the border
-   * size and shape).
-   * @default false
-   */
-  edge: prop_types__WEBPACK_IMPORTED_MODULE_12___default().oneOf(['end', 'start', false]),
-
-  /**
-   * The icon to display when the component is unchecked.
-   */
-  icon: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().node.isRequired),
-
-  /**
-   * The id of the `input` element.
-   */
-  id: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().string),
-
-  /**
-   * [Attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes) applied to the `input` element.
-   */
-  inputProps: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().object),
-
-  /**
-   * Pass a ref to the `input` element.
-   */
-  inputRef: _mui_utils__WEBPACK_IMPORTED_MODULE_13__["default"],
-
-  /*
-   * @ignore
-   */
-  name: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().string),
-
-  /**
-   * @ignore
-   */
-  onBlur: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().func),
-
-  /**
-   * Callback fired when the state is changed.
-   *
-   * @param {object} event The event source of the callback.
-   * You can pull out the new checked state by accessing `event.target.checked` (boolean).
-   */
-  onChange: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().func),
-
-  /**
-   * @ignore
-   */
-  onFocus: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().func),
-
-  /**
-   * It prevents the user from changing the value of the field
-   * (not from interacting with the field).
-   */
-  readOnly: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
-
-  /**
-   * If `true`, the `input` element is required.
-   */
-  required: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().bool),
-
-  /**
-   * The system prop that allows defining system overrides as well as additional CSS styles.
-   */
-  sx: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().object),
-
-  /**
-   * @ignore
-   */
-  tabIndex: prop_types__WEBPACK_IMPORTED_MODULE_12___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_12___default().number), (prop_types__WEBPACK_IMPORTED_MODULE_12___default().string)]),
-
-  /**
-   * The input component prop `type`.
-   */
-  type: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().string.isRequired),
-
-  /**
-   * The value of the component.
-   */
-  value: (prop_types__WEBPACK_IMPORTED_MODULE_12___default().any)
-} : 0;
-/* harmony default export */ __webpack_exports__["default"] = (SwitchBase);
-
-/***/ }),
-
 /***/ "./node_modules/@mui/material/internal/svg-icons/ArrowDropDown.js":
 /*!************************************************************************!*\
   !*** ./node_modules/@mui/material/internal/svg-icons/ArrowDropDown.js ***!
@@ -16816,78 +16080,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ((0,_utils_createSvgIcon__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
   d: "M7 10l5 5 5-5z"
 }), 'ArrowDropDown'));
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/internal/svg-icons/RadioButtonChecked.js":
-/*!*****************************************************************************!*\
-  !*** ./node_modules/@mui/material/internal/svg-icons/RadioButtonChecked.js ***!
-  \*****************************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _utils_createSvgIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/createSvgIcon */ "./node_modules/@mui/material/utils/createSvgIcon.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-/**
- * @ignore - internal component.
- */
-
-
-/* harmony default export */ __webpack_exports__["default"] = ((0,_utils_createSvgIcon__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
-  d: "M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z"
-}), 'RadioButtonChecked'));
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/internal/svg-icons/RadioButtonUnchecked.js":
-/*!*******************************************************************************!*\
-  !*** ./node_modules/@mui/material/internal/svg-icons/RadioButtonUnchecked.js ***!
-  \*******************************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _utils_createSvgIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/createSvgIcon */ "./node_modules/@mui/material/utils/createSvgIcon.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-/**
- * @ignore - internal component.
- */
-
-
-/* harmony default export */ __webpack_exports__["default"] = ((0,_utils_createSvgIcon__WEBPACK_IMPORTED_MODULE_2__["default"])( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
-  d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
-}), 'RadioButtonUnchecked'));
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/internal/switchBaseClasses.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/@mui/material/internal/switchBaseClasses.js ***!
-  \******************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getSwitchBaseUtilityClass": function() { return /* binding */ getSwitchBaseUtilityClass; }
-/* harmony export */ });
-/* harmony import */ var _mui_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/base */ "./node_modules/@mui/base/generateUtilityClass/generateUtilityClass.js");
-/* harmony import */ var _mui_base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @mui/base */ "./node_modules/@mui/base/generateUtilityClasses/generateUtilityClasses.js");
-
-function getSwitchBaseUtilityClass(slot) {
-  return (0,_mui_base__WEBPACK_IMPORTED_MODULE_0__["default"])('PrivateSwitchBase', slot);
-}
-const switchBaseClasses = (0,_mui_base__WEBPACK_IMPORTED_MODULE_1__["default"])('PrivateSwitchBase', ['root', 'checked', 'disabled', 'input', 'edgeStart', 'edgeEnd']);
-/* harmony default export */ __webpack_exports__["default"] = (switchBaseClasses);
 
 /***/ }),
 
@@ -22695,20 +21887,20 @@ const theme = (0,_mui_material_styles__WEBPACK_IMPORTED_MODULE_4__["default"])({
     fontSize: 18,
     h1: {
       fontSize: 28,
-      fontWeight: 500,
+      fontWeight: 700,
       lineHeight: 1.7,
-      letterSpacing: 0.12
+      letterSpacing: 1.92
     },
     h2: {
       fontSize: 18,
       fontWeight: 600,
-      letterSpacing: 0.12
+      letterSpacing: 1.92
     },
     body1: {
       fontSize: 18,
       fontWeight: 500,
       lineHeight: 1.7,
-      letterSpacing: 0.12
+      letterSpacing: 1.92
     }
   }
 });
@@ -22745,13 +21937,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mui_system__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/system */ "./node_modules/@mui/system/esm/Box/Box.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
+
 
 
 
 class SideBar extends react__WEBPACK_IMPORTED_MODULE_1__.Component {
   render() {
-    console.log(this.props);
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_system__WEBPACK_IMPORTED_MODULE_2__["default"], null, "SideBar");
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_system__WEBPACK_IMPORTED_MODULE_2__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      variant: "h2",
+      color: "primary",
+      align: "center"
+    }, "R\xE9capitulatif"));
   }
 
 }
@@ -22948,13 +22145,13 @@ class DeviceTab extends Component {
   render() {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
       sx: {
-        width: '750px'
+        width: '730px'
       }
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
       variant: "h1",
       color: "text",
       align: "left",
-      mb: 1
+      mb: 3
     }, "1. Aidez le technicien a comprendre votre probl\xE8me"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
       variant: "h2",
       color: "primary",
@@ -23001,16 +22198,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Container/Container.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
-/* harmony import */ var _mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/icons-material/ArrowForward */ "./node_modules/@mui/icons-material/ArrowForward.js");
+/* harmony import */ var _need_components_Piece__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./need-components/Piece */ "./src/components/tab-components/need-components/Piece.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Grid/Grid.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/ToggleButton/ToggleButton.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
+/* harmony import */ var _mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/icons-material/ArrowForward */ "./node_modules/@mui/icons-material/ArrowForward.js");
 
 
 const {
   Component,
   render
 } = wp.element;
+
 
 
 class DeviceTab extends Component {
@@ -23029,16 +22230,49 @@ class DeviceTab extends Component {
   }
 
   render() {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      sx: {
+        width: '730px'
+      }
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
       variant: "h1",
       color: "text",
       align: "left"
-    }, "D\xE9crivez ce dont vous avez besoin"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, "D\xE9crivez ce dont vous avez besoin"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      container: true
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      item: true
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      onChange: this.props.handleChange('symptom'),
+      value: "Je cherche la panne de mon appareil",
+      fullWidth: "true"
+    }, "Je cherche la panne de mon appareil")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      item: true
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      onChange: this.props.handleChange('symptom'),
+      value: "J'ai besoin d'une confirmation de diagnostique",
+      fullWidth: "true"
+    }, "J'ai besoin d'une confirmation de diagnostique")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      item: true
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      onChange: this.props.handleChange('symptom'),
+      value: "J'ai quelques questions techniques concernat mon appareil",
+      fullWidth: "true"
+    }, "J'ai quelques questions techniques concernat mon appareil")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      item: true
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      onChange: this.props.handleChange('symptom'),
+      value: "J'ai besoin d'aide pour remplacer ma pi\xE8ce",
+      fullWidth: "true"
+    }, "J'ai besoin d'aide pour remplacer ma pi\xE8ce"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_need_components_Piece__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      handleChange: this.props.handleChange,
+      values: this.props.values
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], {
       onClick: this.back
-    }, "Retour"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, "Retour"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], {
       variant: "contained",
       onClick: this.continue,
-      endIcon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_5__["default"], null)
+      endIcon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_8__["default"], null)
     }, "Continuer"));
   }
 
@@ -23068,12 +22302,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/FormControl/FormControl.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/InputLabel/InputLabel.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Select/Select.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/MenuItem/MenuItem.js");
-/* harmony import */ var _data_devices_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../data/devices.json */ "./data/devices.json");
-
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/FormControl/FormControl.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/InputLabel/InputLabel.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Select/Select.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/MenuItem/MenuItem.js");
 
 
 
@@ -23083,20 +22315,20 @@ const SelectDevice = props => {
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
     fetch('http://localhost:3000/devices').then(res => res.json()).then(data => setDevice(data));
   }, []);
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], {
     sx: {
-      minWidth: 120,
+      minWidth: 130,
       margin: '10px 10px 10px 0px'
     }
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
     id: "select-label"
-  }, "Appareil"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, "Appareil"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
     value: props.values.device,
     labelId: "demo-simple-select-label",
     id: "demo-simple-select",
     label: "Appareil",
     onChange: props.handleChange('device')
-  }, devices.map(device => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }, devices.map(device => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
     key: device.id,
     value: device.name
   }, device.name))));
@@ -23116,91 +22348,155 @@ const SelectDevice = props => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/FormControl/FormControl.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/InputLabel/InputLabel.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Select/Select.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/MenuItem/MenuItem.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/TextField/TextField.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/RadioGroup/RadioGroup.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Grid/Grid.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/FormControlLabel/FormControlLabel.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Radio/Radio.js");
-/* harmony import */ var _data_devices_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../data/devices.json */ "./data/devices.json");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/FormControl/FormControl.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/InputLabel/InputLabel.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Select/Select.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/MenuItem/MenuItem.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/TextField/TextField.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/RadioGroup/RadioGroup.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Grid/Grid.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/ToggleButton/ToggleButton.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 
 
 
 
 function SelectOptions(props) {
-  const [brand, setBrand] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]);
-  const [symptoms, setSymptom] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]);
-  const fetchData = (0,react__WEBPACK_IMPORTED_MODULE_2__.useCallback)(async () => {
+  const [brand, setBrand] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
+  const [symptoms, setSymptom] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
+  const fetchData = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)(async () => {
     const res = await fetch('http://localhost:3000/devices?name=' + props.values.device);
     const data = await res.json();
-    console.log(data[0].symptoms);
     setSymptom(data[0].symptoms);
     setBrand(data[0].brand);
   }, [props.values.device]);
-  (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
     fetchData();
   }, [fetchData]);
 
   if (props.values.device != "") {
-    console.log(props.values.brand);
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], {
       sx: {
         minWidth: 120,
         margin: '10px 10px 10px 0px'
       }
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
       id: "select-label"
-    }, "Marque"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    }, "Marque"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
       value: props.values.brand,
       labelId: "demo-simple-select-label",
       id: "demo-simple-select",
       label: "Appareil",
       onChange: props.handleChange('brand')
-    }, brand.map(device => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    }, brand.map(device => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
       key: device.id,
       value: device
-    }, device)))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    }, device)))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
       onChange: props.handleChange('model'),
       label: "Mod\xE8le",
       sx: {
-        minWidth: 120,
         margin: '10px 10px 10px 0px'
       }
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], {
       variant: "h2",
       color: "primary",
       align: "left",
-      mb: 1
-    }, "Les symptomes de panne"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      mb: 4,
+      mt: 3
+    }, "Les symptomes de panne"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], {
       "aria-labelledby": "demo-radio-buttons-group-label",
       defaultValue: "female",
       name: "radio-buttons-group"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_10__["default"], {
       container: true
-    }, symptoms.map(symptom => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    }, symptoms.map(symptom => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_10__["default"], {
       item: true,
       xs: 12,
-      md: 6
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_12__["default"], {
+      md: 6,
+      sx: {
+        mb: 2
+      }
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_11__["default"], {
+      sx: {
+        textTransform: "lowercase",
+        width: 350
+      },
       onChange: props.handleChange('symptom'),
-      value: symptom,
-      control: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_13__["default"], null),
-      label: symptom
-    }))))))));
+      value: symptom
+    }, symptom))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      item: true,
+      xs: 12,
+      md: 6,
+      sx: {
+        mb: 2
+      }
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      sx: {
+        width: 350
+      },
+      label: "Autre",
+      onChange: props.handleChange('symptom')
+    })))))));
   }
 
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null);
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (SelectOptions);
+
+/***/ }),
+
+/***/ "./src/components/tab-components/need-components/Piece.js":
+/*!****************************************************************!*\
+  !*** ./src/components/tab-components/need-components/Piece.js ***!
+  \****************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Grid/Grid.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/ToggleButton/ToggleButton.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+
+const Piece = props => {
+  if (props.values.symptom === "J'ai besoin d'aide pour remplacer ma pièce") {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      variant: "h2",
+      color: "text",
+      align: "left",
+      mb: 3
+    }, "Poss\xE9dez vous la nouvelle pi\xE8ce ?"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      container: true
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      item: true
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      onChange: props.handleChange('piece'),
+      value: "J'ai d\xE9j\xE0 ma pi\xE8ce",
+      fullWidth: "true"
+    }, "J'ai d\xE9j\xE0 ma pi\xE8ce")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      item: true
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      onChange: props.handleChange('piece'),
+      value: "Je ne l'ai pas",
+      fullWidth: "true"
+    }, "Je ne l'ai pas")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "*Nous vous ferons parvenir un lien en fin de parcours pour acheter votre pi\xE8ce")));
+  }
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Piece);
 
 /***/ }),
 
@@ -23369,19 +22665,6 @@ function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
 }
 
 module.exports = hoistNonReactStatics;
-
-
-/***/ }),
-
-/***/ "./src/index.css":
-/*!***********************!*\
-  !*** ./src/index.css ***!
-  \***********************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
 
 
 /***/ }),
@@ -28011,17 +27294,6 @@ function combine (array, callback) {
 }
 
 
-/***/ }),
-
-/***/ "./data/devices.json":
-/*!***************************!*\
-  !*** ./data/devices.json ***!
-  \***************************/
-/***/ (function(module) {
-
-"use strict";
-module.exports = JSON.parse('{"devices":[{"id":0,"name":"Aspirateur","brand":["Autre marque","ACEC","AEG","AFK","AI TEK","AKA","AKIBA","ALASKA","ALFATEC","ALIZE","ALMERIA","ALTEC","ALTIC","AMADIS","AMSTRAD","AQUAVAC","ARC EN CIEL","ARIETE","ASTORIA","ASTRO","ASUKA","AUCHAN","AVANT 2000","AYA","BEKO","BESTRON","BIRUM","BISSEL","BLACK & DECKER","BLACK ET DECKER","BLUESKY","BOMANN","BOOSTY","BOREAL","BOSCH","BRANDT","BROTHERS","BSK","CADILLAC","CALIFORNIA","CALOR","CANDY","CARREFOUR","CATAVANA","CHROMEX","CLATRONIC","CLEANFIX","CONTINENTAL EDISON","CURTISS","DAEWOO","DELONGHI","DELTA SPIRE","DICAFF","DILEM","DINAMO","DIRT DEVIL","DOMENA","DOMEOS","DOMO","DYSON","ECOTONIC","EDER","EIO","ELCOTEC/ETA","ELECTRO DEPOT","ELECTROLUX","ELECTROSTAR","ELEXAVOX","ELSAY","ENTRONIC","ESSENTIEL B","ETA/ELCOTEC","EUREKA","EURO SDV","EUROSTEAM","EWT","EXCELSIOR","EXCLUSIV","EXPERT LINE","EXPRESS","FADI","FAGOR","FAKIR","FAM","FAR","FAURE","FERRARI","FERSEN","FIF","FIRSTLINE","FRANGER","FREULENZ","FRIAC","FUNIX","FUST NOVAMATIC","GF0059","GHIBLI","GIRMI","GISOWATT","GLENAN","GOBLIN","GRACIA","GRUNDIG","HANDICRAFT","HELKINA","HENKEL","HIGH ONE","HITACHI","HOLLAND ELECTRO","HOME ANGEL","HOOVER","HUGIN","HURRICANE","HYUNDAI","IDELINE","IMETEC","IMPALA","INDESIT","INDOMO","INTERMARCHE","INTERNATIONAL ELECTRONIQUE","IROBOT","ISKRA","ITT","J ET R ELECTRONIC","JATA","JEKEN","KAISUI","KALORIK","KARCHER","KELNER","KING DHOME","KINGCLEAN","KIRBY","KNEISSEL","KREFFT","KRUPS","LADEN","LAVOR WASH","LECLERC","LEROY MERLIN","LERVIA","LG","LISTO","LIV","LIVENTA","MTEC","MABIA","MAC ALLISTER","MAJESTIC","MASTERKRAFFT","MDA","MEDIA","MEDION","MELISSA","MERKURIA","MERRITT","MIELE","MISTRAL","MONDILEC","MONIX","MONTENZ","MORPHY RICHARDS","MORS","MOULINEX","MULTICRAFT","NAVARINI","NEUFUNK","NEVA","NILCO","NILFISK","NOGAMATIC","NOVIDOM","NUMATIC","OCEANIC","OMEGA","PANASONIC","PARIS-RHONE","PARK SIDE","PHILIPS","PLATINIUM","POLTI","PRIMERA","PRINCESS","PRINTEMPS","PRIVILEG","PROGRESS","PROLINE","QUIGG","RHINO","RIVIERA ET BAR","RONDY","ROTARY","ROTEL","ROWENTA","SAMSUNG","SANDRA","SANYO","SCHNEIDER","SELECLINE","SEVERIN","SHARK","SHG","SHOP VAC","SIDEM","SIDEX","SIEMENS","SIGNATURE","SIMAC","SIMPA","SINGER","SIPLEC","SLOBODA","SOLAC","SOLFACYL/SOLFACIL","SOREMAP","SORMA","SOTECO","SPD CLEAN","STECA","SUPPORT PLUS","TASKI","TAURENS","TAURUS","TEAM","TECHNIC ELEM","TECHNOSTAR","TECHWOOD","TEFAL","TEKVIS","TEMPO","TENANT","THERMOZETTA","THOMAS","THOMSON","TOKIWA","TORNADO","TRIOMPH","TRISA","TRISTAR","UFESA","UNIC LINE","UNIVERSAL","URALUX","URANIA","VAX","VEDETTE","VETRELLA","VOLTA","VORTICE","VORWERK","WESDER","WETROK","WHITE & BROWN","ZANKER","ZANUSSI","ZELMER","ZINATIC"],"symptoms":["Il n\'aspire plus","La brosse rotative ne fonctionne plus","Il ne fonctionne plus","Il sent mauvais ou sent le brûlé","Il fait du bruit"]},{"id":1,"name":"Centrale vapeur","brand":["Autre marque","AEG","ARIETE","ARTHUR MARTIN","ASTORIA","AYA","BEKO","BLACK & DECKER","BLACK ET DECKER","BOSCH","BRAUN","CALOR","DAEWOO","DELONGHI","DIRT DEVIL","DOMENA","ELECTROLUX","ESSENTIEL B","EXCELSIOR","FAGOR","GRUNDIG","HOOVER","KARCHER","KENWOOD","LAURASTAR","LISTO","MATRA / DORO MATRA","MIELE","MOULINEX","PARIS-RHONE","PHILIPS","POLTI","PROLINE","ROWENTA","SIEMENS","SIMAC","STIRELLA","TAFAL","TEFAL","VETRELLA","WPRO"],"symptoms":["Elle ne fait plus de vapeur","Elle fuit","Elle ne chauffe plus","Elle ne fonctionne plus","Le fer ne fonctionne plus"]},{"id":2,"name":"Cuisinière","brand":["Autres marques","2I MARCHI","ACEC","ADVENTYS","AEG","AIRLUX","ALLENZI","ALLIA","ALLIANCE","ALTUS","AMICA","ARCELIK","ARCTIC","ARDEM","ARISTON HOTPOINT","ARTHUR MARTIN","ARTHUR MARTIN ELECTROLUX","ASKO","ASPES","ATAG","ATLANTIC","AVEA","AYA","BALAY","BAUKNECHT","BAUMATIC","BEHA","BEKO","BELLING","BERNSTEIN","BESTRON","BLANCO","BLAUPUNKT","BLOMBERG","BLUESKY","BOMANN","BOMPANI","BOREAL","BOSCH","BRANDT","BRANDY BEST","BRASTEMP","BSK","BURG","BUTLER","CALIFORNIA","CANDY","CANNON","CAPLE","CARREFOUR HOME","CASINO","CATA","CDA","CLAYTON","CLIMADIFF","COBAL","CONSTRUCTA","CONTACT","CONTINENTAL EDISON","COOKTOP","CREDA","CRYSTAL","CUISINA","CUISINE PLUS","CURTISS","CYLINDA","DAEWOO","DAV","DE DIETR","DE DIETRICH","DELONGHI","DEVILLE","DIFFUSION","DIPLOMAT","DOMAN","DOMEOS","DOMINOX","EDESA","EDSON","ELECTROLUX","ELEKTRA-BREGENZ","ELICA","ESCO","ESSENTIEL B","ETNA","EUREKA","EXCELINE","FABER","FAGOR","FALCON","FAR","FAURE","FINLUX","FIRSTLINE","FISCHER AND PAYKEL","FOSTER","FRANKE","FRATELLI ONOFRI","FRIGIDAIRE","FRIONOR","FROSTAR","FUNIX","FUTURA","GAGGENAU","GASFIRE","GERMANIA","GLEM","GORENJE","GRAM","GRUNDIG","HAIER","HARROW","HELKINA","HIGH ONE HIG","HIGHOME","HIGHONE","HISENSE","HITACHI","HOMARK","HOME","HOMER","HOOVER","HORN","HUDSON","HYGENA","IBERNA","IGNIS","IKEA","IKEA ELECTROLUX","INDESIT","JAN KOLBE","JENN-AIR","JETGAZ","JUNKER","JUNO","KELVINATOR","KENWOOD","KINGDHOME","KINGSWOOD","KITCHENAID","KLEENMAID","KONTACT","KONTAKT","LA GERMANIA","LADEN","LAMONA","LE LEISURE","LEISURE","LEONARD","LG","LINETECH","LISTO","LYNX","MAGIC LINE","MANHATTAN","MASTERCOOK","MAYTAG","MERTZ","MIELE","MONDIAL","MOULINEX","NED","NEFF","NESTOR MARTIN","NEWLINE","NILFISK","NOGAMATIC","NOMAGATIC","NOSTRIA","NOVY","OCEAN","OCEANIC","ORANIER","ORIGANE","ORLINE","OXFORD","PANASONIC","PELGRIM","PHILIPS","POLAR","PRIMA","PRIVILEG","PROGRESS","PROLINE","QILIVE","RADIOLA","REX","RIVIERA ET BAR","ROBLIN","ROLLER GRILL","ROSIERES","ROWENTA","SABA","SAMANA","SAMET","SAMSUNG","SANGIORGIO","SAUTER","SCHNEIDER","SCHOLTES","SEB","SELECLINE","SERVIS","SHARP","SIDEX","SIEMENS","SIGNATURE","SILTAL","SINGER","SMEG","SOGELUX","SOMMELIERE","STOVES","SUATER","SUAUTER","SUPERCALOR","SURFLINE","TAURO","TEBA","TECHNICAL","TECHWOO","TECHWOOD","TECHYO","TECNOGAS","TECNOLUX","TEFAL","TEGRAN","TEKA","TELEFUNKEN","TERIM","THERMOR","THOMSON","TIROLIA","TRIOMPH","TUCSON","TURBOAIR","TX-THERMEX","UNICLINE","URANIA","VALBER","VALBERG","VEDETTE","VESTEL","VETRELLA","VIVA","WALTHAM","WELCO","WESTINGHOUSE","WESTLINE","WESTPOINT","WESTWOOD","WHIRLPOOL","WHITE-WESTINGHOUSE","WINDSOR","ZANKER","ZANUSSI","ZEROWAT","ZEROWATT","ZOPPAS"],"symptoms":["Elle fait disjoncter","Elle ne chauffe plus","Elle ne fonctionne pas","La porte ferme mal","Elle fait du bruit"]},{"id":3,"name":"Fer à repasser","brand":[".Autres marques","AEG","ARIETE","ARTHUR MARTIN","ASTORIA","AYA","BEKO","BLACK & DECKER","BLACK ET DECKER","BOSCH","BRAUN","CALOR","DAEWOO","DELONGHI","DIRT DEVIL","DOMENA","ELECTROLUX","ESSENTIEL B","EXCELSIOR","FAGOR","GRUNDIG","HOOVER","KARCHER","KENWOOD","LAURASTAR","LISTO","MATRA / DORO MATRA","MIELE","MOULINEX","PARIS-RHONE","PHILIPS","POLTI","PROLINE","ROWENTA","SIEMENS","SIMAC","STIRELLA","TAFAL","TEFAL","VETRELLA","WPRO"],"symptoms":["Il ne fait plus de vapeur","Il fuit","Il ne chauffe plus","Il ne fonctionne plus","Le fer ne fonctionne plus","Autre"]},{"id":4,"name":"Four","brand":["Autres marques","2I MARCHI","ACEC","ADVENTYS","AEG","AIRLUX","ALLENZI","ALLIA","ALLIANCE","ALTUS","AMICA","ARCELIK","ARCTIC","ARDEM","ARISTON HOTPOINT","ARTHUR MARTIN","ARTHUR MARTIN ELECTROLUX","ASKO","ASPES","ATAG","ATLANTIC","AVEA","AYA","BALAY","BAUKNECHT","BAUMATIC","BEHA","BEKO","BELLING","BERNSTEIN","BESTRON","BLANCO","BLAUPUNKT","BLOMBERG","BLUESKY","BOMANN","BOMPANI","BOREAL","BOSCH","BRANDT","BRANDY BEST","BRASTEMP","BSK","BURG","BUTLER","CALIFORNIA","CANDY","CANNON","CAPLE","CARREFOUR HOME","CASINO","CATA","CDA","CLAYTON","CLIMADIFF","COBAL","CONSTRUCTA","CONTACT","CONTINENTAL EDISON","COOKTOP","CREDA","CRYSTAL","CUISINA","CUISINE PLUS","CURTISS","CYLINDA","DAEWOO","DAV","DE DIETR","DE DIETRICH","DELONGHI","DEVILLE","DIFFUSION","DIPLOMAT","DOMAN","DOMEOS","DOMINOX","EDESA","EDSON","ELECTROLUX","ELEKTRA-BREGENZ","ELICA","ESCO","ESSENTIEL B","ETNA","EUREKA","EXCELINE","FABER","FAGOR","FALCON","FAR","FAURE","FINLUX","FIRSTLINE","FISCHER AND PAYKEL","FOSTER","FRANKE","FRATELLI ONOFRI","FRIGIDAIRE","FRIONOR","FROSTAR","FUNIX","FUTURA","GAGGENAU","GASFIRE","GERMANIA","GLEM","GORENJE","GRAM","GRUNDIG","HAIER","HARROW","HELKINA","HIGH ONE HIG","HIGHOME","HIGHONE","HISENSE","HITACHI","HOMARK","HOME","HOMER","HOOVER","HORN","HUDSON","HYGENA","IBERNA","IGNIS","IKEA","IKEA ELECTROLUX","INDESIT","JAN KOLBE","JENN-AIR","JETGAZ","JUNKER","JUNO","KELVINATOR","KENWOOD","KINGDHOME","KINGSWOOD","KITCHENAID","KLEENMAID","KONTACT","KONTAKT","LA GERMANIA","LADEN","LAMONA","LE LEISURE","LEISURE","LEONARD","LG","LINETECH","LISTO","LYNX","MAGIC LINE","MANHATTAN","MASTERCOOK","MAYTAG","MERTZ","MIELE","MONDIAL","MOULINEX","NED","NEFF","NESTOR MARTIN","NEWLINE","NILFISK","NOGAMATIC","NOMAGATIC","NOSTRIA","NOVY","OCEAN","OCEANIC","ORANIER","ORIGANE","ORLINE","OXFORD","PANASONIC","PELGRIM","PHILIPS","POLAR","PRIMA","PRIVILEG","PROGRESS","PROLINE","QILIVE","RADIOLA","REX","RIVIERA ET BAR","ROBLIN","ROLLER GRILL","ROSIERES","ROWENTA","SABA","SAMANA","SAMET","SAMSUNG","SANGIORGIO","SAUTER","SCHNEIDER","SCHOLTES","SEB","SELECLINE","SERVIS","SHARP","SIDEX","SIEMENS","SIGNATURE","SILTAL","SINGER","SMEG","SOGELUX","SOMMELIERE","STOVES","SUATER","SUAUTER","SUPERCALOR","SURFLINE","TAURO","TEBA","TECHNICAL","TECHWOO","TECHWOOD","TECHYO","TECNOGAS","TECNOLUX","TEFAL","TEGRAN","TEKA","TELEFUNKEN","TERIM","THERMOR","THOMSON","TIROLIA","TRIOMPH","TUCSON","TURBOAIR","TX-THERMEX","UNICLINE","URANIA","VALBER","VALBERG","VEDETTE","VESTEL","VETRELLA","VIVA","WALTHAM","WELCO","WESTINGHOUSE","WESTLINE","WESTPOINT","WESTWOOD","WHIRLPOOL","WHITE-WESTINGHOUSE","WINDSOR","ZANKER","ZANUSSI","ZEROWAT","ZEROWATT","ZOPPAS"],"symptoms":["Il fait disjoncter","Il ne chauffe plus","Il ne fonctionne pas","La porte ferme mal","Il fait du bruit"]},{"id":5,"name":"Hotte","brand":["Autres marques","ACEC","AEG","AIRFORCE","AIRLUX","ALGOR","ALNO","AMANA","AMICA","ARCELIK","ARISTON HOTPOINT","ARTHUR MARTIN","ARTHUR MARTIN ELECTROLUX","ASKO","ATAG","AYA","BALAY","BAUKNECHT","BAUMATIC","BEKO","BELLING","BEST","BLAUPUNKT","BLOMBERG","BLUESKY","BOSCH","BOSSMATIC","BRANDT","CALIFORNIA","CANDY","CLIMADIFF","CONSTRUCTA","CONTINENTAL EDISON","CREDA","CRYSTAL","CURTISS","DE DIETRICH","DIFFUSION","EDESA","ELCOLUX","ELECTROLUX","ELEKTRA-BREGENZ","ELICA","ESSENTIEL B","FABER","FABER FRANKE","FABER-CASTELL","FAGOR","FALCON","FALMEC","FAR","FAURE","FIRENZI","FIRSTLINE","FRANCIA","FRANKE","FRATELLI","FUNCTIONICA","GAGGENAU","GERMANIA","GLEM","GLEMGAS","GORENJE","GRUNDIG","HIGH ONE","HOMEKING","HOOVER","HUDSON","HYGENA","IBERNA","IGNIS","IKEA","IKEA ELECTROLUX","IKEA WHIRLPOOL","INDESIT","INTEGRA","JUNKER","JUNO","KEOPS","KITCHENAID","LADEN","LEISURE","LISTO","LYNX","MASTERCOOK","MAYTAG","MIELE","NEFF","NEUTRAL","OCEAN","OCEANIC","PIERRE CARDIN","PITSOS","PRIVILEG","PROGRESS","PROLINE","RADIOLA","ROBLIN","ROSENLEW","ROSIERES","SAMET","SAMSUNG","SANGIORGIO","SAUTER","SCHMIDT","SCHNEIDER","SCHOLTES","SIEMENS","SIGNATURE","SILTAL","SILVERLINE","SMEG","SOGELUX","SPRING RAM","STOVES","TECNOWIND","TEKA","THERMOR","THOMSON","TURBOAIR","UNBRANDED","VALBERG","VIVA","VOGICA","WHIRLPOOL","WPRO","ZANKER","ZANUSSI","ZEROWATT","ZOPPAS"],"symptoms":["Elle ne fonctionne plus","Elle n\'aspire plus","Elle n\'émet plus de lumière","Elle est bruyante","Il y a une fuite d\'eau"]},{"id":6,"name":"Lavante-séchante","brand":["Autres marques","2I MARCHI","ADMIRAL","AEG","AFTRON","AIRLUX","AIRPORT","AKA","ALASKA","ALICA","ALTUS","AMICA","AQUACEANE","ARC EN CIEL","ARCELIK","ARCTIC","ARDEM","ARDO","ARISTON","ARISTON HOTPOINT","ARTHUR MARTIN","ARTHUR MARTIN ELECTOLUX","ARTHUR MARTIN ELECTROLUX","ARTIC","ASEA SKANDIA","ASKO","ASPES","ASTERIE","ATALNTIC","ATLANTIC","AUCHAN","AVANTAGGE","AVEA","AYA","BALAY","BASICLINE","BAUCKNECHT","BAUKNECHT","BAUMATIC","BEKO","BELDEKO","BELLAVITA","BELLING","BESTRON","BFAGOR","BLOMBERG","BLUESKY","BLUEWIND","BOMPANI","BOREAL","BOSCH","BR","BRANDT","BRU","BSK","CADILLAC","CALEX","CALYTON","CANDY","CAPLE","CARMA","CARREFOUR HOME","CDA","CLATRONIC","CLAYTON","COBAL","COLDIS","COLDMATIC","COMFEE","CONCORDE","CONDOR","CONSTRUCTA","CONTACT","CONTINENTAL EDISON","CREDA","CRYSTAL","CURLING","CURTISS","CYLINDA","CYLINFA","CYRSTAL","DAEWO","DAEWOO","DE DIETRICH","DELTA SPIRE","DIGIHOM","DIGIHOME","DOMAN","DOMEOS","EDESA","EDSON","EDZSA","EIO","ELCO","ELECTROLUX","ELEKTRA-BREGENZ","ESSENTIEL B","ETA/ELCOTEC","EUREKA","EXCELINE","FAGOIR","FAGOR","FALDA","FAM","FAR","FARB","FAURE","FAVORIT","FIRGIDAIRE","FIRSTLINE","FORTEX","FRAB","FRANCIA","FRANGER","FRIAC","FRIGEAVIA","FRIGIDAIRE","FRIGOR","FUNIX","FUST NOVAMATIC","FUTURA","GAGGENAU","GALA","GENERAL CORPO-MATIC","GENERAL ELECTRIC","GENERISS","GORENGE","GORENJE","GRUNDIG","HAIER","HAJDU","HANSEATIC","HARROW","HDC.LINK","HEC","HELKAMA","HELKAMA","HELKINA","HIG HONE","HIGH ONE","HIGH ONE HIG","HIGHOME","HIGHON","HIGHONE","HIGHTEC","HIGHTEC","HISENSE","HOLLAND ELECTRO","HOME","HOMEKING","HOOVER","HORN","HYUNDAI","IBERNA","ICEBER","ICEBERG","IGNIS","IKEA","IKEA ELECTROLUX","IKEA WHIRLPOOL","IKEAELECTROLUX","INDESIT","INEXIVE","INUVIK","ISKRA","IT WASH","ITWASH","IXAO YA","JETWA","JETWASH","JINLING","JPC","JUNO","KALORIK","KELVINATOR","KENNY","KENT","KING","KING D HOME","KING D\'HOME","KINGDHO","KINGDHOME","KITCHENAID","KLEENMAID","KNEISSEL","KONKA","KONTACT","KREFFT","KUPPERBUSH","LACO","LADEN","LAMONA","LAZER","LG","LINETECH","LINK","LISTO","LLOYDS","LYNX","M\'TEC","MABE","MANHATTAM","MANHATTAN","MARKLING","MASTERCOOK","MAYTAG","MIDEA","MIELE","MIOSTAR","MONIX","MONTBLANC","MORS","NARDI","NEFF","NEVADA","NEWFIL","NEWPOL","NEWTEC","NOGAMATIC","NORDMENDE","NOVAMATIC","NOVELTY","NOVEX","OCEAN","OCEANIC","OMEGA","ORIGANE","ORLINE","ORMOND","OSTEIN","OTSEIN","OXFORD","PAB","PANASONIC","PARIS-RHONE","PELGRIM","PERFEK","PERFEKT","PHILCO","PHILIPS","PISTO","PITSOS","POLAR","PRIMA","PRINCESS","PRINCETON","PRIVILEG","PROGRESS","PROLINE","PULSAR","QILIVE","QLIVE","QUELLE","RADIOLA","RDSON","RECTILIGN","RECTILIGNE","REGAL","REPRISE CEPEM SERVICE","RESPEKTA","REX","ROSENLEW","ROSIERES","ROTEL","SABA","SABEA","SAIVOD","SAMANA","SAMET","SAMSUNG","SAN GIORGIO","SANCY","SANGIOGIO","SANGIORGIO","SANGIROGIO","SAUTER","SCHAUEN","SCHNEIDER","SCHOLTES","SEAWAY","SEELECT","SELECLINE","SELECTRO","SELELCINE","SERVIS","SETRA","SHARP","SIDEM","SIDEX","SIEMENS","SIGNATURE","SILTAL","SILVERNE","SINGER","SIPLEC","SITAL","SMEG","SOGELUX","SOLAC","SPLENDID","STEINBACH","STELLA","SURFLINE","TATRAMATT","TAURUS","TEAM","TECHNICAL","TECHWOOD","TECNOLEC","TEGRAN","TEKA","TELEFUNKEN","THOMAS","THOMSON","TKFLL4210S","TRIOMPH","TUCSON","TUSCON","TWINS","TWINSTAR","UNIC LINE","UNICLINE","UNIVERSAL","UPO","URANIA","VALBERG","VEDETTE","VESTEL","VIKA","VIVA","VIVAX","VOGICA","WALT","WALTHAM","WALTHMA","WELCO","WELLINGT","WELLINGTON","WESDWOO","WESDWOOD","WESTINGHOUSE","WESTLINE","WESTPOINT","WESTPOINT","WESTWOOD","WETSWOOD","WH","WHIRLPOOL","WHITE WESTINGHOUSE","WHITE-WESTINGHOUSE","WILCOOL","WILSON","WINDSOR","WINIA","XD ENJOY","XIAO YA","XPER","ZANKER","ZANUSSI","ZENITH","ZEROWATT","ZOPPAS"],"symptoms":["Elle ne chauffe plus","Il ne démarre pas","Il fait du bruit","Il fuit","Elle ne sèche plus"]},{"id":7,"name":"Lave-linge","brand":["Autres marques","2I MARCHI","ADMIRAL","AEG","AFTRON","AIRLUX","AIRPORT","AKA","ALASKA","ALICA","ALTUS","AMICA","AQUACEANE","ARC EN CIEL","ARCELIK","ARCTIC","ARDEM","ARDO","ARISTON","ARISTON HOTPOINT","ARTHUR MARTIN","ARTHUR MARTIN ELECTOLUX","ARTHUR MARTIN ELECTROLUX","ARTIC","ASEA SKANDIA","ASKO","ASPES","ASTERIE","ATALNTIC","ATLANTIC","AUCHAN","AVANTAGGE","AVEA","AYA","BALAY","BASICLINE","BAUCKNECHT","BAUKNECHT","BAUMATIC","BEKO","BELDEKO","BELLAVITA","BELLING","BESTRON","BFAGOR","BLOMBERG","BLUESKY","BLUEWIND","BOMPANI","BOREAL","BOSCH","BR","BRANDT","BRU","BSK","CADILLAC","CALEX","CALYTON","CANDY","CAPLE","CARMA","CARREFOUR HOME","CDA","CLATRONIC","CLAYTON","COBAL","COLDIS","COLDMATIC","COMFEE","CONCORDE","CONDOR","CONSTRUCTA","CONTACT","CONTINENTAL EDISON","CREDA","CRYSTAL","CURLING","CURTISS","CYLINDA","CYLINFA","CYRSTAL","DAEWO","DAEWOO","DE DIETRICH","DELTA SPIRE","DIGIHOM","DIGIHOME","DOMAN","DOMEOS","EDESA","EDSON","EDZSA","EIO","ELCO","ELECTROLUX","ELEKTRA-BREGENZ","ESSENTIEL B","ETA/ELCOTEC","EUREKA","EXCELINE","FAGOIR","FAGOR","FALDA","FAM","FAR","FARB","FAURE","FAVORIT","FIRGIDAIRE","FIRSTLINE","FORTEX","FRAB","FRANCIA","FRANGER","FRIAC","FRIGEAVIA","FRIGIDAIRE","FRIGOR","FUNIX","FUST NOVAMATIC","FUTURA","GAGGENAU","GALA","GENERAL CORPO-MATIC","GENERAL ELECTRIC","GENERISS","GORENGE","GORENJE","GRUNDIG","HAIER","HAJDU","HANSEATIC","HARROW","HDC.LINK","HEC","HELKAMA","HELKAMA","HELKINA","HIG HONE","HIGH ONE","HIGH ONE HIG","HIGHOME","HIGHON","HIGHONE","HIGHTEC","HIGHTEC","HISENSE","HOLLAND ELECTRO","HOME","HOMEKING","HOOVER","HORN","HYUNDAI","IBERNA","ICEBER","ICEBERG","IGNIS","IKEA","IKEA ELECTROLUX","IKEA WHIRLPOOL","IKEAELECTROLUX","INDESIT","INEXIVE","INUVIK","ISKRA","IT WASH","ITWASH","IXAO YA","JETWA","JETWASH","JINLING","JPC","JUNO","KALORIK","KELVINATOR","KENNY","KENT","KING","KING D HOME","KING D\'HOME","KINGDHO","KINGDHOME","KITCHENAID","KLEENMAID","KNEISSEL","KONKA","KONTACT","KREFFT","KUPPERBUSH","LACO","LADEN","LAMONA","LAZER","LG","LINETECH","LINK","LISTO","LLOYDS","LYNX","M\'TEC","MABE","MANHATTAM","MANHATTAN","MARKLING","MASTERCOOK","MAYTAG","MIDEA","MIELE","MIOSTAR","MONIX","MONTBLANC","MORS","NARDI","NEFF","NEVADA","NEWFIL","NEWPOL","NEWTEC","NOGAMATIC","NORDMENDE","NOVAMATIC","NOVELTY","NOVEX","OCEAN","OCEANIC","OMEGA","ORIGANE","ORLINE","ORMOND","OSTEIN","OTSEIN","OXFORD","PAB","PANASONIC","PARIS-RHONE","PELGRIM","PERFEK","PERFEKT","PHILCO","PHILIPS","PISTO","PITSOS","POLAR","PRIMA","PRINCESS","PRINCETON","PRIVILEG","PROGRESS","PROLINE","PULSAR","QILIVE","QLIVE","QUELLE","RADIOLA","RDSON","RECTILIGN","RECTILIGNE","REGAL","REPRISE CEPEM SERVICE","RESPEKTA","REX","ROSENLEW","ROSIERES","ROTEL","SABA","SABEA","SAIVOD","SAMANA","SAMET","SAMSUNG","SAN GIORGIO","SANCY","SANGIOGIO","SANGIORGIO","SANGIROGIO","SAUTER","SCHAUEN","SCHNEIDER","SCHOLTES","SEAWAY","SEELECT","SELECLINE","SELECTRO","SELELCINE","SERVIS","SETRA","SHARP","SIDEM","SIDEX","SIEMENS","SIGNATURE","SILTAL","SILVERNE","SINGER","SIPLEC","SITAL","SMEG","SOGELUX","SOLAC","SPLENDID","STEINBACH","STELLA","SURFLINE","TATRAMATT","TAURUS","TEAM","TECHNICAL","TECHWOOD","TECNOLEC","TEGRAN","TEKA","TELEFUNKEN","THOMAS","THOMSON","TKFLL4210S","TRIOMPH","TUCSON","TUSCON","TWINS","TWINSTAR","UNIC LINE","UNICLINE","UNIVERSAL","UPO","URANIA","VALBERG","VEDETTE","VESTEL","VIKA","VIVA","VIVAX","VOGICA","WALT","WALTHAM","WALTHMA","WELCO","WELLINGT","WELLINGTON","WESDWOO","WESDWOOD","WESTINGHOUSE","WESTLINE","WESTPOINT","WESTPOINT","WESTWOOD","WETSWOOD","WH","WHIRLPOOL","WHITE WESTINGHOUSE","WHITE-WESTINGHOUSE","WILCOOL","WILSON","WINDSOR","WINIA","XD ENJOY","XIAO YA","XPER","ZANKER","ZANUSSI","ZENITH","ZEROWATT","ZOPPAS"],"symptoms":["Il n\'essore pas bien","Il ne démarre pas","Il fait du bruit","Il fuit","Le tambour ne tourne pas"]},{"id":8,"name":"Lave-vaisselle","brand":["Autres marques","2I MARCHI","AEG","AFR","AIRLUX","AIRPORT","ALTUS","AMICA","AMICA WRONKI","APELL","APPEL","ARDEM","ARDO","ARISTON HOTPOINT","ARISTONHOTPOINT","ARTHUR MARTIN","ARTHUR MARTIN ELECTROLUX","ASEA SKANDIA","ASKO","ASPES","ATAG","ATLANTIC","AVEA","AYA","BALAY","BAUKNECHT","BAUMATIC","BEKO","BELLING","BERNSTEIN","BLANCO","BLAUPUNKT","BLOMBERG","BLUESKY","BOMANN","BOREAL","BOSCH","BRAND","BRANDT","BRASTEMP","BRU","BSK","BURG","CALIFORNIA","CANDY","CARREFOUR","CARREFOUR HOME","CDA","CHREIBER","CLAYTON","COBAL","COLDIS","CONSTRUCTA","CONTINENTAL EDISON","CREDA","CRYSTAL","CUISINE PLUS","CURTISS","CYLINDA","DAEWOO","DE DIETRICH","DELONGHI","DIPLOMAT","DOMEOS","DOMINOX","DUMONT","EDEDA","EDESA","EDESSA","EDSON","ELECTROLUX","ELEKTRA-BREGENZ","ELICA","ESSENTIEL B","ETNA","EUREKA","EXQUISIT","FAGOR","FAM","FAR","FAURE","FINLUX","FIRSTINE","FIRSTLINE","FISCHER AND PAYKEL","FOSTER","FRANCIA","FRANGER","FRANKE","FRATELLI ONOFRI","FRIAC","FRIGEAVIA","FRIGIDAIRE","FRIONOR","FROSTAR","FUNIX","GAGGENAU","GALANZ","GASFIRE","GENERAL ELECTRIC","GENERISS","GERMANIA","GLEM","GLEMGAS","GORENJE","GRUNDIG","HAIER","HARROW","HELKAMA","HIGH ONE","HIGH ONE HIG","HIGHONE","HIGHONEHIG","HISENSE","HOME","HOOVER","HORN","HYGENA","HYUNDAI","IBERNA","IGNIS","IKEA","IKEA ELECTROLUX","IKEA WHIRLPOOL","INDESIT","INEXIVE","JACKSON","JAN KOLBE","JETWASH","JOHN LEWIS","JPC","JUNKER","JUNO","JUWELL","KARIBA","KELVINATOR","KENMORE","KENNEDY","KING D HOME","KING D\'HOME","KINGDHOME","KITCHENAID","KLEENMAID","KOERTING","KORTING","KUEPPERSBUSCH","LA GERMANIA","LACO","LADEN","LAMONA","LAZER","LEONARD","LG","LINETECH","LINKE","LISTO","MANHATTAN","MARKLING","MASTERCOOK","MAYTAG","MEISTER","MERTZ","MIELE","MOFFAT","MORA","MORS","NARDI","NEFF","NEW WORLD","NOGAMATIC","NOMAGATIC","NOVIDOM","NOVY","OCEAN","OCEANIC","ORANIER","ORIGANE","ORLINE","ORMOND","OXFORD","PAB","PELGRIM","PHILCO","PIERRE CARDIN","PITSOS","POLAR","PRINCETON","PRIVILEG","PROGRESS","PROLINE","QILIVE","QLIVE","RADIOLA","RECTILIGNE","REX","RONDO","ROSENLEW","ROSIERES","SABA","SAIVOD","SAMANA","SAMET","SAMSUNG","SANGIORGIO","SAUTER","SAVEMA","SCANDOMESTIC","SCHAUEN","SCHNEIDER","SCHOLTES","SEELECT","SELECLINE","SELECTRO","SERVIS","SHARP","SIDEX","SIEMENS","SIGNATURE","SINGER","SMEG","SOGELUX","STOVES","SURFLINE","TAURO","TECHNICAL","TECHNIKA","TECHWOOD","TECNIC","TECNOGAS","TECNOLEC","TEKA","TELEFUNKEN","THEOBALDS","THERMADOR","THERMOR","THOMAS","THOMSON","TUCSON","TWINSTAR","UNIC LINE","UNICLINE","UPO","URANIA","VALBERG","VEDETTE","VESTEL","VIVA","WALTHAM","WESTINGHOUSE","WESTLINE","WESTPOINT","WESTWOOD","WHIRLPOOL","WHITE-WESTINGHOUSE","WHITEWASH","WINDSOR","XPER","ZANKER","ZANUSSI","ZELMER","ZEROWATT","ZOPPAS"],"symptoms":["Il ne démarre pas","Il ne chauffe pas","Il ne lave pas bien","Il ne vidange plus","Il fait disjoncter"]},{"id":9,"name":"Nettoyeur Vapeur","brand":[".Autres marques","AEG","ARIETE","ARTHUR MARTIN","ASTORIA","AYA","BEKO","BLACK & DECKER","BLACK ET DECKER","BOSCH","BRAUN","CALOR","DAEWOO","DELONGHI","DIRT DEVIL","DOMENA","ELECTROLUX","ESSENTIEL B","EXCELSIOR","FAGOR","GRUNDIG","HOOVER","KARCHER","KENWOOD","LAURASTAR","LISTO","MATRA / DORO MATRA","MIELE","MOULINEX","PARIS-RHONE","PHILIPS","POLTI","PROLINE","ROWENTA","SIEMENS","SIMAC","STIRELLA","TAFAL","TEFAL","VETRELLA","WPRO"],"symptoms":["Il ne fait plus de vapeur","Il fuit","Il ne chauffe plus","Il ne fonctionne plus","Il fait du bruit","Autre"]},{"id":10,"name":"Plaque de cuisson à induction","brand":["Autres marques","2I MARCHI","AEG","AIRLUX","ALTUS","ARCELIK","ARISTON","ARISTON HOTPOINT","ARTHUR MARTIN","ARTHUR MARTIN ELECTROLUX","ASKO","ASPES","ATLANTIC","AVEA","AYA","BALAY","BAUCKNECHT","BAUKNECHT","BAUMATIC","BEHA","BEKO","BELDEKO","BERNOLLIN","BLANCO","BLAUPUNKT","BLOMBERG","BLUESKY","BOSCH","BRANDT","BRASTEMP","BRICO DEPOT","BSK","BUTLER","CALIFORNIA","CANDY","CAPLE","CASTORAMA","CDA","COBAL","COCEF","COJER","CONSTRUCTA","CONTINENTAL EDISON","COOKTOP","CRAMER","CREDA","CRYSTAL","CURTISS","CYLINDA","DAV","DE DIETRICH","DELONGHI","DEVILLE","DOMAN","EDESA","ELECTROLUX","ELEKTRA-BREGENZ","ELICA","ESCO","ESSENTIEL B","ETNA","EVERTON","FAGOR","FALCON","FALMEC","FAR","FAURE","FINLUX","FORTEX","FOSTER","FRANKE","FRIONOR","FROSTAR","FUNCTIONICA","FUNIX","GAGGENAU","GASFIRE","GENERISS","GLEM","GORENJE","GRUNDIG","HAIER","HARROW","HDC.LINK","HELKAMA","HIGH ONE","HIGHOME","HIGHONE","HOOVER","HUDSON","IBERNA","IGNIS","IKEA","IKEA WHIRLPOOL","INDESIT","JETGAZ","JPF","JUNKER","JUNO","KELVINATOR","KITCHENAID","KLEENMAID","KONTACT","LADEN","LEISURE","LEONARD","LINETECH","LISTO","MASTERCOOK","MATTHIS","MAYTAG","MIELE","MOBALPA","MONDIAL","NEFF","NEWLINE","NOVY","OCEAN","OCEANIC","ORANIER","ORINIER","PELGRIM","POLAR","PREMIERPLAN","PRESTICOOK","PRIMA","PROGRESS","PROLINE","RADIOLA","RIVIERA ET BAR","ROSIERES","SAMAC","SAMANA","SAMET","SAMSUNG","SANGIORGIO","SAUTER","SCANDOMESTIC","SCHNEIDER","SCHOLTES","SELECLINE","SHARP","SIEMENS","SIGNATURE","SILTAL","SMEG","SOGELUX","SURFLINE","TECHNICAL","TECHWOOD","TECNOLEC","TEFAL","TEGRAN","TEKA","TERIM","THERMOR","THOMSON","TRIOMPH","TRISTAR","UNICLINE","URANIA","VALBERG","VEDETTE","VIVA","WALTHAM","WESTLINE","WESTWOOD","WHIRLPOOL","WHITE-WESTINGHOUSE","WINDSOR","YARD","ZANKER","ZANUSSI","ZEROWATT"],"symptoms":["Les touches du clavier ne fonctionne plus","Elle ne s\'allume plus","Elle fait des bruits étranges","Elle ne chauffe pas assez","Elle ne chauffe pas du tout"]},{"id":11,"name":"Plaque de cuisson électrique","brand":["Autres marques","2I MARCHI","AEG","AIRLUX","ALTUS","ARCELIK","ARISTON","ARISTON HOTPOINT","ARTHUR MARTIN","ARTHUR MARTIN ELECTROLUX","ASKO","ASPES","ATLANTIC","AVEA","AYA","BALAY","BAUCKNECHT","BAUKNECHT","BAUMATIC","BEHA","BEKO","BELDEKO","BERNOLLIN","BLANCO","BLAUPUNKT","BLOMBERG","BLUESKY","BOSCH","BRANDT","BRASTEMP","BRICO DEPOT","BSK","BUTLER","CALIFORNIA","CANDY","CAPLE","CASTORAMA","CDA","COBAL","COCEF","COJER","CONSTRUCTA","CONTINENTAL EDISON","COOKTOP","CRAMER","CREDA","CRYSTAL","CURTISS","CYLINDA","DAV","DE DIETRICH","DELONGHI","DEVILLE","DOMAN","EDESA","ELECTROLUX","ELEKTRA-BREGENZ","ELICA","ESCO","ESSENTIEL B","ETNA","EVERTON","FAGOR","FALCON","FALMEC","FAR","FAURE","FINLUX","FORTEX","FOSTER","FRANKE","FRIONOR","FROSTAR","FUNCTIONICA","FUNIX","GAGGENAU","GASFIRE","GENERISS","GLEM","GORENJE","GRUNDIG","HAIER","HARROW","HDC.LINK","HELKAMA","HIGH ONE","HIGHOME","HIGHONE","HOOVER","HUDSON","IBERNA","IGNIS","IKEA","IKEA WHIRLPOOL","INDESIT","JETGAZ","JPF","JUNKER","JUNO","KELVINATOR","KITCHENAID","KLEENMAID","KONTACT","LADEN","LEISURE","LEONARD","LINETECH","LISTO","MASTERCOOK","MATTHIS","MAYTAG","MIELE","MOBALPA","MONDIAL","NEFF","NEWLINE","NOVY","OCEAN","OCEANIC","ORANIER","ORINIER","PELGRIM","POLAR","PREMIERPLAN","PRESTICOOK","PRIMA","PROGRESS","PROLINE","RADIOLA","RIVIERA ET BAR","ROSIERES","SAMAC","SAMANA","SAMET","SAMSUNG","SANGIORGIO","SAUTER","SCANDOMESTIC","SCHNEIDER","SCHOLTES","SELECLINE","SHARP","SIEMENS","SIGNATURE","SILTAL","SMEG","SOGELUX","SURFLINE","TECHNICAL","TECHWOOD","TECNOLEC","TEFAL","TEGRAN","TEKA","TERIM","THERMOR","THOMSON","TRIOMPH","TRISTAR","UNICLINE","URANIA","VALBERG","VEDETTE","VIVA","WALTHAM","WESTLINE","WESTWOOD","WHIRLPOOL","WHITE-WESTINGHOUSE","WINDSOR","YARD","ZANKER","ZANUSSI","ZEROWATT"],"symptoms":["Elle clignote","Elle affiche un code","Elle fait disjoncter","Elle ne fonctionne plus","La plaque est tachée ou fissurée"]},{"id":12,"name":"Plaque de cuisson gaz","brand":["Autres marques","2I MARCHI","AEG","AIRLUX","ALTUS","ARCELIK","ARISTON","ARISTON HOTPOINT","ARTHUR MARTIN","ARTHUR MARTIN ELECTROLUX","ASKO","ASPES","ATLANTIC","AVEA","AYA","BALAY","BAUCKNECHT","BAUKNECHT","BAUMATIC","BEHA","BEKO","BELDEKO","BERNOLLIN","BLANCO","BLAUPUNKT","BLOMBERG","BLUESKY","BOSCH","BRANDT","BRASTEMP","BRICO DEPOT","BSK","BUTLER","CALIFORNIA","CANDY","CAPLE","CASTORAMA","CDA","COBAL","COCEF","COJER","CONSTRUCTA","CONTINENTAL EDISON","COOKTOP","CRAMER","CREDA","CRYSTAL","CURTISS","CYLINDA","DAV","DE DIETRICH","DELONGHI","DEVILLE","DOMAN","EDESA","ELECTROLUX","ELEKTRA-BREGENZ","ELICA","ESCO","ESSENTIEL B","ETNA","EVERTON","FAGOR","FALCON","FALMEC","FAR","FAURE","FINLUX","FORTEX","FOSTER","FRANKE","FRIONOR","FROSTAR","FUNCTIONICA","FUNIX","GAGGENAU","GASFIRE","GENERISS","GLEM","GORENJE","GRUNDIG","HAIER","HARROW","HDC.LINK","HELKAMA","HIGH ONE","HIGHOME","HIGHONE","HOOVER","HUDSON","IBERNA","IGNIS","IKEA","IKEA WHIRLPOOL","INDESIT","JETGAZ","JPF","JUNKER","JUNO","KELVINATOR","KITCHENAID","KLEENMAID","KONTACT","LADEN","LEISURE","LEONARD","LINETECH","LISTO","MASTERCOOK","MATTHIS","MAYTAG","MIELE","MOBALPA","MONDIAL","NEFF","NEWLINE","NOVY","OCEAN","OCEANIC","ORANIER","ORINIER","PELGRIM","POLAR","PREMIERPLAN","PRESTICOOK","PRIMA","PROGRESS","PROLINE","RADIOLA","RIVIERA ET BAR","ROSIERES","SAMAC","SAMANA","SAMET","SAMSUNG","SANGIORGIO","SAUTER","SCANDOMESTIC","SCHNEIDER","SCHOLTES","SELECLINE","SHARP","SIEMENS","SIGNATURE","SILTAL","SMEG","SOGELUX","SURFLINE","TECHNICAL","TECHWOOD","TECNOLEC","TEFAL","TEGRAN","TEKA","TERIM","THERMOR","THOMSON","TRIOMPH","TRISTAR","UNICLINE","URANIA","VALBERG","VEDETTE","VIVA","WALTHAM","WESTLINE","WESTWOOD","WHIRLPOOL","WHITE-WESTINGHOUSE","WINDSOR","YARD","ZANKER","ZANUSSI","ZEROWATT"],"symptoms":["L\'allumage ne fonctionne plus","Les flammes ne sont pas belles","Les flammes noircissent les poêles","La flamme s\'éteint","La flamme brûle mal"]},{"id":13,"name":"Sèche-linge","brand":["Autres marques","2I MARCHI","AEG","AIRPORT","ALTUS","AMICA","ARCTIC","ARDO","ARISTON HOTPOINT","ARTHUR MARTIN","ARTHUR MARTIN ELECTROLUX","ARTIC","ASEA SKANDIA","ASKO","ASPES","ASTERIE","AYA","BALAY","BAUCKNECHT","BAUKNECHT","BEKO","BELLAVITA","BLOMBERG","BLUESKY","BLUEWIND","BOREAL","BOSCH","BRANDT","BRU","BSK","CALEX","CALIFORNIA","CANDY","COLDIS","COMFEE","CONCORDE","CONSTRUCTA","CONTINENTAL EDISON","CREDA","CRYSTAL","CURLING","CURTISS","DAEWOO","DE DIETRICH","DOMAN","DOMEOS","EDESA","EDESSA","ELECTROLUX","ELEKTRA-BREGENZ","ESSENTIEL B","EVERGLADES","EZANKER","FAGOR","FAGPR","FALDA","FAR","FAURE","FAVORIT","FRANCIA","FRANGER","FRIAC","FRIGEAVIA","FUNIX","FUTURA","GAGGENAU","GALANZ","GENERISS","GORENJE","GRUNDIG","HAIER","HELKAMA","HIGH ONE","HIGHOME","HIGHONE","HOME","HOOVER","HORN","IBERNA","IGNIS","IKEA WHIRLPOOL","INDESIT","JACKSON","JEKEN","KELVINATOR","KITCHENAID","KNEISSEL","KONTACT","LACO","LADEN","LAZER","LG","LINETECH","LISTO","MANHATTAM","MANHATTAN","MARKLING","MATURA","MAYTAG","MIELE","NEFF","NOGAMATIC","NOMAGATIC","NOVAMATIC","OCEAN","OCEANIC","ORIGANE","OSTEIN","OTSEIN","OXFORD","PHILCO","PRIVILEG","PROLINE","QILIVE","QUELLE","RADIOLA","REX","ROSIERES","SABA","SAIVOD","SAMSUNG","SANGIORGIO","SCHOLTES","SEAWAY","SELECLINE","SHARP","SIBIR","SIDEX","SIEMENS","SINGER","SKANDIA","SMEG","SOGELUX","TECHNICAL","TECNOLEC","TELEFUNKEN","THOMSON","URANIA","V-ZUG","VALBERG","VEDETTE","VESTEL","VIVA","WALTHAM","WESTLINE","WHIRLPOOL","WHITE WESTINGHOUSE","WHITEKNIGHT","ZANKER","ZANUSSI","ZEROWATT","ZOPPAS"],"symptoms":["Il ne sèche plus le linge","Il ne tourne plus","Il ne chauffe pas","Il est bruyant","Il s\'arrête en cours de cycle"]}]}');
-
 /***/ })
 
 /******/ 	});
@@ -28115,13 +27387,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App */ "./src/App.js");
-/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.css */ "./src/index.css");
 
 const {
   Component,
   render
 } = wp.element;
-
 
 
 class Index extends Component {

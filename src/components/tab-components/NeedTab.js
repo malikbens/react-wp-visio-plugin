@@ -1,5 +1,6 @@
 const { Component, render } = wp.element;
-import { Typography, Button, Container } from "@mui/material";
+import Piece from "./need-components/Piece";
+import { Typography, Button, Box, Grid, ToggleButton } from "@mui/material";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 
@@ -17,22 +18,66 @@ export default class DeviceTab extends Component {
   render() {
 
     return (
-      <Container>
+      <Box sx={{ width: '730px' }}>
         <Typography
           variant="h1"
           color="text"
           align="left"
         >
-        Décrivez ce dont vous avez besoin
+          Décrivez ce dont vous avez besoin
         </Typography>
-        
-        <Button  onClick={this.back}  >
+
+        <Grid container >
+          <Grid item >
+            <ToggleButton 
+              onChange={this.props.handleChange('symptom')}
+              value="Je cherche la panne de mon appareil"
+              fullWidth="true"
+            >
+              Je cherche la panne de mon appareil
+            </ToggleButton>
+          </Grid>
+          <Grid item >
+            <ToggleButton 
+              onChange={this.props.handleChange('symptom')}
+              value="J'ai besoin d'une confirmation de diagnostique"
+              fullWidth="true"
+            >
+              J'ai besoin d'une confirmation de diagnostique
+            </ToggleButton>
+          </Grid>
+          <Grid item >
+            <ToggleButton 
+              onChange={this.props.handleChange('symptom')}
+              value="J'ai quelques questions techniques concernat mon appareil"
+              fullWidth="true"
+            >
+              J'ai quelques questions techniques concernat mon appareil
+            </ToggleButton>
+          </Grid>
+          <Grid item >
+            <ToggleButton 
+              onChange={this.props.handleChange('symptom')}
+              value="J'ai besoin d'aide pour remplacer ma pièce"
+              fullWidth="true"
+            >
+              J'ai besoin d'aide pour remplacer ma pièce
+            </ToggleButton>
+          </Grid>
+        </Grid>
+
+        <Piece 
+          handleChange={this.props.handleChange}
+          values={this.props.values}
+        />
+
+        <Button onClick={this.back}  >
           Retour
         </Button>
-        <Button variant="contained" onClick={this.continue} endIcon={<ArrowForwardIcon/>}  >
+        <Button variant="contained" onClick={this.continue} endIcon={<ArrowForwardIcon />}  >
           Continuer
         </Button>
-      </Container>
+      </Box>
     );
   }
 }

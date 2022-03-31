@@ -1,13 +1,19 @@
 import React, { Component } from 'react'
 import { Box } from '@mui/system'
+import { Typography } from '@mui/material'
 
 export class SideBar extends Component {
   render() {
-    console.log(this.props)
     return (
-     <Box>
-          SideBar
-     </Box>
+      <Box>
+        <Typography
+          variant="h2"
+          color="primary"
+          align="center"
+        >
+          Récapitulatif
+        </Typography>
+      </Box>
     )
   }
 }

@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material"
-import devices from '/data/devices.json'
 
 const SelectDevice = (props) => {
 
@@ -13,7 +12,7 @@ const SelectDevice = (props) => {
     }, [])
 
     return (
-        <FormControl sx={{ minWidth: 120, margin: '10px 10px 10px 0px' }}>
+        <FormControl sx={{ minWidth: 130, margin: '10px 10px 10px 0px' }}>
             <InputLabel id="select-label">Appareil</InputLabel>
             <Select
                 value={props.values.device}

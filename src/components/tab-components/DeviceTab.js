@@ -13,12 +13,12 @@ export default class DeviceTab extends Component {
   
   render() {
     return (
-      <Box sx={{ width: '750px' }}>
+      <Box sx={{ width: '730px' }}>
         <Typography
           variant="h1"
           color="text"
           align="left"
-          mb={1}
+          mb={3}
         >
           1. Aidez le technicien a comprendre votre problème
         </Typography>
