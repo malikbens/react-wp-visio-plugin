@@ -34,27 +34,23 @@ export default class DeviceTab extends Component {
         </Typography>
 
         <Box >
-
-          {/* <Test 
+          <SelectDevice
             handleChange={this.props.handleChange}
             values={this.props.values}
-            fetchData={this.props.fetchData}
-          />  */}
-          <SelectDevice
+            fetchDevice={this.props.fetchDevice}
+          />
+          <SelectBrand
             handleChange={this.props.handleChange}
             values={this.props.values}
             fetchData={this.props.fetchData}
           />
-          {/* <SelectBrand
+          <SelectSymptom 
             handleChange={this.props.handleChange}
             values={this.props.values}
-          /> */}
-          {/* <SelectSymptom 
-            handleChange={this.props.handleChange}
-            values={this.props.values}
-          /> */}
+          />
         </Box>
         <br></br>
+
         <Box sx={{display: 'flex', justifyContent:'flex-end'}}>
           <Button variant="contained" onClick={this.continuer} endIcon={<ArrowForwardIcon/>} >
             Continuer

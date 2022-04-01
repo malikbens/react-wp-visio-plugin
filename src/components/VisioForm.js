@@ -18,18 +18,30 @@ export class VisioForm extends Component {
         deviceAge:'',
         access:'',
         level:'',
-        tools:[],
+        tools:'',
         devices:[],
+        singleDatas:'',
     }
 
-    fetchData = () => {
-        const { devices } = this.state
+    fetchDevice = () => {
         fetch('http://localhost:3000/devices')
             .then(res => res.json())
             .then(
                 (result) => {
                     this.setState({
                         devices: result
+                    })
+                }
+            )    
+    }
+
+    fetchData = () => {
+        fetch('http://localhost:3000/devices?name=' + this.state.device)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        singleDatas: result 
                     })
                 }
             )    
@@ -55,8 +67,8 @@ export class VisioForm extends Component {
 
     render() {
         const { step } = this.state;
-        const { device, brand, model, symptom, need, piece, prbDesc, deviceAge, access, level, tools, devices } = this.state ;
-        const values = {device, brand,model, symptom, need, piece, prbDesc, deviceAge, access, level, tools, devices };
+        const { device, brand, model, symptom, need, piece, prbDesc, deviceAge, access, level, tools, devices, singleDatas } = this.state ;
+        const values = {device, brand,model, symptom, need, piece, prbDesc, deviceAge, access, level, tools, devices, singleDatas };
 
         switch (step) {
             case 1:
@@ -65,6 +77,7 @@ export class VisioForm extends Component {
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
                         values={values}
+                        fetchDevice={this.fetchDevice}
                         fetchData={this.fetchData}
                     />
                 );

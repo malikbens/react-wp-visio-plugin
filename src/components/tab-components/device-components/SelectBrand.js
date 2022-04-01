@@ -1,25 +1,16 @@
-import { FormControl, InputLabel, Select, MenuItem, Box, Typography, RadioGroup, Grid, ToggleButton, TextField, ToggleButtonGroup } from "@mui/material"
-import { useState, useEffect, useCallback } from 'react'
+import { FormControl, InputLabel, Select, MenuItem, TextField } from "@mui/material"
+import { useEffect } from 'react'
 
 
 function SelectBrand(props) {
-
-    const [brand, setBrand] = useState([])
-    const [symptoms, setSymptom] = useState([])
-
-    const fetchData = useCallback(async () => {
-        const res = await fetch('http://localhost:3000/devices?name=' + props.values.device)
-        const data = await res.json();
-
-        setSymptom(data[0].symptoms)
-        setBrand(data[0].brand)
-    }, [props.values.device])
-
-    useEffect(() => {
-        fetchData()
-    }, [fetchData])
-
     if (props.values.device != "") {
+        useEffect(() => {
+            props.fetchData();
+        }, [])
+    }
+
+    if (props.values.singleDatas != "") {
+        const devices = props.values.singleDatas
         return (
             <>
                 <FormControl sx={{ width: 160, margin: '10px 10px 10px 0px' }}>
@@ -31,21 +22,24 @@ function SelectBrand(props) {
                         label="Appareil"
                         onChange={props.handleChange('brand')}
                     >
-                        {brand.map(device => (
-                            <MenuItem key={device.id} value={device}>{device}</MenuItem>
+                        {devices.map(device => (
+                            device.brand.map(brand => (
+                                <MenuItem key={brand.id} value={brand} >{brand}</MenuItem>
+                            ))
                         ))}
                     </Select>
+
                 </FormControl>
                 <TextField
                     defaultValue={props.values.model}
                     onChange={props.handleChange('model')}
                     label="Modèle"
-                    sx={{width: 150 , margin: '10px 10px 10px 0px' }}
+                    sx={{ width: 150, margin: '10px 10px 10px 0px' }}
                 />
             </>
         )
-
     }
+
     return <></>
 }
 

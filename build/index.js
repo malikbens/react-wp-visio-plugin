@@ -21898,17 +21898,23 @@ class VisioForm extends Component {
       deviceAge: '',
       access: '',
       level: '',
-      tools: [],
-      devices: []
+      tools: '',
+      devices: [],
+      singleDatas: ''
     });
 
-    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "fetchData", () => {
-      const {
-        devices
-      } = this.state;
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "fetchDevice", () => {
       fetch('http://localhost:3000/devices').then(res => res.json()).then(result => {
         this.setState({
           devices: result
+        });
+      });
+    });
+
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "fetchData", () => {
+      fetch('http://localhost:3000/devices?name=' + this.state.device).then(res => res.json()).then(result => {
+        this.setState({
+          singleDatas: result
         });
       });
     });
@@ -21954,7 +21960,8 @@ class VisioForm extends Component {
       access,
       level,
       tools,
-      devices
+      devices,
+      singleDatas
     } = this.state;
     const values = {
       device,
@@ -21968,7 +21975,8 @@ class VisioForm extends Component {
       access,
       level,
       tools,
-      devices
+      devices,
+      singleDatas
     };
 
     switch (step) {
@@ -21977,6 +21985,7 @@ class VisioForm extends Component {
           nextStep: this.nextStep,
           handleChange: this.handleChange,
           values: values,
+          fetchDevice: this.fetchDevice,
           fetchData: this.fetchData
         });
 
@@ -22036,6 +22045,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _device_components_SelectBrand__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./device-components/SelectBrand */ "./src/components/tab-components/device-components/SelectBrand.js");
 /* harmony import */ var _device_components_SelectSymptom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./device-components/SelectSymptom */ "./src/components/tab-components/device-components/SelectSymptom.js");
 /* harmony import */ var _device_components_test__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./device-components/test */ "./src/components/tab-components/device-components/test.js");
+/* harmony import */ var _device_components_test__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_device_components_test__WEBPACK_IMPORTED_MODULE_5__);
 
 
 const {
@@ -22073,7 +22083,14 @@ class DeviceTab extends Component {
     }, "Choissisez votre appareil a r\xE9parer"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_device_components_SelectDevice__WEBPACK_IMPORTED_MODULE_2__["default"], {
       handleChange: this.props.handleChange,
       values: this.props.values,
+      fetchDevice: this.props.fetchDevice
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_device_components_SelectBrand__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      handleChange: this.props.handleChange,
+      values: this.props.values,
       fetchData: this.props.fetchData
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_device_components_SelectSymptom__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      handleChange: this.props.handleChange,
+      values: this.props.values
     })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("br", null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
       sx: {
         display: 'flex',
@@ -22330,19 +22347,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function SelectBrand(props) {
-  const [brand, setBrand] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
-  const [symptoms, setSymptom] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
-  const fetchData = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)(async () => {
-    const res = await fetch('http://localhost:3000/devices?name=' + props.values.device);
-    const data = await res.json();
-    setSymptom(data[0].symptoms);
-    setBrand(data[0].brand);
-  }, [props.values.device]);
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
-    fetchData();
-  }, [fetchData]);
-
   if (props.values.device != "") {
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+      props.fetchData();
+    }, []);
+  }
+
+  if (props.values.singleDatas != "") {
+    const devices = props.values.singleDatas;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], {
       sx: {
         width: 160,
@@ -22356,10 +22368,10 @@ function SelectBrand(props) {
       id: "demo-simple-select",
       label: "Appareil",
       onChange: props.handleChange('brand')
-    }, brand.map(device => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      key: device.id,
-      value: device
-    }, device)))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    }, devices.map(device => device.brand.map(brand => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      key: brand.id,
+      value: brand
+    }, brand))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
       defaultValue: props.values.model,
       onChange: props.handleChange('model'),
       label: "Mod\xE8le",
@@ -22399,10 +22411,9 @@ __webpack_require__.r(__webpack_exports__);
 
 const SelectDevice = props => {
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
-    props.fetchData();
+    props.fetchDevice();
   }, []);
   const devices = props.values.devices;
-  console.log(props);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], {
     sx: {
       minWidth: 130,
@@ -22447,13 +22458,14 @@ __webpack_require__.r(__webpack_exports__);
 
 function SelectSymtom(props) {
   if (props.values.brand != "") {
+    const devices = props.values.singleDatas;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_1__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], {
       variant: "h2",
       color: "primary",
       align: "left"
     }, "Les symptomes de panne"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
       container: true
-    }, symptoms.map(symptom => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, devices.map(device => device.symptoms.map(symptom => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
       item: true,
       xs: 12,
       md: 6,
@@ -22466,9 +22478,9 @@ function SelectSymtom(props) {
         width: 300,
         justifyContent: 'flex-start'
       },
-      onChange: props.handleChange('symptom'),
+      key: symptom.id,
       value: symptom
-    }, symptom))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, symptom)))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
       item: true,
       xs: 12,
       md: 6,
@@ -22496,48 +22508,9 @@ function SelectSymtom(props) {
 /*!*****************************************************************!*\
   !*** ./src/components/tab-components/device-components/test.js ***!
   \*****************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/FormControl/FormControl.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/InputLabel/InputLabel.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Select/Select.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/MenuItem/MenuItem.js");
+/***/ (function() {
 
 
-
-
-function test(props) {
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
-    props.fetchData();
-  }, []);
-  const devices = props.values.devices;
-  console.log(props);
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    sx: {
-      minWidth: 130,
-      margin: '10px 10px 10px 0px'
-    }
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    id: "select-label"
-  }, "Appareil"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    value: props.values.device,
-    labelId: "demo-simple-select-label",
-    id: "demo-simple-select",
-    label: "Appareil",
-    onChange: props.handleChange('device')
-  }, devices.map(device => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    key: device.id,
-    value: device.name
-  }, device.name))));
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (test);
 
 /***/ }),
 

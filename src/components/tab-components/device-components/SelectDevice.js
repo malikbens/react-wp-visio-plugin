@@ -1,15 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material"
 
 const SelectDevice = (props) => {
 
     useEffect(() => {
-        props.fetchData();
+        props.fetchDevice();
     }, [])
 
     const devices = props.values.devices
-    console.log(props)
-
     return (
         <FormControl sx={{ minWidth: 130, margin: '10px 10px 10px 0px' }}>
             <InputLabel id="select-label">Appareil</InputLabel>
