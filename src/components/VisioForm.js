@@ -3,7 +3,7 @@ import DeviceTab from "./tab-components/DeviceTab";
 import InfoTab from './tab-components/InfoTab';
 import NeedTab from './tab-components/NeedTab';
 import ProblemTab from './tab-components/ProblemTab'
-import Test from "./tab-components/test";
+
 
 export class VisioForm extends Component {
     state = {
@@ -19,6 +19,20 @@ export class VisioForm extends Component {
         access:'',
         level:'',
         tools:[],
+        devices:[],
+    }
+
+    fetchData = () => {
+        const { devices } = this.state
+        fetch('http://localhost:3000/devices')
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        devices: result
+                    })
+                }
+            )    
     }
 
     nextStep = () => {
@@ -41,8 +55,8 @@ export class VisioForm extends Component {
 
     render() {
         const { step } = this.state;
-        const { device, brand, model, symptom, need, piece, prbDesc, deviceAge, access, level, tools, } = this.state ;
-        const values = {device, brand,model, symptom, need, piece, prbDesc, deviceAge, access, level, tools, };
+        const { device, brand, model, symptom, need, piece, prbDesc, deviceAge, access, level, tools, devices } = this.state ;
+        const values = {device, brand,model, symptom, need, piece, prbDesc, deviceAge, access, level, tools, devices };
 
         switch (step) {
             case 1:
@@ -51,6 +65,7 @@ export class VisioForm extends Component {
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
                         values={values}
+                        fetchData={this.fetchData}
                     />
                 );
             case 2:
