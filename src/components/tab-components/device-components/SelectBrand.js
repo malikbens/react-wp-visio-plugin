@@ -1,16 +1,17 @@
 import { FormControl, InputLabel, Select, MenuItem, TextField } from "@mui/material"
-import { useEffect } from 'react'
-
+import React, { useState, useEffect } from 'react'
+import Devices from '/data/devices.json'
 
 function SelectBrand(props) {
+
     if (props.values.device != "") {
         useEffect(() => {
-            props.fetchData();
+            props.fetchData()
         }, [])
     }
 
-    if (props.values.singleDatas != "") {
-        const devices = props.values.singleDatas
+    if (props.values.datas != "") {
+        const brands = props.values.datas.brand
         return (
             <>
                 <FormControl sx={{ width: 160, margin: '10px 10px 10px 0px' }}>
@@ -22,11 +23,9 @@ function SelectBrand(props) {
                         label="Appareil"
                         onChange={props.handleChange('brand')}
                     >
-                        {devices.map(device => (
-                            device.brand.map(brand => (
-                                <MenuItem key={brand.id} value={brand} >{brand}</MenuItem>
-                            ))
-                        ))}
+                        {brands.map(brand => 
+                            <MenuItem key={brand.id} value={brand}>{brand}</MenuItem>
+                        )}
                     </Select>
 
                 </FormControl>
@@ -39,8 +38,6 @@ function SelectBrand(props) {
             </>
         )
     }
-
     return <></>
 }
-
-export default SelectBrand
+export default SelectBrand 

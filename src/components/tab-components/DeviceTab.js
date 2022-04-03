@@ -4,7 +4,7 @@ import SelectDevice from './device-components/SelectDevice'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import SelectBrand from "./device-components/SelectBrand"
 import SelectSymptom from "./device-components/SelectSymptom"
-import Test from "./device-components/test"
+import Test from '/src/components/tab-components/test.js'
 
 
 export default class DeviceTab extends Component {
@@ -20,7 +20,7 @@ export default class DeviceTab extends Component {
           variant="h1"
           color="text"
           align="left"
-          
+
         >
           1. Aidez le technicien a comprendre votre problème
         </Typography>
@@ -34,11 +34,15 @@ export default class DeviceTab extends Component {
         </Typography>
 
         <Box >
+
           <SelectDevice
             handleChange={this.props.handleChange}
             values={this.props.values}
-            fetchDevice={this.props.fetchDevice}
           />
+          {/* <Test
+            fetchData={this.props.fetchData}
+            handleChange={this.props.handleChange}
+            values={this.props.values} /> */}
           <SelectBrand
             handleChange={this.props.handleChange}
             values={this.props.values}
@@ -51,8 +55,8 @@ export default class DeviceTab extends Component {
         </Box>
         <br></br>
 
-        <Box sx={{display: 'flex', justifyContent:'flex-end'}}>
-          <Button variant="contained" onClick={this.continuer} endIcon={<ArrowForwardIcon/>} >
+        <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <Button variant="contained" onClick={this.continuer} endIcon={<ArrowForwardIcon />} >
             Continuer
           </Button>
         </Box>

@@ -21872,12 +21872,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tab_components_InfoTab__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tab-components/InfoTab */ "./src/components/tab-components/InfoTab.js");
 /* harmony import */ var _tab_components_NeedTab__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./tab-components/NeedTab */ "./src/components/tab-components/NeedTab.js");
 /* harmony import */ var _tab_components_ProblemTab__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./tab-components/ProblemTab */ "./src/components/tab-components/ProblemTab.js");
+/* harmony import */ var _data_devices_json__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../data/devices.json */ "./data/devices.json");
 
 
 const {
   Component,
   render
 } = wp.element;
+
 
 
 
@@ -21899,23 +21901,13 @@ class VisioForm extends Component {
       access: '',
       level: '',
       tools: '',
-      devices: [],
-      singleDatas: ''
-    });
-
-    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "fetchDevice", () => {
-      fetch('http://localhost:3000/devices').then(res => res.json()).then(result => {
-        this.setState({
-          devices: result
-        });
-      });
+      datas: []
     });
 
     (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "fetchData", () => {
-      fetch('http://localhost:3000/devices?name=' + this.state.device).then(res => res.json()).then(result => {
-        this.setState({
-          singleDatas: result
-        });
+      const test = _data_devices_json__WEBPACK_IMPORTED_MODULE_6__.devices.find(o => o.name === this.state.device);
+      this.setState({
+        datas: test
       });
     });
 
@@ -21960,8 +21952,7 @@ class VisioForm extends Component {
       access,
       level,
       tools,
-      devices,
-      singleDatas
+      datas
     } = this.state;
     const values = {
       device,
@@ -21975,8 +21966,7 @@ class VisioForm extends Component {
       access,
       level,
       tools,
-      devices,
-      singleDatas
+      datas
     };
 
     switch (step) {
@@ -21985,7 +21975,6 @@ class VisioForm extends Component {
           nextStep: this.nextStep,
           handleChange: this.handleChange,
           values: values,
-          fetchDevice: this.fetchDevice,
           fetchData: this.fetchData
         });
 
@@ -22044,8 +22033,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/icons-material/ArrowForward */ "./node_modules/@mui/icons-material/ArrowForward.js");
 /* harmony import */ var _device_components_SelectBrand__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./device-components/SelectBrand */ "./src/components/tab-components/device-components/SelectBrand.js");
 /* harmony import */ var _device_components_SelectSymptom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./device-components/SelectSymptom */ "./src/components/tab-components/device-components/SelectSymptom.js");
-/* harmony import */ var _device_components_test__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./device-components/test */ "./src/components/tab-components/device-components/test.js");
-/* harmony import */ var _device_components_test__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_device_components_test__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _src_components_tab_components_test_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../src/components/tab-components/test.js */ "./src/components/tab-components/test.js");
 
 
 const {
@@ -22082,8 +22070,7 @@ class DeviceTab extends Component {
       align: "left"
     }, "Choissisez votre appareil a r\xE9parer"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_device_components_SelectDevice__WEBPACK_IMPORTED_MODULE_2__["default"], {
       handleChange: this.props.handleChange,
-      values: this.props.values,
-      fetchDevice: this.props.fetchDevice
+      values: this.props.values
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_device_components_SelectBrand__WEBPACK_IMPORTED_MODULE_3__["default"], {
       handleChange: this.props.handleChange,
       values: this.props.values,
@@ -22335,13 +22322,15 @@ class InfoTab extends Component {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/FormControl/FormControl.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/InputLabel/InputLabel.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Select/Select.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/MenuItem/MenuItem.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/TextField/TextField.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/FormControl/FormControl.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/InputLabel/InputLabel.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Select/Select.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/MenuItem/MenuItem.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/TextField/TextField.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _data_devices_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../data/devices.json */ "./data/devices.json");
+
 
 
 
@@ -22353,25 +22342,25 @@ function SelectBrand(props) {
     }, []);
   }
 
-  if (props.values.singleDatas != "") {
-    const devices = props.values.singleDatas;
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  if (props.values.datas != "") {
+    const brands = props.values.datas.brand;
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
       sx: {
         width: 160,
         margin: '10px 10px 10px 0px'
       }
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
       id: "select-label"
-    }, "Marque"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, "Marque"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
       value: props.values.brand,
       labelId: "demo-simple-select-label",
       id: "demo-simple-select",
       label: "Appareil",
       onChange: props.handleChange('brand')
-    }, devices.map(device => device.brand.map(brand => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    }, brands.map(brand => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
       key: brand.id,
       value: brand
-    }, brand))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    }, brand)))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], {
       defaultValue: props.values.model,
       onChange: props.handleChange('model'),
       label: "Mod\xE8le",
@@ -22399,21 +22388,16 @@ function SelectBrand(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/FormControl/FormControl.js");
 /* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/InputLabel/InputLabel.js");
 /* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Select/Select.js");
 /* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/MenuItem/MenuItem.js");
+/* harmony import */ var _data_devices_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../data/devices.json */ "./data/devices.json");
 
 
 
 
 const SelectDevice = props => {
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
-    props.fetchDevice();
-  }, []);
-  const devices = props.values.devices;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], {
     sx: {
       minWidth: 130,
@@ -22427,7 +22411,7 @@ const SelectDevice = props => {
     id: "demo-simple-select",
     label: "Appareil",
     onChange: props.handleChange('device')
-  }, devices.map(device => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, _data_devices_json__WEBPACK_IMPORTED_MODULE_1__.devices.map(device => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
     key: device.id,
     value: device.name
   }, device.name))));
@@ -22458,14 +22442,14 @@ __webpack_require__.r(__webpack_exports__);
 
 function SelectSymtom(props) {
   if (props.values.brand != "") {
-    const devices = props.values.singleDatas;
+    const symptoms = props.values.datas.symptoms;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_1__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], {
       variant: "h2",
       color: "primary",
       align: "left"
     }, "Les symptomes de panne"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
       container: true
-    }, devices.map(device => device.symptoms.map(symptom => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, symptoms.map(symptom => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
       item: true,
       xs: 12,
       md: 6,
@@ -22479,8 +22463,9 @@ function SelectSymtom(props) {
         justifyContent: 'flex-start'
       },
       key: symptom.id,
-      value: symptom
-    }, symptom)))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      value: symptom,
+      onChange: props.handleChange('symptom')
+    }, symptom))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
       item: true,
       xs: 12,
       md: 6,
@@ -22488,7 +22473,7 @@ function SelectSymtom(props) {
         mb: 2
       }
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
-      defaultValue: props.values.symptoml,
+      defaultValue: props.values.symptom,
       sx: {
         width: 300
       },
@@ -22501,16 +22486,6 @@ function SelectSymtom(props) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (SelectSymtom);
-
-/***/ }),
-
-/***/ "./src/components/tab-components/device-components/test.js":
-/*!*****************************************************************!*\
-  !*** ./src/components/tab-components/device-components/test.js ***!
-  \*****************************************************************/
-/***/ (function() {
-
-
 
 /***/ }),
 
@@ -22618,6 +22593,71 @@ function SelectInput(props) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (SelectInput);
+
+/***/ }),
+
+/***/ "./src/components/tab-components/test.js":
+/*!***********************************************!*\
+  !*** ./src/components/tab-components/test.js ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/FormControl/FormControl.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/InputLabel/InputLabel.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Select/Select.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/TextField/TextField.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _data_devices_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../data/devices.json */ "./data/devices.json");
+
+
+
+
+
+function test(props) {
+  if (props.values.device != "") {
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+      props.fetchData();
+    }, []);
+  }
+
+  if (props.values.datas != "") {
+    const brands = props.values.datas.brand;
+    console.log(brands);
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      sx: {
+        width: 160,
+        margin: '10px 10px 10px 0px'
+      }
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      id: "select-label"
+    }, "Marque"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      value: props.values.brand,
+      labelId: "demo-simple-select-label",
+      id: "demo-simple-select",
+      label: "Appareil",
+      onChange: props.handleChange('brand')
+    }, brands.map(brand => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+      key: brand.id
+    }, brand)))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      defaultValue: props.values.model,
+      onChange: props.handleChange('model'),
+      label: "Mod\xE8le",
+      sx: {
+        width: 150,
+        margin: '10px 10px 10px 0px'
+      }
+    }));
+  }
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (test);
 
 /***/ }),
 
@@ -27414,6 +27454,17 @@ function combine (array, callback) {
 	return array.map(callback).join('')
 }
 
+
+/***/ }),
+
+/***/ "./data/devices.json":
+/*!***************************!*\
+  !*** ./data/devices.json ***!
+  \***************************/
+/***/ (function(module) {
+
+"use strict";
+module.exports = JSON.parse('{"devices":[{"id":0,"name":"Aspirateur","brand":["Autre marque","ACEC","AEG","AFK","AI TEK","AKA","AKIBA","ALASKA","ALFATEC","ALIZE","ALMERIA","ALTEC","ALTIC","AMADIS","AMSTRAD","AQUAVAC","ARC EN CIEL","ARIETE","ASTORIA","ASTRO","ASUKA","AUCHAN","AVANT 2000","AYA","BEKO","BESTRON","BIRUM","BISSEL","BLACK & DECKER","BLACK ET DECKER","BLUESKY","BOMANN","BOOSTY","BOREAL","BOSCH","BRANDT","BROTHERS","BSK","CADILLAC","CALIFORNIA","CALOR","CANDY","CARREFOUR","CATAVANA","CHROMEX","CLATRONIC","CLEANFIX","CONTINENTAL EDISON","CURTISS","DAEWOO","DELONGHI","DELTA SPIRE","DICAFF","DILEM","DINAMO","DIRT DEVIL","DOMENA","DOMEOS","DOMO","DYSON","ECOTONIC","EDER","EIO","ELCOTEC/ETA","ELECTRO DEPOT","ELECTROLUX","ELECTROSTAR","ELEXAVOX","ELSAY","ENTRONIC","ESSENTIEL B","ETA/ELCOTEC","EUREKA","EURO SDV","EUROSTEAM","EWT","EXCELSIOR","EXCLUSIV","EXPERT LINE","EXPRESS","FADI","FAGOR","FAKIR","FAM","FAR","FAURE","FERRARI","FERSEN","FIF","FIRSTLINE","FRANGER","FREULENZ","FRIAC","FUNIX","FUST NOVAMATIC","GF0059","GHIBLI","GIRMI","GISOWATT","GLENAN","GOBLIN","GRACIA","GRUNDIG","HANDICRAFT","HELKINA","HENKEL","HIGH ONE","HITACHI","HOLLAND ELECTRO","HOME ANGEL","HOOVER","HUGIN","HURRICANE","HYUNDAI","IDELINE","IMETEC","IMPALA","INDESIT","INDOMO","INTERMARCHE","INTERNATIONAL ELECTRONIQUE","IROBOT","ISKRA","ITT","J ET R ELECTRONIC","JATA","JEKEN","KAISUI","KALORIK","KARCHER","KELNER","KING DHOME","KINGCLEAN","KIRBY","KNEISSEL","KREFFT","KRUPS","LADEN","LAVOR WASH","LECLERC","LEROY MERLIN","LERVIA","LG","LISTO","LIV","LIVENTA","MTEC","MABIA","MAC ALLISTER","MAJESTIC","MASTERKRAFFT","MDA","MEDIA","MEDION","MELISSA","MERKURIA","MERRITT","MIELE","MISTRAL","MONDILEC","MONIX","MONTENZ","MORPHY RICHARDS","MORS","MOULINEX","MULTICRAFT","NAVARINI","NEUFUNK","NEVA","NILCO","NILFISK","NOGAMATIC","NOVIDOM","NUMATIC","OCEANIC","OMEGA","PANASONIC","PARIS-RHONE","PARK SIDE","PHILIPS","PLATINIUM","POLTI","PRIMERA","PRINCESS","PRINTEMPS","PRIVILEG","PROGRESS","PROLINE","QUIGG","RHINO","RIVIERA ET BAR","RONDY","ROTARY","ROTEL","ROWENTA","SAMSUNG","SANDRA","SANYO","SCHNEIDER","SELECLINE","SEVERIN","SHARK","SHG","SHOP VAC","SIDEM","SIDEX","SIEMENS","SIGNATURE","SIMAC","SIMPA","SINGER","SIPLEC","SLOBODA","SOLAC","SOLFACYL/SOLFACIL","SOREMAP","SORMA","SOTECO","SPD CLEAN","STECA","SUPPORT PLUS","TASKI","TAURENS","TAURUS","TEAM","TECHNIC ELEM","TECHNOSTAR","TECHWOOD","TEFAL","TEKVIS","TEMPO","TENANT","THERMOZETTA","THOMAS","THOMSON","TOKIWA","TORNADO","TRIOMPH","TRISA","TRISTAR","UFESA","UNIC LINE","UNIVERSAL","URALUX","URANIA","VAX","VEDETTE","VETRELLA","VOLTA","VORTICE","VORWERK","WESDER","WETROK","WHITE & BROWN","ZANKER","ZANUSSI","ZELMER","ZINATIC"],"symptoms":["Il n\'aspire plus","La brosse rotative ne fonctionne plus","Il ne fonctionne plus","Il sent mauvais ou sent le brûlé","Il fait du bruit"]},{"id":1,"name":"Centrale vapeur","brand":["Autre marque","AEG","ARIETE","ARTHUR MARTIN","ASTORIA","AYA","BEKO","BLACK & DECKER","BLACK ET DECKER","BOSCH","BRAUN","CALOR","DAEWOO","DELONGHI","DIRT DEVIL","DOMENA","ELECTROLUX","ESSENTIEL B","EXCELSIOR","FAGOR","GRUNDIG","HOOVER","KARCHER","KENWOOD","LAURASTAR","LISTO","MATRA / DORO MATRA","MIELE","MOULINEX","PARIS-RHONE","PHILIPS","POLTI","PROLINE","ROWENTA","SIEMENS","SIMAC","STIRELLA","TAFAL","TEFAL","VETRELLA","WPRO"],"symptoms":["Elle ne fait plus de vapeur","Elle fuit","Elle ne chauffe plus","Elle ne fonctionne plus","Le fer ne fonctionne plus"]},{"id":2,"name":"Cuisinière","brand":["Autres marques","2I MARCHI","ACEC","ADVENTYS","AEG","AIRLUX","ALLENZI","ALLIA","ALLIANCE","ALTUS","AMICA","ARCELIK","ARCTIC","ARDEM","ARISTON HOTPOINT","ARTHUR MARTIN","ARTHUR MARTIN ELECTROLUX","ASKO","ASPES","ATAG","ATLANTIC","AVEA","AYA","BALAY","BAUKNECHT","BAUMATIC","BEHA","BEKO","BELLING","BERNSTEIN","BESTRON","BLANCO","BLAUPUNKT","BLOMBERG","BLUESKY","BOMANN","BOMPANI","BOREAL","BOSCH","BRANDT","BRANDY BEST","BRASTEMP","BSK","BURG","BUTLER","CALIFORNIA","CANDY","CANNON","CAPLE","CARREFOUR HOME","CASINO","CATA","CDA","CLAYTON","CLIMADIFF","COBAL","CONSTRUCTA","CONTACT","CONTINENTAL EDISON","COOKTOP","CREDA","CRYSTAL","CUISINA","CUISINE PLUS","CURTISS","CYLINDA","DAEWOO","DAV","DE DIETR","DE DIETRICH","DELONGHI","DEVILLE","DIFFUSION","DIPLOMAT","DOMAN","DOMEOS","DOMINOX","EDESA","EDSON","ELECTROLUX","ELEKTRA-BREGENZ","ELICA","ESCO","ESSENTIEL B","ETNA","EUREKA","EXCELINE","FABER","FAGOR","FALCON","FAR","FAURE","FINLUX","FIRSTLINE","FISCHER AND PAYKEL","FOSTER","FRANKE","FRATELLI ONOFRI","FRIGIDAIRE","FRIONOR","FROSTAR","FUNIX","FUTURA","GAGGENAU","GASFIRE","GERMANIA","GLEM","GORENJE","GRAM","GRUNDIG","HAIER","HARROW","HELKINA","HIGH ONE HIG","HIGHOME","HIGHONE","HISENSE","HITACHI","HOMARK","HOME","HOMER","HOOVER","HORN","HUDSON","HYGENA","IBERNA","IGNIS","IKEA","IKEA ELECTROLUX","INDESIT","JAN KOLBE","JENN-AIR","JETGAZ","JUNKER","JUNO","KELVINATOR","KENWOOD","KINGDHOME","KINGSWOOD","KITCHENAID","KLEENMAID","KONTACT","KONTAKT","LA GERMANIA","LADEN","LAMONA","LE LEISURE","LEISURE","LEONARD","LG","LINETECH","LISTO","LYNX","MAGIC LINE","MANHATTAN","MASTERCOOK","MAYTAG","MERTZ","MIELE","MONDIAL","MOULINEX","NED","NEFF","NESTOR MARTIN","NEWLINE","NILFISK","NOGAMATIC","NOMAGATIC","NOSTRIA","NOVY","OCEAN","OCEANIC","ORANIER","ORIGANE","ORLINE","OXFORD","PANASONIC","PELGRIM","PHILIPS","POLAR","PRIMA","PRIVILEG","PROGRESS","PROLINE","QILIVE","RADIOLA","REX","RIVIERA ET BAR","ROBLIN","ROLLER GRILL","ROSIERES","ROWENTA","SABA","SAMANA","SAMET","SAMSUNG","SANGIORGIO","SAUTER","SCHNEIDER","SCHOLTES","SEB","SELECLINE","SERVIS","SHARP","SIDEX","SIEMENS","SIGNATURE","SILTAL","SINGER","SMEG","SOGELUX","SOMMELIERE","STOVES","SUATER","SUAUTER","SUPERCALOR","SURFLINE","TAURO","TEBA","TECHNICAL","TECHWOO","TECHWOOD","TECHYO","TECNOGAS","TECNOLUX","TEFAL","TEGRAN","TEKA","TELEFUNKEN","TERIM","THERMOR","THOMSON","TIROLIA","TRIOMPH","TUCSON","TURBOAIR","TX-THERMEX","UNICLINE","URANIA","VALBER","VALBERG","VEDETTE","VESTEL","VETRELLA","VIVA","WALTHAM","WELCO","WESTINGHOUSE","WESTLINE","WESTPOINT","WESTWOOD","WHIRLPOOL","WHITE-WESTINGHOUSE","WINDSOR","ZANKER","ZANUSSI","ZEROWAT","ZEROWATT","ZOPPAS"],"symptoms":["Elle fait disjoncter","Elle ne chauffe plus","Elle ne fonctionne pas","La porte ferme mal","Elle fait du bruit"]},{"id":3,"name":"Fer à repasser","brand":[".Autres marques","AEG","ARIETE","ARTHUR MARTIN","ASTORIA","AYA","BEKO","BLACK & DECKER","BLACK ET DECKER","BOSCH","BRAUN","CALOR","DAEWOO","DELONGHI","DIRT DEVIL","DOMENA","ELECTROLUX","ESSENTIEL B","EXCELSIOR","FAGOR","GRUNDIG","HOOVER","KARCHER","KENWOOD","LAURASTAR","LISTO","MATRA / DORO MATRA","MIELE","MOULINEX","PARIS-RHONE","PHILIPS","POLTI","PROLINE","ROWENTA","SIEMENS","SIMAC","STIRELLA","TAFAL","TEFAL","VETRELLA","WPRO"],"symptoms":["Il ne fait plus de vapeur","Il fuit","Il ne chauffe plus","Il ne fonctionne plus","Le fer ne fonctionne plus","Autre"]},{"id":4,"name":"Four","brand":["Autres marques","2I MARCHI","ACEC","ADVENTYS","AEG","AIRLUX","ALLENZI","ALLIA","ALLIANCE","ALTUS","AMICA","ARCELIK","ARCTIC","ARDEM","ARISTON HOTPOINT","ARTHUR MARTIN","ARTHUR MARTIN ELECTROLUX","ASKO","ASPES","ATAG","ATLANTIC","AVEA","AYA","BALAY","BAUKNECHT","BAUMATIC","BEHA","BEKO","BELLING","BERNSTEIN","BESTRON","BLANCO","BLAUPUNKT","BLOMBERG","BLUESKY","BOMANN","BOMPANI","BOREAL","BOSCH","BRANDT","BRANDY BEST","BRASTEMP","BSK","BURG","BUTLER","CALIFORNIA","CANDY","CANNON","CAPLE","CARREFOUR HOME","CASINO","CATA","CDA","CLAYTON","CLIMADIFF","COBAL","CONSTRUCTA","CONTACT","CONTINENTAL EDISON","COOKTOP","CREDA","CRYSTAL","CUISINA","CUISINE PLUS","CURTISS","CYLINDA","DAEWOO","DAV","DE DIETR","DE DIETRICH","DELONGHI","DEVILLE","DIFFUSION","DIPLOMAT","DOMAN","DOMEOS","DOMINOX","EDESA","EDSON","ELECTROLUX","ELEKTRA-BREGENZ","ELICA","ESCO","ESSENTIEL B","ETNA","EUREKA","EXCELINE","FABER","FAGOR","FALCON","FAR","FAURE","FINLUX","FIRSTLINE","FISCHER AND PAYKEL","FOSTER","FRANKE","FRATELLI ONOFRI","FRIGIDAIRE","FRIONOR","FROSTAR","FUNIX","FUTURA","GAGGENAU","GASFIRE","GERMANIA","GLEM","GORENJE","GRAM","GRUNDIG","HAIER","HARROW","HELKINA","HIGH ONE HIG","HIGHOME","HIGHONE","HISENSE","HITACHI","HOMARK","HOME","HOMER","HOOVER","HORN","HUDSON","HYGENA","IBERNA","IGNIS","IKEA","IKEA ELECTROLUX","INDESIT","JAN KOLBE","JENN-AIR","JETGAZ","JUNKER","JUNO","KELVINATOR","KENWOOD","KINGDHOME","KINGSWOOD","KITCHENAID","KLEENMAID","KONTACT","KONTAKT","LA GERMANIA","LADEN","LAMONA","LE LEISURE","LEISURE","LEONARD","LG","LINETECH","LISTO","LYNX","MAGIC LINE","MANHATTAN","MASTERCOOK","MAYTAG","MERTZ","MIELE","MONDIAL","MOULINEX","NED","NEFF","NESTOR MARTIN","NEWLINE","NILFISK","NOGAMATIC","NOMAGATIC","NOSTRIA","NOVY","OCEAN","OCEANIC","ORANIER","ORIGANE","ORLINE","OXFORD","PANASONIC","PELGRIM","PHILIPS","POLAR","PRIMA","PRIVILEG","PROGRESS","PROLINE","QILIVE","RADIOLA","REX","RIVIERA ET BAR","ROBLIN","ROLLER GRILL","ROSIERES","ROWENTA","SABA","SAMANA","SAMET","SAMSUNG","SANGIORGIO","SAUTER","SCHNEIDER","SCHOLTES","SEB","SELECLINE","SERVIS","SHARP","SIDEX","SIEMENS","SIGNATURE","SILTAL","SINGER","SMEG","SOGELUX","SOMMELIERE","STOVES","SUATER","SUAUTER","SUPERCALOR","SURFLINE","TAURO","TEBA","TECHNICAL","TECHWOO","TECHWOOD","TECHYO","TECNOGAS","TECNOLUX","TEFAL","TEGRAN","TEKA","TELEFUNKEN","TERIM","THERMOR","THOMSON","TIROLIA","TRIOMPH","TUCSON","TURBOAIR","TX-THERMEX","UNICLINE","URANIA","VALBER","VALBERG","VEDETTE","VESTEL","VETRELLA","VIVA","WALTHAM","WELCO","WESTINGHOUSE","WESTLINE","WESTPOINT","WESTWOOD","WHIRLPOOL","WHITE-WESTINGHOUSE","WINDSOR","ZANKER","ZANUSSI","ZEROWAT","ZEROWATT","ZOPPAS"],"symptoms":["Il fait disjoncter","Il ne chauffe plus","Il ne fonctionne pas","La porte ferme mal","Il fait du bruit"]},{"id":5,"name":"Hotte","brand":["Autres marques","ACEC","AEG","AIRFORCE","AIRLUX","ALGOR","ALNO","AMANA","AMICA","ARCELIK","ARISTON HOTPOINT","ARTHUR MARTIN","ARTHUR MARTIN ELECTROLUX","ASKO","ATAG","AYA","BALAY","BAUKNECHT","BAUMATIC","BEKO","BELLING","BEST","BLAUPUNKT","BLOMBERG","BLUESKY","BOSCH","BOSSMATIC","BRANDT","CALIFORNIA","CANDY","CLIMADIFF","CONSTRUCTA","CONTINENTAL EDISON","CREDA","CRYSTAL","CURTISS","DE DIETRICH","DIFFUSION","EDESA","ELCOLUX","ELECTROLUX","ELEKTRA-BREGENZ","ELICA","ESSENTIEL B","FABER","FABER FRANKE","FABER-CASTELL","FAGOR","FALCON","FALMEC","FAR","FAURE","FIRENZI","FIRSTLINE","FRANCIA","FRANKE","FRATELLI","FUNCTIONICA","GAGGENAU","GERMANIA","GLEM","GLEMGAS","GORENJE","GRUNDIG","HIGH ONE","HOMEKING","HOOVER","HUDSON","HYGENA","IBERNA","IGNIS","IKEA","IKEA ELECTROLUX","IKEA WHIRLPOOL","INDESIT","INTEGRA","JUNKER","JUNO","KEOPS","KITCHENAID","LADEN","LEISURE","LISTO","LYNX","MASTERCOOK","MAYTAG","MIELE","NEFF","NEUTRAL","OCEAN","OCEANIC","PIERRE CARDIN","PITSOS","PRIVILEG","PROGRESS","PROLINE","RADIOLA","ROBLIN","ROSENLEW","ROSIERES","SAMET","SAMSUNG","SANGIORGIO","SAUTER","SCHMIDT","SCHNEIDER","SCHOLTES","SIEMENS","SIGNATURE","SILTAL","SILVERLINE","SMEG","SOGELUX","SPRING RAM","STOVES","TECNOWIND","TEKA","THERMOR","THOMSON","TURBOAIR","UNBRANDED","VALBERG","VIVA","VOGICA","WHIRLPOOL","WPRO","ZANKER","ZANUSSI","ZEROWATT","ZOPPAS"],"symptoms":["Elle ne fonctionne plus","Elle n\'aspire plus","Elle n\'émet plus de lumière","Elle est bruyante","Il y a une fuite d\'eau"]},{"id":6,"name":"Lavante-séchante","brand":["Autres marques","2I MARCHI","ADMIRAL","AEG","AFTRON","AIRLUX","AIRPORT","AKA","ALASKA","ALICA","ALTUS","AMICA","AQUACEANE","ARC EN CIEL","ARCELIK","ARCTIC","ARDEM","ARDO","ARISTON","ARISTON HOTPOINT","ARTHUR MARTIN","ARTHUR MARTIN ELECTOLUX","ARTHUR MARTIN ELECTROLUX","ARTIC","ASEA SKANDIA","ASKO","ASPES","ASTERIE","ATALNTIC","ATLANTIC","AUCHAN","AVANTAGGE","AVEA","AYA","BALAY","BASICLINE","BAUCKNECHT","BAUKNECHT","BAUMATIC","BEKO","BELDEKO","BELLAVITA","BELLING","BESTRON","BFAGOR","BLOMBERG","BLUESKY","BLUEWIND","BOMPANI","BOREAL","BOSCH","BR","BRANDT","BRU","BSK","CADILLAC","CALEX","CALYTON","CANDY","CAPLE","CARMA","CARREFOUR HOME","CDA","CLATRONIC","CLAYTON","COBAL","COLDIS","COLDMATIC","COMFEE","CONCORDE","CONDOR","CONSTRUCTA","CONTACT","CONTINENTAL EDISON","CREDA","CRYSTAL","CURLING","CURTISS","CYLINDA","CYLINFA","CYRSTAL","DAEWO","DAEWOO","DE DIETRICH","DELTA SPIRE","DIGIHOM","DIGIHOME","DOMAN","DOMEOS","EDESA","EDSON","EDZSA","EIO","ELCO","ELECTROLUX","ELEKTRA-BREGENZ","ESSENTIEL B","ETA/ELCOTEC","EUREKA","EXCELINE","FAGOIR","FAGOR","FALDA","FAM","FAR","FARB","FAURE","FAVORIT","FIRGIDAIRE","FIRSTLINE","FORTEX","FRAB","FRANCIA","FRANGER","FRIAC","FRIGEAVIA","FRIGIDAIRE","FRIGOR","FUNIX","FUST NOVAMATIC","FUTURA","GAGGENAU","GALA","GENERAL CORPO-MATIC","GENERAL ELECTRIC","GENERISS","GORENGE","GORENJE","GRUNDIG","HAIER","HAJDU","HANSEATIC","HARROW","HDC.LINK","HEC","HELKAMA","HELKAMA","HELKINA","HIG HONE","HIGH ONE","HIGH ONE HIG","HIGHOME","HIGHON","HIGHONE","HIGHTEC","HIGHTEC","HISENSE","HOLLAND ELECTRO","HOME","HOMEKING","HOOVER","HORN","HYUNDAI","IBERNA","ICEBER","ICEBERG","IGNIS","IKEA","IKEA ELECTROLUX","IKEA WHIRLPOOL","IKEAELECTROLUX","INDESIT","INEXIVE","INUVIK","ISKRA","IT WASH","ITWASH","IXAO YA","JETWA","JETWASH","JINLING","JPC","JUNO","KALORIK","KELVINATOR","KENNY","KENT","KING","KING D HOME","KING D\'HOME","KINGDHO","KINGDHOME","KITCHENAID","KLEENMAID","KNEISSEL","KONKA","KONTACT","KREFFT","KUPPERBUSH","LACO","LADEN","LAMONA","LAZER","LG","LINETECH","LINK","LISTO","LLOYDS","LYNX","M\'TEC","MABE","MANHATTAM","MANHATTAN","MARKLING","MASTERCOOK","MAYTAG","MIDEA","MIELE","MIOSTAR","MONIX","MONTBLANC","MORS","NARDI","NEFF","NEVADA","NEWFIL","NEWPOL","NEWTEC","NOGAMATIC","NORDMENDE","NOVAMATIC","NOVELTY","NOVEX","OCEAN","OCEANIC","OMEGA","ORIGANE","ORLINE","ORMOND","OSTEIN","OTSEIN","OXFORD","PAB","PANASONIC","PARIS-RHONE","PELGRIM","PERFEK","PERFEKT","PHILCO","PHILIPS","PISTO","PITSOS","POLAR","PRIMA","PRINCESS","PRINCETON","PRIVILEG","PROGRESS","PROLINE","PULSAR","QILIVE","QLIVE","QUELLE","RADIOLA","RDSON","RECTILIGN","RECTILIGNE","REGAL","REPRISE CEPEM SERVICE","RESPEKTA","REX","ROSENLEW","ROSIERES","ROTEL","SABA","SABEA","SAIVOD","SAMANA","SAMET","SAMSUNG","SAN GIORGIO","SANCY","SANGIOGIO","SANGIORGIO","SANGIROGIO","SAUTER","SCHAUEN","SCHNEIDER","SCHOLTES","SEAWAY","SEELECT","SELECLINE","SELECTRO","SELELCINE","SERVIS","SETRA","SHARP","SIDEM","SIDEX","SIEMENS","SIGNATURE","SILTAL","SILVERNE","SINGER","SIPLEC","SITAL","SMEG","SOGELUX","SOLAC","SPLENDID","STEINBACH","STELLA","SURFLINE","TATRAMATT","TAURUS","TEAM","TECHNICAL","TECHWOOD","TECNOLEC","TEGRAN","TEKA","TELEFUNKEN","THOMAS","THOMSON","TKFLL4210S","TRIOMPH","TUCSON","TUSCON","TWINS","TWINSTAR","UNIC LINE","UNICLINE","UNIVERSAL","UPO","URANIA","VALBERG","VEDETTE","VESTEL","VIKA","VIVA","VIVAX","VOGICA","WALT","WALTHAM","WALTHMA","WELCO","WELLINGT","WELLINGTON","WESDWOO","WESDWOOD","WESTINGHOUSE","WESTLINE","WESTPOINT","WESTPOINT","WESTWOOD","WETSWOOD","WH","WHIRLPOOL","WHITE WESTINGHOUSE","WHITE-WESTINGHOUSE","WILCOOL","WILSON","WINDSOR","WINIA","XD ENJOY","XIAO YA","XPER","ZANKER","ZANUSSI","ZENITH","ZEROWATT","ZOPPAS"],"symptoms":["Elle ne chauffe plus","Il ne démarre pas","Il fait du bruit","Il fuit","Elle ne sèche plus"]},{"id":7,"name":"Lave-linge","brand":["Autres marques","2I MARCHI","ADMIRAL","AEG","AFTRON","AIRLUX","AIRPORT","AKA","ALASKA","ALICA","ALTUS","AMICA","AQUACEANE","ARC EN CIEL","ARCELIK","ARCTIC","ARDEM","ARDO","ARISTON","ARISTON HOTPOINT","ARTHUR MARTIN","ARTHUR MARTIN ELECTOLUX","ARTHUR MARTIN ELECTROLUX","ARTIC","ASEA SKANDIA","ASKO","ASPES","ASTERIE","ATALNTIC","ATLANTIC","AUCHAN","AVANTAGGE","AVEA","AYA","BALAY","BASICLINE","BAUCKNECHT","BAUKNECHT","BAUMATIC","BEKO","BELDEKO","BELLAVITA","BELLING","BESTRON","BFAGOR","BLOMBERG","BLUESKY","BLUEWIND","BOMPANI","BOREAL","BOSCH","BR","BRANDT","BRU","BSK","CADILLAC","CALEX","CALYTON","CANDY","CAPLE","CARMA","CARREFOUR HOME","CDA","CLATRONIC","CLAYTON","COBAL","COLDIS","COLDMATIC","COMFEE","CONCORDE","CONDOR","CONSTRUCTA","CONTACT","CONTINENTAL EDISON","CREDA","CRYSTAL","CURLING","CURTISS","CYLINDA","CYLINFA","CYRSTAL","DAEWO","DAEWOO","DE DIETRICH","DELTA SPIRE","DIGIHOM","DIGIHOME","DOMAN","DOMEOS","EDESA","EDSON","EDZSA","EIO","ELCO","ELECTROLUX","ELEKTRA-BREGENZ","ESSENTIEL B","ETA/ELCOTEC","EUREKA","EXCELINE","FAGOIR","FAGOR","FALDA","FAM","FAR","FARB","FAURE","FAVORIT","FIRGIDAIRE","FIRSTLINE","FORTEX","FRAB","FRANCIA","FRANGER","FRIAC","FRIGEAVIA","FRIGIDAIRE","FRIGOR","FUNIX","FUST NOVAMATIC","FUTURA","GAGGENAU","GALA","GENERAL CORPO-MATIC","GENERAL ELECTRIC","GENERISS","GORENGE","GORENJE","GRUNDIG","HAIER","HAJDU","HANSEATIC","HARROW","HDC.LINK","HEC","HELKAMA","HELKAMA","HELKINA","HIG HONE","HIGH ONE","HIGH ONE HIG","HIGHOME","HIGHON","HIGHONE","HIGHTEC","HIGHTEC","HISENSE","HOLLAND ELECTRO","HOME","HOMEKING","HOOVER","HORN","HYUNDAI","IBERNA","ICEBER","ICEBERG","IGNIS","IKEA","IKEA ELECTROLUX","IKEA WHIRLPOOL","IKEAELECTROLUX","INDESIT","INEXIVE","INUVIK","ISKRA","IT WASH","ITWASH","IXAO YA","JETWA","JETWASH","JINLING","JPC","JUNO","KALORIK","KELVINATOR","KENNY","KENT","KING","KING D HOME","KING D\'HOME","KINGDHO","KINGDHOME","KITCHENAID","KLEENMAID","KNEISSEL","KONKA","KONTACT","KREFFT","KUPPERBUSH","LACO","LADEN","LAMONA","LAZER","LG","LINETECH","LINK","LISTO","LLOYDS","LYNX","M\'TEC","MABE","MANHATTAM","MANHATTAN","MARKLING","MASTERCOOK","MAYTAG","MIDEA","MIELE","MIOSTAR","MONIX","MONTBLANC","MORS","NARDI","NEFF","NEVADA","NEWFIL","NEWPOL","NEWTEC","NOGAMATIC","NORDMENDE","NOVAMATIC","NOVELTY","NOVEX","OCEAN","OCEANIC","OMEGA","ORIGANE","ORLINE","ORMOND","OSTEIN","OTSEIN","OXFORD","PAB","PANASONIC","PARIS-RHONE","PELGRIM","PERFEK","PERFEKT","PHILCO","PHILIPS","PISTO","PITSOS","POLAR","PRIMA","PRINCESS","PRINCETON","PRIVILEG","PROGRESS","PROLINE","PULSAR","QILIVE","QLIVE","QUELLE","RADIOLA","RDSON","RECTILIGN","RECTILIGNE","REGAL","REPRISE CEPEM SERVICE","RESPEKTA","REX","ROSENLEW","ROSIERES","ROTEL","SABA","SABEA","SAIVOD","SAMANA","SAMET","SAMSUNG","SAN GIORGIO","SANCY","SANGIOGIO","SANGIORGIO","SANGIROGIO","SAUTER","SCHAUEN","SCHNEIDER","SCHOLTES","SEAWAY","SEELECT","SELECLINE","SELECTRO","SELELCINE","SERVIS","SETRA","SHARP","SIDEM","SIDEX","SIEMENS","SIGNATURE","SILTAL","SILVERNE","SINGER","SIPLEC","SITAL","SMEG","SOGELUX","SOLAC","SPLENDID","STEINBACH","STELLA","SURFLINE","TATRAMATT","TAURUS","TEAM","TECHNICAL","TECHWOOD","TECNOLEC","TEGRAN","TEKA","TELEFUNKEN","THOMAS","THOMSON","TKFLL4210S","TRIOMPH","TUCSON","TUSCON","TWINS","TWINSTAR","UNIC LINE","UNICLINE","UNIVERSAL","UPO","URANIA","VALBERG","VEDETTE","VESTEL","VIKA","VIVA","VIVAX","VOGICA","WALT","WALTHAM","WALTHMA","WELCO","WELLINGT","WELLINGTON","WESDWOO","WESDWOOD","WESTINGHOUSE","WESTLINE","WESTPOINT","WESTPOINT","WESTWOOD","WETSWOOD","WH","WHIRLPOOL","WHITE WESTINGHOUSE","WHITE-WESTINGHOUSE","WILCOOL","WILSON","WINDSOR","WINIA","XD ENJOY","XIAO YA","XPER","ZANKER","ZANUSSI","ZENITH","ZEROWATT","ZOPPAS"],"symptoms":["Il n\'essore pas bien","Il ne démarre pas","Il fait du bruit","Il fuit","Le tambour ne tourne pas"]},{"id":8,"name":"Lave-vaisselle","brand":["Autres marques","2I MARCHI","AEG","AFR","AIRLUX","AIRPORT","ALTUS","AMICA","AMICA WRONKI","APELL","APPEL","ARDEM","ARDO","ARISTON HOTPOINT","ARISTONHOTPOINT","ARTHUR MARTIN","ARTHUR MARTIN ELECTROLUX","ASEA SKANDIA","ASKO","ASPES","ATAG","ATLANTIC","AVEA","AYA","BALAY","BAUKNECHT","BAUMATIC","BEKO","BELLING","BERNSTEIN","BLANCO","BLAUPUNKT","BLOMBERG","BLUESKY","BOMANN","BOREAL","BOSCH","BRAND","BRANDT","BRASTEMP","BRU","BSK","BURG","CALIFORNIA","CANDY","CARREFOUR","CARREFOUR HOME","CDA","CHREIBER","CLAYTON","COBAL","COLDIS","CONSTRUCTA","CONTINENTAL EDISON","CREDA","CRYSTAL","CUISINE PLUS","CURTISS","CYLINDA","DAEWOO","DE DIETRICH","DELONGHI","DIPLOMAT","DOMEOS","DOMINOX","DUMONT","EDEDA","EDESA","EDESSA","EDSON","ELECTROLUX","ELEKTRA-BREGENZ","ELICA","ESSENTIEL B","ETNA","EUREKA","EXQUISIT","FAGOR","FAM","FAR","FAURE","FINLUX","FIRSTINE","FIRSTLINE","FISCHER AND PAYKEL","FOSTER","FRANCIA","FRANGER","FRANKE","FRATELLI ONOFRI","FRIAC","FRIGEAVIA","FRIGIDAIRE","FRIONOR","FROSTAR","FUNIX","GAGGENAU","GALANZ","GASFIRE","GENERAL ELECTRIC","GENERISS","GERMANIA","GLEM","GLEMGAS","GORENJE","GRUNDIG","HAIER","HARROW","HELKAMA","HIGH ONE","HIGH ONE HIG","HIGHONE","HIGHONEHIG","HISENSE","HOME","HOOVER","HORN","HYGENA","HYUNDAI","IBERNA","IGNIS","IKEA","IKEA ELECTROLUX","IKEA WHIRLPOOL","INDESIT","INEXIVE","JACKSON","JAN KOLBE","JETWASH","JOHN LEWIS","JPC","JUNKER","JUNO","JUWELL","KARIBA","KELVINATOR","KENMORE","KENNEDY","KING D HOME","KING D\'HOME","KINGDHOME","KITCHENAID","KLEENMAID","KOERTING","KORTING","KUEPPERSBUSCH","LA GERMANIA","LACO","LADEN","LAMONA","LAZER","LEONARD","LG","LINETECH","LINKE","LISTO","MANHATTAN","MARKLING","MASTERCOOK","MAYTAG","MEISTER","MERTZ","MIELE","MOFFAT","MORA","MORS","NARDI","NEFF","NEW WORLD","NOGAMATIC","NOMAGATIC","NOVIDOM","NOVY","OCEAN","OCEANIC","ORANIER","ORIGANE","ORLINE","ORMOND","OXFORD","PAB","PELGRIM","PHILCO","PIERRE CARDIN","PITSOS","POLAR","PRINCETON","PRIVILEG","PROGRESS","PROLINE","QILIVE","QLIVE","RADIOLA","RECTILIGNE","REX","RONDO","ROSENLEW","ROSIERES","SABA","SAIVOD","SAMANA","SAMET","SAMSUNG","SANGIORGIO","SAUTER","SAVEMA","SCANDOMESTIC","SCHAUEN","SCHNEIDER","SCHOLTES","SEELECT","SELECLINE","SELECTRO","SERVIS","SHARP","SIDEX","SIEMENS","SIGNATURE","SINGER","SMEG","SOGELUX","STOVES","SURFLINE","TAURO","TECHNICAL","TECHNIKA","TECHWOOD","TECNIC","TECNOGAS","TECNOLEC","TEKA","TELEFUNKEN","THEOBALDS","THERMADOR","THERMOR","THOMAS","THOMSON","TUCSON","TWINSTAR","UNIC LINE","UNICLINE","UPO","URANIA","VALBERG","VEDETTE","VESTEL","VIVA","WALTHAM","WESTINGHOUSE","WESTLINE","WESTPOINT","WESTWOOD","WHIRLPOOL","WHITE-WESTINGHOUSE","WHITEWASH","WINDSOR","XPER","ZANKER","ZANUSSI","ZELMER","ZEROWATT","ZOPPAS"],"symptoms":["Il ne démarre pas","Il ne chauffe pas","Il ne lave pas bien","Il ne vidange plus","Il fait disjoncter"]},{"id":9,"name":"Nettoyeur Vapeur","brand":[".Autres marques","AEG","ARIETE","ARTHUR MARTIN","ASTORIA","AYA","BEKO","BLACK & DECKER","BLACK ET DECKER","BOSCH","BRAUN","CALOR","DAEWOO","DELONGHI","DIRT DEVIL","DOMENA","ELECTROLUX","ESSENTIEL B","EXCELSIOR","FAGOR","GRUNDIG","HOOVER","KARCHER","KENWOOD","LAURASTAR","LISTO","MATRA / DORO MATRA","MIELE","MOULINEX","PARIS-RHONE","PHILIPS","POLTI","PROLINE","ROWENTA","SIEMENS","SIMAC","STIRELLA","TAFAL","TEFAL","VETRELLA","WPRO"],"symptoms":["Il ne fait plus de vapeur","Il fuit","Il ne chauffe plus","Il ne fonctionne plus","Il fait du bruit","Autre"]},{"id":10,"name":"Plaque de cuisson à induction","brand":["Autres marques","2I MARCHI","AEG","AIRLUX","ALTUS","ARCELIK","ARISTON","ARISTON HOTPOINT","ARTHUR MARTIN","ARTHUR MARTIN ELECTROLUX","ASKO","ASPES","ATLANTIC","AVEA","AYA","BALAY","BAUCKNECHT","BAUKNECHT","BAUMATIC","BEHA","BEKO","BELDEKO","BERNOLLIN","BLANCO","BLAUPUNKT","BLOMBERG","BLUESKY","BOSCH","BRANDT","BRASTEMP","BRICO DEPOT","BSK","BUTLER","CALIFORNIA","CANDY","CAPLE","CASTORAMA","CDA","COBAL","COCEF","COJER","CONSTRUCTA","CONTINENTAL EDISON","COOKTOP","CRAMER","CREDA","CRYSTAL","CURTISS","CYLINDA","DAV","DE DIETRICH","DELONGHI","DEVILLE","DOMAN","EDESA","ELECTROLUX","ELEKTRA-BREGENZ","ELICA","ESCO","ESSENTIEL B","ETNA","EVERTON","FAGOR","FALCON","FALMEC","FAR","FAURE","FINLUX","FORTEX","FOSTER","FRANKE","FRIONOR","FROSTAR","FUNCTIONICA","FUNIX","GAGGENAU","GASFIRE","GENERISS","GLEM","GORENJE","GRUNDIG","HAIER","HARROW","HDC.LINK","HELKAMA","HIGH ONE","HIGHOME","HIGHONE","HOOVER","HUDSON","IBERNA","IGNIS","IKEA","IKEA WHIRLPOOL","INDESIT","JETGAZ","JPF","JUNKER","JUNO","KELVINATOR","KITCHENAID","KLEENMAID","KONTACT","LADEN","LEISURE","LEONARD","LINETECH","LISTO","MASTERCOOK","MATTHIS","MAYTAG","MIELE","MOBALPA","MONDIAL","NEFF","NEWLINE","NOVY","OCEAN","OCEANIC","ORANIER","ORINIER","PELGRIM","POLAR","PREMIERPLAN","PRESTICOOK","PRIMA","PROGRESS","PROLINE","RADIOLA","RIVIERA ET BAR","ROSIERES","SAMAC","SAMANA","SAMET","SAMSUNG","SANGIORGIO","SAUTER","SCANDOMESTIC","SCHNEIDER","SCHOLTES","SELECLINE","SHARP","SIEMENS","SIGNATURE","SILTAL","SMEG","SOGELUX","SURFLINE","TECHNICAL","TECHWOOD","TECNOLEC","TEFAL","TEGRAN","TEKA","TERIM","THERMOR","THOMSON","TRIOMPH","TRISTAR","UNICLINE","URANIA","VALBERG","VEDETTE","VIVA","WALTHAM","WESTLINE","WESTWOOD","WHIRLPOOL","WHITE-WESTINGHOUSE","WINDSOR","YARD","ZANKER","ZANUSSI","ZEROWATT"],"symptoms":["Les touches du clavier ne fonctionne plus","Elle ne s\'allume plus","Elle fait des bruits étranges","Elle ne chauffe pas assez","Elle ne chauffe pas du tout"]},{"id":11,"name":"Plaque de cuisson électrique","brand":["Autres marques","2I MARCHI","AEG","AIRLUX","ALTUS","ARCELIK","ARISTON","ARISTON HOTPOINT","ARTHUR MARTIN","ARTHUR MARTIN ELECTROLUX","ASKO","ASPES","ATLANTIC","AVEA","AYA","BALAY","BAUCKNECHT","BAUKNECHT","BAUMATIC","BEHA","BEKO","BELDEKO","BERNOLLIN","BLANCO","BLAUPUNKT","BLOMBERG","BLUESKY","BOSCH","BRANDT","BRASTEMP","BRICO DEPOT","BSK","BUTLER","CALIFORNIA","CANDY","CAPLE","CASTORAMA","CDA","COBAL","COCEF","COJER","CONSTRUCTA","CONTINENTAL EDISON","COOKTOP","CRAMER","CREDA","CRYSTAL","CURTISS","CYLINDA","DAV","DE DIETRICH","DELONGHI","DEVILLE","DOMAN","EDESA","ELECTROLUX","ELEKTRA-BREGENZ","ELICA","ESCO","ESSENTIEL B","ETNA","EVERTON","FAGOR","FALCON","FALMEC","FAR","FAURE","FINLUX","FORTEX","FOSTER","FRANKE","FRIONOR","FROSTAR","FUNCTIONICA","FUNIX","GAGGENAU","GASFIRE","GENERISS","GLEM","GORENJE","GRUNDIG","HAIER","HARROW","HDC.LINK","HELKAMA","HIGH ONE","HIGHOME","HIGHONE","HOOVER","HUDSON","IBERNA","IGNIS","IKEA","IKEA WHIRLPOOL","INDESIT","JETGAZ","JPF","JUNKER","JUNO","KELVINATOR","KITCHENAID","KLEENMAID","KONTACT","LADEN","LEISURE","LEONARD","LINETECH","LISTO","MASTERCOOK","MATTHIS","MAYTAG","MIELE","MOBALPA","MONDIAL","NEFF","NEWLINE","NOVY","OCEAN","OCEANIC","ORANIER","ORINIER","PELGRIM","POLAR","PREMIERPLAN","PRESTICOOK","PRIMA","PROGRESS","PROLINE","RADIOLA","RIVIERA ET BAR","ROSIERES","SAMAC","SAMANA","SAMET","SAMSUNG","SANGIORGIO","SAUTER","SCANDOMESTIC","SCHNEIDER","SCHOLTES","SELECLINE","SHARP","SIEMENS","SIGNATURE","SILTAL","SMEG","SOGELUX","SURFLINE","TECHNICAL","TECHWOOD","TECNOLEC","TEFAL","TEGRAN","TEKA","TERIM","THERMOR","THOMSON","TRIOMPH","TRISTAR","UNICLINE","URANIA","VALBERG","VEDETTE","VIVA","WALTHAM","WESTLINE","WESTWOOD","WHIRLPOOL","WHITE-WESTINGHOUSE","WINDSOR","YARD","ZANKER","ZANUSSI","ZEROWATT"],"symptoms":["Elle clignote","Elle affiche un code","Elle fait disjoncter","Elle ne fonctionne plus","La plaque est tachée ou fissurée"]},{"id":12,"name":"Plaque de cuisson gaz","brand":["Autres marques","2I MARCHI","AEG","AIRLUX","ALTUS","ARCELIK","ARISTON","ARISTON HOTPOINT","ARTHUR MARTIN","ARTHUR MARTIN ELECTROLUX","ASKO","ASPES","ATLANTIC","AVEA","AYA","BALAY","BAUCKNECHT","BAUKNECHT","BAUMATIC","BEHA","BEKO","BELDEKO","BERNOLLIN","BLANCO","BLAUPUNKT","BLOMBERG","BLUESKY","BOSCH","BRANDT","BRASTEMP","BRICO DEPOT","BSK","BUTLER","CALIFORNIA","CANDY","CAPLE","CASTORAMA","CDA","COBAL","COCEF","COJER","CONSTRUCTA","CONTINENTAL EDISON","COOKTOP","CRAMER","CREDA","CRYSTAL","CURTISS","CYLINDA","DAV","DE DIETRICH","DELONGHI","DEVILLE","DOMAN","EDESA","ELECTROLUX","ELEKTRA-BREGENZ","ELICA","ESCO","ESSENTIEL B","ETNA","EVERTON","FAGOR","FALCON","FALMEC","FAR","FAURE","FINLUX","FORTEX","FOSTER","FRANKE","FRIONOR","FROSTAR","FUNCTIONICA","FUNIX","GAGGENAU","GASFIRE","GENERISS","GLEM","GORENJE","GRUNDIG","HAIER","HARROW","HDC.LINK","HELKAMA","HIGH ONE","HIGHOME","HIGHONE","HOOVER","HUDSON","IBERNA","IGNIS","IKEA","IKEA WHIRLPOOL","INDESIT","JETGAZ","JPF","JUNKER","JUNO","KELVINATOR","KITCHENAID","KLEENMAID","KONTACT","LADEN","LEISURE","LEONARD","LINETECH","LISTO","MASTERCOOK","MATTHIS","MAYTAG","MIELE","MOBALPA","MONDIAL","NEFF","NEWLINE","NOVY","OCEAN","OCEANIC","ORANIER","ORINIER","PELGRIM","POLAR","PREMIERPLAN","PRESTICOOK","PRIMA","PROGRESS","PROLINE","RADIOLA","RIVIERA ET BAR","ROSIERES","SAMAC","SAMANA","SAMET","SAMSUNG","SANGIORGIO","SAUTER","SCANDOMESTIC","SCHNEIDER","SCHOLTES","SELECLINE","SHARP","SIEMENS","SIGNATURE","SILTAL","SMEG","SOGELUX","SURFLINE","TECHNICAL","TECHWOOD","TECNOLEC","TEFAL","TEGRAN","TEKA","TERIM","THERMOR","THOMSON","TRIOMPH","TRISTAR","UNICLINE","URANIA","VALBERG","VEDETTE","VIVA","WALTHAM","WESTLINE","WESTWOOD","WHIRLPOOL","WHITE-WESTINGHOUSE","WINDSOR","YARD","ZANKER","ZANUSSI","ZEROWATT"],"symptoms":["L\'allumage ne fonctionne plus","Les flammes ne sont pas belles","Les flammes noircissent les poêles","La flamme s\'éteint","La flamme brûle mal"]},{"id":13,"name":"Sèche-linge","brand":["Autres marques","2I MARCHI","AEG","AIRPORT","ALTUS","AMICA","ARCTIC","ARDO","ARISTON HOTPOINT","ARTHUR MARTIN","ARTHUR MARTIN ELECTROLUX","ARTIC","ASEA SKANDIA","ASKO","ASPES","ASTERIE","AYA","BALAY","BAUCKNECHT","BAUKNECHT","BEKO","BELLAVITA","BLOMBERG","BLUESKY","BLUEWIND","BOREAL","BOSCH","BRANDT","BRU","BSK","CALEX","CALIFORNIA","CANDY","COLDIS","COMFEE","CONCORDE","CONSTRUCTA","CONTINENTAL EDISON","CREDA","CRYSTAL","CURLING","CURTISS","DAEWOO","DE DIETRICH","DOMAN","DOMEOS","EDESA","EDESSA","ELECTROLUX","ELEKTRA-BREGENZ","ESSENTIEL B","EVERGLADES","EZANKER","FAGOR","FAGPR","FALDA","FAR","FAURE","FAVORIT","FRANCIA","FRANGER","FRIAC","FRIGEAVIA","FUNIX","FUTURA","GAGGENAU","GALANZ","GENERISS","GORENJE","GRUNDIG","HAIER","HELKAMA","HIGH ONE","HIGHOME","HIGHONE","HOME","HOOVER","HORN","IBERNA","IGNIS","IKEA WHIRLPOOL","INDESIT","JACKSON","JEKEN","KELVINATOR","KITCHENAID","KNEISSEL","KONTACT","LACO","LADEN","LAZER","LG","LINETECH","LISTO","MANHATTAM","MANHATTAN","MARKLING","MATURA","MAYTAG","MIELE","NEFF","NOGAMATIC","NOMAGATIC","NOVAMATIC","OCEAN","OCEANIC","ORIGANE","OSTEIN","OTSEIN","OXFORD","PHILCO","PRIVILEG","PROLINE","QILIVE","QUELLE","RADIOLA","REX","ROSIERES","SABA","SAIVOD","SAMSUNG","SANGIORGIO","SCHOLTES","SEAWAY","SELECLINE","SHARP","SIBIR","SIDEX","SIEMENS","SINGER","SKANDIA","SMEG","SOGELUX","TECHNICAL","TECNOLEC","TELEFUNKEN","THOMSON","URANIA","V-ZUG","VALBERG","VEDETTE","VESTEL","VIVA","WALTHAM","WESTLINE","WHIRLPOOL","WHITE WESTINGHOUSE","WHITEKNIGHT","ZANKER","ZANUSSI","ZEROWATT","ZOPPAS"],"symptoms":["Il ne sèche plus le linge","Il ne tourne plus","Il ne chauffe pas","Il est bruyant","Il s\'arrête en cours de cycle"]}]}');
 
 /***/ })
 

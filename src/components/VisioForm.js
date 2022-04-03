@@ -3,6 +3,8 @@ import DeviceTab from "./tab-components/DeviceTab";
 import InfoTab from './tab-components/InfoTab';
 import NeedTab from './tab-components/NeedTab';
 import ProblemTab from './tab-components/ProblemTab'
+import Devices from '/data/devices.json'
+
 
 
 export class VisioForm extends Component {
@@ -14,38 +16,29 @@ export class VisioForm extends Component {
         symptom: '',
         need: '',
         piece: '',
-        prbDesc:'',
-        deviceAge:'',
-        access:'',
-        level:'',
-        tools:'',
-        devices:[],
-        singleDatas:'',
+        prbDesc: '',
+        deviceAge: '',
+        access: '',
+        level: '',
+        tools: '',
+        datas:[],
     }
+    
 
-    fetchDevice = () => {
-        fetch('http://localhost:3000/devices')
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        devices: result
-                    })
-                }
-            )    
-    }
+    // test = () => {
+    //     const test = Devices.devices.find(o => o.name === props.values.device)
+    //     console.log(test)
+    //     // this.setState({
+    //     //     datas : test
+    //     // })
+    // }
 
     fetchData = () => {
-        fetch('http://localhost:3000/devices?name=' + this.state.device)
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        singleDatas: result 
-                    })
-                }
-            )    
-    }
+        const test = Devices.devices.find(o => o.name === this.state.device)
+        this.setState({
+            datas:test
+        })
+    };
 
     nextStep = () => {
         const { step } = this.state;
@@ -67,8 +60,8 @@ export class VisioForm extends Component {
 
     render() {
         const { step } = this.state;
-        const { device, brand, model, symptom, need, piece, prbDesc, deviceAge, access, level, tools, devices, singleDatas } = this.state ;
-        const values = {device, brand,model, symptom, need, piece, prbDesc, deviceAge, access, level, tools, devices, singleDatas };
+        const { device, brand, model, symptom, need, piece, prbDesc, deviceAge, access, level, tools, datas } = this.state;
+        const values = { device, brand, model, symptom, need, piece, prbDesc, deviceAge, access, level, tools, datas };
 
         switch (step) {
             case 1:
@@ -77,7 +70,6 @@ export class VisioForm extends Component {
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
                         values={values}
-                        fetchDevice={this.fetchDevice}
                         fetchData={this.fetchData}
                     />
                 );
