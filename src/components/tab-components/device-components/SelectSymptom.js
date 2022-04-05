@@ -14,7 +14,7 @@ function SelectSymtom(props) {
                 >
                     Les symptomes de panne
                 </Typography>
-                <StyledButton label={symptoms} handleChange={props.handleChange} width={300} state={"symptom"}/>
+                <StyledButton label={symptoms} handleChange={props.handleChange} width={350} state={"symptom"}/>
             </Box>
         )
     }

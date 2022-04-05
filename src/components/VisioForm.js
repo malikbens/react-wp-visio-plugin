@@ -21,7 +21,7 @@ export class VisioForm extends Component {
         access: '',
         level: '',
         tools: '',
-        datas:[],
+        datas: [],
     }
 
     fetchData = () => {
@@ -30,6 +30,14 @@ export class VisioForm extends Component {
             datas: device
         })
     };
+
+    test = () => e => {
+        this.setState({
+            device: e.target.value
+        }, () => {
+            this.fetchData()
+        })
+    }
 
     nextStep = () => {
         const { step } = this.state;
@@ -51,7 +59,7 @@ export class VisioForm extends Component {
 
     handleAge = age => {
         this.setState({
-            age : [age]
+            age: [age]
         })
     }
 
@@ -68,6 +76,7 @@ export class VisioForm extends Component {
                         handleChange={this.handleChange}
                         values={values}
                         fetchData={this.fetchData}
+                        test={this.test}
                     />
                 );
             case 2:

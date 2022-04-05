@@ -48,7 +48,7 @@ export default class InfoTab extends Component {
                     Votre appareil est-il facilement accessible ?
                 </Typography>
                 
-                <StyledButton label={access} handleChange={this.props.handleChange} />
+                <StyledButton label={access} handleChange={this.props.handleChange}  width={500} state={"access"}/>
 
                 <Typography
                     variant="h2"

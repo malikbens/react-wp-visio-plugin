@@ -30,7 +30,7 @@ export default class DeviceTab extends Component {
           2. Décrivez ce dont vous avez besoin
         </Typography>
 
-        <StyledButton label={needs} handleChange={this.props.handleChange} width={"unset"} state={"need"}/>
+        <StyledButton label={needs} handleChange={this.props.handleChange} width={500} state={"need"}/>
         <Piece values={this.props.values} handleChange={this.props.handleChange} />
         
         <Button onClick={this.back}>

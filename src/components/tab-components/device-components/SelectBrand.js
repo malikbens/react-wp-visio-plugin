@@ -3,12 +3,6 @@ import React, { useState, useEffect } from 'react'
 
 function SelectBrand(props) {
 
-    if (props.values.device != "") {
-        useEffect(() => {
-            props.fetchData()
-        }, [])
-    }
-
     if (props.values.datas != "") {
         const brands = props.values.datas.brand
         return (

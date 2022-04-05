@@ -17,7 +17,7 @@ function Piece(props){
           Possédez vous la nouvelle pièce ?
         </Typography>
 
-       <StyledButton label={piece} handleChange={props.handleChange} width={"unset"} state={"piece"}/>
+       <StyledButton label={piece} handleChange={props.handleChange} width={240} state={"piece"}/>
         <p>*Nous vous ferons parvenir un lien en fin de parcours pour acheter votre pièce</p>
       </Box>
     )
