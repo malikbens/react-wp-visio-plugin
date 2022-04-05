@@ -17,26 +17,17 @@ export class VisioForm extends Component {
         need: '',
         piece: '',
         prbDesc: '',
-        deviceAge: '',
+        age: '',
         access: '',
         level: '',
         tools: '',
         datas:[],
     }
-    
-
-    // test = () => {
-    //     const test = Devices.devices.find(o => o.name === props.values.device)
-    //     console.log(test)
-    //     // this.setState({
-    //     //     datas : test
-    //     // })
-    // }
 
     fetchData = () => {
-        const test = Devices.devices.find(o => o.name === this.state.device)
+        const device = Devices.devices.find(o => o.name === this.state.device)
         this.setState({
-            datas:test
+            datas: device
         })
     };
 
@@ -58,10 +49,16 @@ export class VisioForm extends Component {
         this.setState({ [input]: e.target.value });
     };
 
+    handleAge = age => {
+        this.setState({
+            age : [age]
+        })
+    }
+
     render() {
         const { step } = this.state;
-        const { device, brand, model, symptom, need, piece, prbDesc, deviceAge, access, level, tools, datas } = this.state;
-        const values = { device, brand, model, symptom, need, piece, prbDesc, deviceAge, access, level, tools, datas };
+        const { device, brand, model, symptom, need, piece, prbDesc, age, access, level, tools, datas } = this.state;
+        const values = { device, brand, model, symptom, need, piece, prbDesc, age, access, level, tools, datas };
 
         switch (step) {
             case 1:
@@ -97,6 +94,7 @@ export class VisioForm extends Component {
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
                         handleChange={this.handleChange}
+                        handleAge={this.handleAge}
                         values={values}
                     />
                 )

@@ -1,5 +1,5 @@
 const { Component } = wp.element
-import { Typography, Button, Box } from "@mui/material"
+import { Typography, Button, Box, Container } from "@mui/material"
 import SelectDevice from './device-components/SelectDevice'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import SelectBrand from "./device-components/SelectBrand"
@@ -15,7 +15,7 @@ export default class DeviceTab extends Component {
 
   render() {
     return (
-      <Box sx={{ width: '730px' }}>
+      <Container sx={{ width: '730px' }}>
         <Typography
           variant="h1"
           color="text"
@@ -39,10 +39,7 @@ export default class DeviceTab extends Component {
             handleChange={this.props.handleChange}
             values={this.props.values}
           />
-          {/* <Test
-            fetchData={this.props.fetchData}
-            handleChange={this.props.handleChange}
-            values={this.props.values} /> */}
+        
           <SelectBrand
             handleChange={this.props.handleChange}
             values={this.props.values}
@@ -52,6 +49,9 @@ export default class DeviceTab extends Component {
             handleChange={this.props.handleChange}
             values={this.props.values}
           />
+            {/* <Test
+            handleChange={this.props.handleChange}
+            values={this.props.values} /> */}
         </Box>
         <br></br>
 
@@ -60,7 +60,7 @@ export default class DeviceTab extends Component {
             Continuer
           </Button>
         </Box>
-      </Box>
+      </Container>
     );
   }
 }

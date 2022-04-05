@@ -1,4 +1,4 @@
-import { List, ListItem, Typography, Box, Button, TextField, ListItemText } from "@mui/material";
+import { List, ListItem, Typography, Box, Button, TextField, ListItemText, Container } from "@mui/material";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const { Component, render } = wp.element;
@@ -16,7 +16,7 @@ export default class InfoTab extends Component {
 
     render() {
         return (
-            <Box sx={{ width: "730px" }}>
+            <Container sx={{ width: "730px" }}>
                 <Typography
                     variant="h1"
                     color="text"
@@ -52,7 +52,7 @@ export default class InfoTab extends Component {
                 <Button variant="contained" onClick={this.continue} endIcon={<ArrowForwardIcon />}  >
                     Continuer
                 </Button>
-            </Box>
+            </Container>
         )
     }
 }

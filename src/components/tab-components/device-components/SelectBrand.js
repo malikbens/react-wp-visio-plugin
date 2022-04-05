@@ -1,6 +1,5 @@
 import { FormControl, InputLabel, Select, MenuItem, TextField } from "@mui/material"
 import React, { useState, useEffect } from 'react'
-import Devices from '/data/devices.json'
 
 function SelectBrand(props) {
 

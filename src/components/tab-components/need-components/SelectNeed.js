@@ -1,13 +1,13 @@
 import { Grid, ToggleButton } from "@mui/material"
 
-function SelectInput(props) {
+function SelectNeed(props) {
 
     return(
         <Grid container >
           <Grid item sx={{ mb: 2 }} >
             <ToggleButton sx={{ textTransform: "lowercase", width: 500, justifyContent:'flex-start' }}
               onChange={props.handleChange('need')}
-              value={props.label}
+              value='salut'
               fullWidth="true"
             >
               {props.label}
@@ -17,4 +17,4 @@ function SelectInput(props) {
     )
 }
 
-export default SelectInput
+export default SelectNeed
