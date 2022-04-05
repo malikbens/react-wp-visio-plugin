@@ -26,7 +26,7 @@ function SelectBrand(props) {
                     defaultValue={props.values.model}
                     onChange={props.handleChange('model')}
                     label="Modèle"
-                    sx={{ width: 150, margin: '10px 10px 10px 0px' }}
+                    sx={{ width: 160, margin: '10px 10px 10px 0px' }}
                 />
             </>
         )

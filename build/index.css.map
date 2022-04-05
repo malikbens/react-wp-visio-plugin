@@ -1,0 +1,1 @@
+{"version":3,"file":"index.css","mappings":";;;AAAA,KAAK,eAAe;;AAEpB;IACI,aAAa;IACb,yBAAyB;IACzB,eAAe;AACnB","sources":["webpack://multistep-visio-form/./src/test.css"],"sourcesContent":["body{background:blue}\r\n\r\n.NavButtons{\r\n    display: flex;\r\n    justify-content: flex-end;\r\n    margin-top: 5px;\r\n}\r\n\r\n"],"names":[],"sourceRoot":""}

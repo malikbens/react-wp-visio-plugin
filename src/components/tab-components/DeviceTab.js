@@ -7,6 +7,7 @@ import SelectSymptom from "./device-components/SelectSymptom"
 import Test from '/src/components/tab-components/test.js'
 
 
+
 export default class DeviceTab extends Component {
   continuer = e => {
     e.preventDefault();
@@ -57,7 +58,7 @@ export default class DeviceTab extends Component {
         <br></br>
 
         <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <Button variant="contained" onClick={this.continuer} endIcon={<ArrowForwardIcon />} >
+          <Button sx={{mt: 5, ml: 3 }} variant="contained" onClick={this.continuer} endIcon={<ArrowForwardIcon />} >
             Continuer
           </Button>
         </Box>

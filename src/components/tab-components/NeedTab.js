@@ -2,7 +2,7 @@ const { Component, render } = wp.element;
 import React from 'react'
 import Piece from "./need-components/Piece";
 import StyledButton from "./StyledButton";
-import { Typography, Button, Box, Container, ToggleButton, ToggleButtonGroup } from "@mui/material";
+import { Typography, Button, Box, Container } from "@mui/material";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 
@@ -29,17 +29,20 @@ export default class DeviceTab extends Component {
         >
           2. Décrivez ce dont vous avez besoin
         </Typography>
+        <Box sx={{width:650}}>
+          <StyledButton label={needs} handleChange={this.props.handleChange} width={620} state={"need"} />
+          <Piece values={this.props.values} handleChange={this.props.handleChange} />
 
-        <StyledButton label={needs} handleChange={this.props.handleChange} width={500} state={"need"}/>
-        <Piece values={this.props.values} handleChange={this.props.handleChange} />
-        
-        <Button onClick={this.back}>
-          Retour
-        </Button>
-        <Button variant="contained" onClick={this.continue} endIcon={<ArrowForwardIcon />}  >
-          Continuer
-        </Button>
+          <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <Button sx={{ mt: 5, color: 'black' }} onClick={this.back}>
+              Retour
+            </Button>
+            <Button sx={{ mt: 5, ml: 3 }} variant="contained" onClick={this.continue} endIcon={<ArrowForwardIcon />}  >
+              Continuer
+            </Button>
+          </Box>
+        </Box>
       </Container>
-    ) 
+    )
   }
 }

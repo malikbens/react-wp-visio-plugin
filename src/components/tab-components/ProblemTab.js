@@ -1,4 +1,4 @@
-import { List, ListItem, Typography, Box, Button, TextField, ListItemText, Container } from "@mui/material";
+import { List, Typography, Box, Button, TextField, ListItemText, Container } from "@mui/material";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const { Component, render } = wp.element;
@@ -32,9 +32,9 @@ export default class InfoTab extends Component {
                     Plus nous aurons de détails, mieux nous pourrons vous aider à réparer. Voici quelques exemples :
                 </Typography>
                 <List sx={{ listStyle: 'initial' }}>
-                    <ListItemText sx={{display:'list-item'}} >Précisez la référence de l’appareil mis en cause,</ListItemText>
-                    <ListItemText sx={{display:'list-item'}} >Les problèmes rencontrés et les pièces mises en cause,</ListItemText>
-                    <ListItemText sx={{display:'list-item'}} >Ce que vous avez éventuellement déjà effectué comme manipulation pour essayer de dépanner votre appareil </ListItemText>
+                    <ListItemText sx={{ display: 'list-item' }} >Précisez la référence de l’appareil mis en cause,</ListItemText>
+                    <ListItemText sx={{ display: 'list-item' }} >Les problèmes rencontrés et les pièces mises en cause,</ListItemText>
+                    <ListItemText sx={{ display: 'list-item' }} >Ce que vous avez éventuellement déjà effectué comme manipulation pour essayer de dépanner votre appareil </ListItemText>
                 </List>
 
                 <TextField
@@ -46,12 +46,14 @@ export default class InfoTab extends Component {
                     fullWidth
                     onChange={this.props.handleChange("prbDesc")}
                 />
-                <Button onClick={this.back}  >
-                    Retour
-                </Button>
-                <Button variant="contained" onClick={this.continue} endIcon={<ArrowForwardIcon />}  >
-                    Continuer
-                </Button>
+                <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+                    <Button sx={{ mt: 5, color: "black" }} onClick={this.back}   >
+                        Retour
+                    </Button>
+                    <Button sx={{ mt: 5, ml: 3 }} variant="contained" onClick={this.continue} endIcon={<ArrowForwardIcon />}  >
+                        Continuer
+                    </Button>
+                </Box>
             </Container>
         )
     }

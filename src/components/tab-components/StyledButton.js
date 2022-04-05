@@ -8,10 +8,10 @@ export default function StyledButton(props) {
        <FormControl>
                     <Grid container>
                         {props.label.map(label=>
-                            <ToggleButtonGroup exclusive={true} value={label}>
+                            <ToggleButtonGroup exclusive={true} value={label} >
                                 <Grid item xs={12} sx={{ mb: 2, mr:3}}>
                                     <ToggleButton
-                                        sx={{ textTransform: "unset", justifyContent: 'flex-start', width: props.width }}
+                                        sx={{ textTransform: "unset", justifyContent: 'flex-start', width: props.width, letterSpacing:"0.12em" }}
                                         key={label}
                                         value={label}
                                         onChange={props.handleChange(props.state)}

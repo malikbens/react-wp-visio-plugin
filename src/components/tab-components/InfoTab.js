@@ -1,6 +1,6 @@
 const { Component, render } = wp.element;
 import React from 'react'
-import { Typography, Button, Container, TextField, Grid} from "@mui/material";
+import { Typography, Button, Container, TextField, Grid, Box } from "@mui/material";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import CounterInput from 'react-counter-input'
 import StyledButton from './StyledButton';
@@ -18,7 +18,7 @@ export default class InfoTab extends Component {
     }
 
     render() {
-        const access = ["Accessible","Encastré et facilement dégageable","Encastré mais difficilement accessible"] 
+        const access = ["Accessible", "Encastré et facilement dégageable", "Encastré mais difficilement accessible"]
         return (
             <Container sx={{ width: "730px" }}>
                 <Typography
@@ -39,19 +39,19 @@ export default class InfoTab extends Component {
                     min={0}
                     max={100}
                     onCountChange={data => this.props.handleAge(data)}
-                    wrapperStyle={{border:"solid 1px #C4C4C4", width:'fit-content'}}
+                    wrapperStyle={{ border: "solid 1px #C4C4C4", width: 'fit-content' }}
                 />
-                  <Typography
+                <Typography
                     variant="h2"
                     align="left"
                     color="primary"
                 >
                     Votre appareil est-il facilement accessible ?
                 </Typography>
-                
-                <StyledButton label={access} handleChange={this.props.handleChange}  width={500} state={"access"}/>
+
+                <StyledButton label={access} handleChange={this.props.handleChange} width={500} state={"access"} />
                 <Grid item>
-                    <TextField sx={{width:500}} variant="outlined" label="Autre"></TextField>
+                    <TextField sx={{ width: 500 }} variant="outlined" label="Autre"></TextField>
                 </Grid>
 
                 <Typography
@@ -59,10 +59,10 @@ export default class InfoTab extends Component {
                     align="left"
                     color="primary"
                 >
-                    Niveau bricolage, vous vous situez plutôt... 
+                    Niveau bricolage, vous vous situez plutôt...
                 </Typography>
 
-                <Level handleChange={this.props.handleChange}/>
+                <Level handleChange={this.props.handleChange} />
 
                 <Typography
                     variant="h2"
@@ -72,12 +72,14 @@ export default class InfoTab extends Component {
                     Quel outils avez vous à votre disposition ?
                 </Typography>
                 
-                <Button onClick={this.back}  >
-                    Retour
-                </Button>
-                <Button variant="contained" onClick={this.continue} endIcon={<ArrowForwardIcon />}  >
-                    Continuer
-                </Button>
+                <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+                    <Button sx={{ mt: 5, color:'black' }} onClick={this.back}  >
+                        Retour
+                    </Button>
+                    <Button sx={{ mt: 5, ml: 3 }} variant="contained" onClick={this.continue} endIcon={<ArrowForwardIcon />}  >
+                        Continuer
+                    </Button>
+                </Box>
             </Container>
         )
     }

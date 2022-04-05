@@ -18,7 +18,7 @@ export default function Level(props) {
         },
     ];
     return (
-        <Box sx={{ width: 300 }}>
+        <Box sx={{ width: 300, ml:"5%" }}>
             <Slider
                 color='secondary'
                 aria-label="Custom marks"

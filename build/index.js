@@ -24620,6 +24620,10 @@ class DeviceTab extends Component {
         justifyContent: 'flex-end'
       }
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      sx: {
+        mt: 5,
+        ml: 3
+      },
       variant: "contained",
       onClick: this.continuer,
       endIcon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_10__["default"], null)
@@ -24650,8 +24654,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
 /* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Grid/Grid.js");
 /* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/TextField/TextField.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
-/* harmony import */ var _mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mui/icons-material/ArrowForward */ "./node_modules/@mui/icons-material/ArrowForward.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
+/* harmony import */ var _mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @mui/icons-material/ArrowForward */ "./node_modules/@mui/icons-material/ArrowForward.js");
 /* harmony import */ var react_counter_input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-counter-input */ "./node_modules/react-counter-input/es/index.js");
 /* harmony import */ var _StyledButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./StyledButton */ "./src/components/tab-components/StyledButton.js");
 /* harmony import */ var _info_components_Level__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./info-components/Level */ "./src/components/tab-components/info-components/Level.js");
@@ -24732,12 +24737,25 @@ class InfoTab extends Component {
       align: "left",
       color: "primary"
     }, "Quel outils avez vous \xE0 votre disposition ?"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      sx: {
+        display: 'flex',
+        justifyContent: 'flex-end'
+      }
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_11__["default"], {
+      sx: {
+        mt: 5,
+        color: 'black'
+      },
       onClick: this.back
-    }, "Retour"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    }, "Retour"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_11__["default"], {
+      sx: {
+        mt: 5,
+        ml: 3
+      },
       variant: "contained",
       onClick: this.continue,
-      endIcon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_11__["default"], null)
-    }, "Continuer"));
+      endIcon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_12__["default"], null)
+    }, "Continuer")));
   }
 
 }
@@ -24764,8 +24782,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _StyledButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./StyledButton */ "./src/components/tab-components/StyledButton.js");
 /* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Container/Container.js");
 /* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
-/* harmony import */ var _mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/icons-material/ArrowForward */ "./node_modules/@mui/icons-material/ArrowForward.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
+/* harmony import */ var _mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/icons-material/ArrowForward */ "./node_modules/@mui/icons-material/ArrowForward.js");
 
 
 const {
@@ -24802,21 +24821,38 @@ class DeviceTab extends Component {
       variant: "h1",
       color: "text",
       align: "left"
-    }, "2. D\xE9crivez ce dont vous avez besoin"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_StyledButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, "2. D\xE9crivez ce dont vous avez besoin"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      sx: {
+        width: 650
+      }
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_StyledButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
       label: needs,
       handleChange: this.props.handleChange,
-      width: 500,
+      width: 620,
       state: "need"
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_need_components_Piece__WEBPACK_IMPORTED_MODULE_3__["default"], {
       values: this.props.values,
       handleChange: this.props.handleChange
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      sx: {
+        display: 'flex',
+        justifyContent: 'flex-end'
+      }
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      sx: {
+        mt: 5,
+        color: 'black'
+      },
       onClick: this.back
-    }, "Retour"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    }, "Retour"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      sx: {
+        mt: 5,
+        ml: 3
+      },
       variant: "contained",
       onClick: this.continue,
-      endIcon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_8__["default"], null)
-    }, "Continuer"));
+      endIcon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_9__["default"], null)
+    }, "Continuer"))));
   }
 
 }
@@ -24842,8 +24878,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/List/List.js");
 /* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/ListItemText/ListItemText.js");
 /* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/TextField/TextField.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
-/* harmony import */ var _mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/icons-material/ArrowForward */ "./node_modules/@mui/icons-material/ArrowForward.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
+/* harmony import */ var _mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/icons-material/ArrowForward */ "./node_modules/@mui/icons-material/ArrowForward.js");
 
 
 
@@ -24905,12 +24942,25 @@ class InfoTab extends Component {
       fullWidth: true,
       onChange: this.props.handleChange("prbDesc")
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      sx: {
+        display: 'flex',
+        justifyContent: 'flex-end'
+      }
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      sx: {
+        mt: 5,
+        color: "black"
+      },
       onClick: this.back
-    }, "Retour"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    }, "Retour"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      sx: {
+        mt: 5,
+        ml: 3
+      },
       variant: "contained",
       onClick: this.continue,
-      endIcon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_8__["default"], null)
-    }, "Continuer"));
+      endIcon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_9__["default"], null)
+    }, "Continuer")));
   }
 
 }
@@ -24958,7 +25008,8 @@ function StyledButton(props) {
     sx: {
       textTransform: "unset",
       justifyContent: 'flex-start',
-      width: props.width
+      width: props.width,
+      letterSpacing: "0.12em"
     },
     key: label,
     value: label,
@@ -25015,7 +25066,7 @@ function SelectBrand(props) {
       onChange: props.handleChange('model'),
       label: "Mod\xE8le",
       sx: {
-        width: 150,
+        width: 160,
         margin: '10px 10px 10px 0px'
       }
     }));
@@ -25112,7 +25163,7 @@ function SelectSymtom(props) {
       item: true
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
       sx: {
-        width: 350
+        width: 330
       },
       variant: "outlined",
       label: "Autre"
@@ -25160,7 +25211,8 @@ function Level(props) {
   }];
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material_Box__WEBPACK_IMPORTED_MODULE_2__["default"], {
     sx: {
-      width: 300
+      width: 300,
+      ml: "5%"
     }
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material_Slider__WEBPACK_IMPORTED_MODULE_3__["default"], {
     color: "secondary",
@@ -25207,7 +25259,7 @@ function Piece(props) {
     }, "Poss\xE9dez vous la nouvelle pi\xE8ce ?"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_StyledButton__WEBPACK_IMPORTED_MODULE_2__["default"], {
       label: piece,
       handleChange: props.handleChange,
-      width: 240,
+      width: 300,
       state: "piece"
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "*Nous vous ferons parvenir un lien en fin de parcours pour acheter votre pi\xE8ce"));
   }
