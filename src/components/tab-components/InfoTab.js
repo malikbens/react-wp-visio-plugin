@@ -40,7 +40,32 @@ export default class InfoTab extends Component {
                     onCountChange={data => this.props.handleAge(data)}
                     wrapperStyle={{border:"solid 1px #C4C4C4", width:'fit-content'}}
                 />
+                  <Typography
+                    variant="h2"
+                    align="left"
+                    color="primary"
+                >
+                    Votre appareil est-il facilement accessible ?
+                </Typography>
+                
                 <StyledButton label={access} handleChange={this.props.handleChange} />
+
+                <Typography
+                    variant="h2"
+                    align="left"
+                    color="primary"
+                >
+                    Niveau bricolage, vous vous situez plutôt... 
+                </Typography>
+
+                <Typography
+                    variant="h2"
+                    align="left"
+                    color="primary"
+                >
+                    Quel outils avez vous à votre disposition ?
+                </Typography>
+                
                 <Button onClick={this.back}  >
                     Retour
                 </Button>

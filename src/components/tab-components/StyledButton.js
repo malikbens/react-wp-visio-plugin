@@ -3,7 +3,6 @@ import React, {useState} from 'react'
 
 export default function StyledButton(props) {
   const [selected, setSelected ] = useState('');
-  console.log(props.label)
   return (
     <Box>
        <FormControl>
@@ -12,10 +11,10 @@ export default function StyledButton(props) {
                             <ToggleButtonGroup exclusive={true} value={label}>
                                 <Grid item xs={12} sx={{ mb: 2, mr:3}}>
                                     <ToggleButton
-                                        sx={{ textTransform: "unset", justifyContent: 'flex-start' }}
+                                        sx={{ textTransform: "unset", justifyContent: 'flex-start', width: props.width }}
                                         key={label}
                                         value={label}
-                                        onChange={props.handleChange('label')}
+                                        onChange={props.handleChange(props.state)}
                                         onClick={() => setSelected( label )}
                                         selected={selected === label}
                                     >
