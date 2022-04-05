@@ -31,7 +31,7 @@ export class VisioForm extends Component {
         })
     };
 
-    test = () => e => {
+    setData = () => e => {
         this.setState({
             device: e.target.value
         }, () => {
@@ -75,8 +75,7 @@ export class VisioForm extends Component {
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
                         values={values}
-                        fetchData={this.fetchData}
-                        test={this.test}
+                        setData={this.setData}
                     />
                 );
             case 2:

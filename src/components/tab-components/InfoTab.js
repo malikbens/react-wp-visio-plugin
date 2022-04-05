@@ -1,9 +1,10 @@
 const { Component, render } = wp.element;
-import React, { useState } from 'react'
-import { Typography, Box, Button, Container } from "@mui/material";
+import React from 'react'
+import { Typography, Button, Container, TextField, Grid} from "@mui/material";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import CounterInput from 'react-counter-input'
 import StyledButton from './StyledButton';
+import Level from './info-components/Level';
 
 export default class InfoTab extends Component {
     continue = e => {
@@ -49,6 +50,9 @@ export default class InfoTab extends Component {
                 </Typography>
                 
                 <StyledButton label={access} handleChange={this.props.handleChange}  width={500} state={"access"}/>
+                <Grid item>
+                    <TextField sx={{width:500}} variant="outlined" label="Autre"></TextField>
+                </Grid>
 
                 <Typography
                     variant="h2"
@@ -57,6 +61,8 @@ export default class InfoTab extends Component {
                 >
                     Niveau bricolage, vous vous situez plutôt... 
                 </Typography>
+
+                <Level handleChange={this.props.handleChange}/>
 
                 <Typography
                     variant="h2"

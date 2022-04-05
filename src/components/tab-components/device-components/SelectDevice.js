@@ -12,7 +12,7 @@ const SelectDevice = (props) => {
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 label="Appareil"
-                onChange={props.test()}
+                onChange={props.setData()}
             >
                 {Devices.devices.map( (device) => (
                     <MenuItem 

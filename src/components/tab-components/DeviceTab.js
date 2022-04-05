@@ -38,7 +38,7 @@ export default class DeviceTab extends Component {
             handleChange={this.props.handleChange}
             values={this.props.values}
             fetchData={this.props.fetchData}
-            test={this.props.test}
+            setData={this.props.setData}
           />
         
           <SelectBrand
