@@ -4,6 +4,7 @@ import InfoTab from './tab-components/InfoTab';
 import NeedTab from './tab-components/NeedTab';
 import ProblemTab from './tab-components/ProblemTab'
 import Devices from '/data/devices.json'
+import ProductTab from "./tab-components/ProductTab";
 
 
 
@@ -105,7 +106,16 @@ export class VisioForm extends Component {
                         handleAge={this.handleAge}
                         values={values}
                     />
-                )
+                );
+            case 5:
+                return (
+                    <ProductTab
+                        nextStep={this.nextStep}
+                        prevStep={this.prevStep}
+                        handleChange={this.handleChange}
+                        values={values}
+                    />
+                );
             default:
                 (console.log('This is a multi-step form built with React.'))
         }

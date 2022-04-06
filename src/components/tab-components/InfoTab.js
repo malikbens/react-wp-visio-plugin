@@ -5,6 +5,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import CounterInput from 'react-counter-input'
 import StyledButton from './StyledButton';
 import Level from './info-components/Level';
+import Tools from './info-components/Tools';
 
 export default class InfoTab extends Component {
     continue = e => {
@@ -71,6 +72,8 @@ export default class InfoTab extends Component {
                 >
                     Quel outils avez vous à votre disposition ?
                 </Typography>
+
+                <Tools/>
                 
                 <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                     <Button sx={{ mt: 5, color:'black' }} onClick={this.back}  >

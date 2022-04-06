@@ -10,7 +10,8 @@
   "author": "Malik Benserradj",
   "license": "ISC",
   "devDependencies": {
-    "@wordpress/scripts": "^22.3.0"
+    "@wordpress/scripts": "^22.3.0",
+    "webpack": "^5.71.0"
   },
   "dependencies": {
     "@emotion/react": "^11.8.2",
@@ -21,6 +22,7 @@
     "@mui/styled-engine-sc": "^5.5.2",
     "browser-sync": "^2.27.9",
     "browser-sync-webpack-plugin": "^2.3.0",
+    "mdb-ui-kit": "^3.11.0",
     "react-counter-input": "^0.2.1",
     "sass": "^1.49.11",
     "styled-components": "^5.3.5"
