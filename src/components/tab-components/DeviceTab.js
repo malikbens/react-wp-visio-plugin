@@ -4,7 +4,7 @@ import SelectDevice from './device-components/SelectDevice'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import SelectBrand from "./device-components/SelectBrand"
 import SelectSymptom from "./device-components/SelectSymptom"
-import Test from '/src/components/tab-components/test.js'
+
 
 
 
@@ -51,9 +51,7 @@ export default class DeviceTab extends Component {
             handleChange={this.props.handleChange}
             values={this.props.values}
           />
-            {/* <Test
-            handleChange={this.props.handleChange}
-            values={this.props.values} /> */}
+      
         </Box>
         <br></br>
 

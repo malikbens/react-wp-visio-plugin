@@ -4,6 +4,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Container } from '@mui/material';
 import SideBar from './components/SideBar';
 
+
 const theme = createTheme({
   palette: {
     primary: {

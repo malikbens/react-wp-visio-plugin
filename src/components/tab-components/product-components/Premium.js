@@ -1,6 +1,7 @@
 import { Typography, List, ListItemText } from '@mui/material'
 import { Box } from '@mui/system'
-import React from 'react'
+import React ,{useState, useEffect} from 'react'
+import test from '/src/test.js'
 
 export default function Premium() {
     return (<>
@@ -48,7 +49,7 @@ export default function Premium() {
                 Bon à savoir
             </Typography>
             <Typography 
-                variant='string'
+                variant='body1'
                 color="text"
             >
             Prévoyez au minimum 40 minutes dans votre agenda, c’est la durée d’intervention moyenne de nos techniciens en visio...
