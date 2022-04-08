@@ -1,7 +1,6 @@
 import { Typography, List, ListItemText } from '@mui/material'
 import { Box } from '@mui/system'
-import React ,{useState, useEffect} from 'react'
-import test from '/src/test.js'
+import React  from 'react'
 
 export default function Premium() {
     return (<>

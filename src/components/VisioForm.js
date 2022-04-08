@@ -5,6 +5,8 @@ import NeedTab from './tab-components/NeedTab';
 import ProblemTab from './tab-components/ProblemTab'
 import Devices from '/data/devices.json'
 import ProductTab from "./tab-components/ProductTab";
+import LoginRegisterTab from "./tab-components/LoginRegisterTab";
+
 
 
 
@@ -110,6 +112,15 @@ export class VisioForm extends Component {
             case 5:
                 return (
                     <ProductTab
+                        nextStep={this.nextStep}
+                        prevStep={this.prevStep}
+                        handleChange={this.handleChange}
+                        values={values}
+                    />
+                );
+            case 6:
+                return (
+                    <LoginRegisterTab
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
                         handleChange={this.handleChange}
