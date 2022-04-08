@@ -13,6 +13,7 @@ export class SideBar extends Component {
         >
           Récapitulatif
         </Typography>
+        
       </Box>
     )
   }

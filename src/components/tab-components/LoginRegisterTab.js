@@ -62,6 +62,13 @@ export default function BasicTabs(props) {
     return (
         <Container sx={{ width: 730 }}>
             <Box >
+                <Typography 
+                    variant='h1'
+                    align='left'
+                    color='text'
+                >
+                    6. Mon compte
+                </Typography>
                 <Box >
                     <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
                         <Tab sx={{ border: "solid 1px #C4C4C4" }} label="PAS ENCORE CLIENT ?" {...a11yProps(0)} />
