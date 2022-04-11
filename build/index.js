@@ -26846,7 +26846,7 @@ class VisioForm extends Component {
           nextStep: this.props.nextStep,
           prevStep: this.props.prevStep,
           handleChange: this.props.handleChange,
-          values: values
+          values: this.props.values
         });
 
       case 4:
@@ -26873,6 +26873,9 @@ class VisioForm extends Component {
           handleChange: this.props.handleChange,
           values: this.props.values
         });
+
+      case 7:
+        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "salut");
 
       default:
         console.log('This is a multi-step form built with React.');
@@ -26929,7 +26932,7 @@ class DeviceTab extends Component {
   render() {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
       sx: {
-        width: '750px'
+        width: '730px'
       }
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_6__["default"], {
       variant: "h1",
@@ -26939,11 +26942,7 @@ class DeviceTab extends Component {
       variant: "h2",
       color: "primary",
       align: "left"
-    }, "Choissisez votre appareil a r\xE9parer"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], {
-      sx: {
-        width: '750px'
-      }
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_device_components_SelectDevice__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    }, "Choissisez votre appareil a r\xE9parer"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_device_components_SelectDevice__WEBPACK_IMPORTED_MODULE_2__["default"], {
       handleChange: this.props.handleChange,
       values: this.props.values,
       fetchData: this.props.fetchData,
@@ -27034,7 +27033,7 @@ class InfoTab extends Component {
     const access = ["Accessible", "Encastré et facilement dégageable", "Encastré mais difficilement accessible"];
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], {
       sx: {
-        width: "730px"
+        width: '730px'
       }
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], {
       variant: "h1",
@@ -27145,6 +27144,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 function TabPanel(props) {
   const {
     children,
@@ -27178,6 +27178,9 @@ function a11yProps(index) {
 }
 
 function BasicTabs(props) {
+  const [username, setUsername] = react__WEBPACK_IMPORTED_MODULE_2__.useState('');
+  const [isLoggedIn, setIsLoggedIn] = react__WEBPACK_IMPORTED_MODULE_2__.useState(false);
+  const [serverMessage, setServerMessage] = react__WEBPACK_IMPORTED_MODULE_2__.useState(false);
   const [value, setValue] = react__WEBPACK_IMPORTED_MODULE_2__.useState(0);
 
   const continuer = e => {
@@ -27196,13 +27199,13 @@ function BasicTabs(props) {
 
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_8__["default"], {
     sx: {
-      width: 730
+      width: '730px'
     }
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material_Box__WEBPACK_IMPORTED_MODULE_5__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material_Typography__WEBPACK_IMPORTED_MODULE_6__["default"], {
     variant: "h1",
     align: "left",
     color: "text"
-  }, "6. Mon compte"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material_Box__WEBPACK_IMPORTED_MODULE_5__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material_Tabs__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  }, "6. Mon compte"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material_Tabs__WEBPACK_IMPORTED_MODULE_9__["default"], {
     value: value,
     onChange: handleChange,
     "aria-label": "basic tabs example"
@@ -27216,13 +27219,19 @@ function BasicTabs(props) {
       border: "solid 1px #C4C4C4"
     },
     label: "D\xE9j\xE0 client ?"
-  }, a11yProps(1))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(TabPanel, {
+  }, a11yProps(1)))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(TabPanel, {
     value: value,
     index: 0
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_lr_components_Login__WEBPACK_IMPORTED_MODULE_3__["default"], null)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(TabPanel, {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_lr_components_Register__WEBPACK_IMPORTED_MODULE_4__["default"], null)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(TabPanel, {
     value: value,
     index: 1
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_lr_components_Register__WEBPACK_IMPORTED_MODULE_4__["default"], null))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material_Box__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_lr_components_Login__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    setUsername: setUsername,
+    setIsLoggedIn: setIsLoggedIn,
+    serverMessage: serverMessage,
+    setServerMessage: setServerMessage,
+    nextStep: props.nextStep
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material_Box__WEBPACK_IMPORTED_MODULE_5__["default"], {
     sx: {
       display: 'flex',
       justifyContent: 'flex-end'
@@ -27305,14 +27314,10 @@ class DeviceTab extends Component {
       variant: "h1",
       color: "text",
       align: "left"
-    }, "2. D\xE9crivez ce dont vous avez besoin"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], {
-      sx: {
-        width: 650
-      }
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_StyledButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, "2. D\xE9crivez ce dont vous avez besoin"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_StyledButton__WEBPACK_IMPORTED_MODULE_4__["default"], {
       label: needs,
       handleChange: this.props.handleChange,
-      width: 620,
+      width: "100%",
       state: "need"
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_need_components_Piece__WEBPACK_IMPORTED_MODULE_3__["default"], {
       values: this.props.values,
@@ -27391,7 +27396,7 @@ class InfoTab extends Component {
   render() {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], {
       sx: {
-        width: "730px"
+        width: '730px'
       }
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
       variant: "h1",
@@ -27498,7 +27503,7 @@ class ProductTab extends Component {
   render() {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
       sx: {
-        width: 730
+        width: '730px'
       }
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
       variant: "h1",
@@ -27854,6 +27859,68 @@ function Tools() {
 
 /***/ }),
 
+/***/ "./src/components/tab-components/lr-components/API/LoginApi.js":
+/*!*********************************************************************!*\
+  !*** ./src/components/tab-components/lr-components/API/LoginApi.js ***!
+  \*********************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+function LoginAPI(props) {
+  const [urlToLogin, setUrlToLogin] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)('');
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+    if (props.APIDetailsLogin.user.length > 0) {
+      let formData = new FormData();
+      formData.append('username', props.APIDetailsLogin.user);
+      formData.append('password', props.APIDetailsLogin.pass);
+      formData.append('authkey', 'abc123');
+      const url = 'http://localhost/wordpress/?rest_route=/simple-jwt-login/v1/auth';
+      fetch(url, {
+        method: 'POST',
+        body: formData
+      }).then(response => response.json()).then(data => {
+        if (data['success'] == true) {
+          console.log(data);
+          localStorage.setItem('jwt', data['data']['jwt']);
+          setUrlToLogin(`http://localhost/wordpress/?rest_route=/simple-jwt-login/v1/autologin&jwt=${data['data']['jwt']}`);
+        } else {
+          console.log(data);
+          props.setServerMessage(data['data']['message']);
+        }
+      });
+    }
+  }, [props.APIDetailsLogin]);
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+    if (urlToLogin.length > 0) {
+      console.log(urlToLogin);
+      fetch(urlToLogin, {
+        method: 'GET'
+      }).then(response => {
+        if (response.status == '200') {
+          props.setIsLoggedIn(true);
+          props.setUsername(props.APIDetailsLogin.user);
+          props.nextStep();
+        } else {
+          console.log('error');
+        }
+      });
+    }
+  }, [urlToLogin]);
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (LoginAPI);
+
+/***/ }),
+
 /***/ "./src/components/tab-components/lr-components/Login.js":
 /*!**************************************************************!*\
   !*** ./src/components/tab-components/lr-components/Login.js ***!
@@ -27867,6 +27934,82 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _mui_system__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/system */ "./node_modules/@mui/system/esm/Box/Box.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _API_LoginApi__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./API/LoginApi */ "./src/components/tab-components/lr-components/API/LoginApi.js");
+
+
+
+
+function Login(props) {
+  const [APIDetailsLogin, setAPIDetailsLogin] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
+    user: '',
+    pass: ''
+  });
+  const [loginDetails, setLoginDetails] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
+    user: '',
+    pass: ''
+  });
+
+  function handleChange(e) {
+    const {
+      name,
+      value
+    } = e.target;
+    setLoginDetails(prev => {
+      return { ...prev,
+        [name]: value
+      };
+    });
+  }
+
+  function handleSubmit() {
+    setAPIDetailsLogin({ ...loginDetails
+    }); //check i need the ...here
+  }
+
+  console.log(loginDetails);
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_system__WEBPACK_IMPORTED_MODULE_3__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "text",
+    placeholder: "User Name",
+    name: "user",
+    value: loginDetails.user,
+    onChange: handleChange
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "password",
+    placeholder: "Password",
+    name: "pass",
+    value: loginDetails.pass,
+    onChange: handleChange
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "submit",
+    value: "Go",
+    onClick: handleSubmit
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_API_LoginApi__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    APIDetailsLogin: APIDetailsLogin,
+    setUsername: props.setUsername,
+    setIsLoggedIn: props.setIsLoggedIn,
+    setServerMessage: props.setServerMessage,
+    nextStep: props.nextStep
+  }));
+}
+
+/***/ }),
+
+/***/ "./src/components/tab-components/lr-components/Register.js":
+/*!*****************************************************************!*\
+  !*** ./src/components/tab-components/lr-components/Register.js ***!
+  \*****************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ Register; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
 /* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Grid/Grid.js");
 /* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/TextField/TextField.js");
@@ -27875,7 +28018,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function Login() {
+function Register() {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
     container: true
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -27923,49 +28066,6 @@ function Login() {
     id: "outlined-basic",
     label: "Confirmation de mot de passe"
   }))));
-}
-
-/***/ }),
-
-/***/ "./src/components/tab-components/lr-components/Register.js":
-/*!*****************************************************************!*\
-  !*** ./src/components/tab-components/lr-components/Register.js ***!
-  \*****************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ Register; }
-/* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/TextField/TextField.js");
-/* harmony import */ var _mui_system__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/system */ "./node_modules/@mui/system/esm/Box/Box.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-
-
-
-
-function Register() {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_system__WEBPACK_IMPORTED_MODULE_2__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    sx: {
-      mb: 2.5,
-      width: 500
-    },
-    variant: "outlined",
-    id: "outlined-basic",
-    label: "Votre adresse e-mail*"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    sx: {
-      mb: 2.5,
-      width: 500
-    },
-    variant: "outlined",
-    id: "outlined-basic",
-    label: "Mot de passe"
-  }));
 }
 
 /***/ }),

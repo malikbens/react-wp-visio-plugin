@@ -17,7 +17,7 @@ export class ProductTab extends Component {
 
     render() {
         return (
-            <Container sx={{width:730}} >
+            <Container  sx={{width:'730px'}}>
                 <Typography
                     variant="h1"
                     color="text"

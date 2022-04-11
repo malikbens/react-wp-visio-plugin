@@ -40,7 +40,7 @@ export class VisioForm extends Component {
                             nextStep={this.props.nextStep}
                             prevStep={this.props.prevStep}
                             handleChange={this.props.handleChange}
-                            values={values}
+                            values={this.props.values}
                         />
                         
                     );
@@ -73,6 +73,11 @@ export class VisioForm extends Component {
                             handleChange={this.props.handleChange}
                             values={this.props.values}
                         />
+                        
+                    );
+                case 7:
+                    return (
+                        <div>salut</div>
                         
                     );
                 default:

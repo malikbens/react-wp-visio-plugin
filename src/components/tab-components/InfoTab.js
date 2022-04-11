@@ -21,7 +21,7 @@ export default class InfoTab extends Component {
     render() {
         const access = ["Accessible", "Encastré et facilement dégageable", "Encastré mais difficilement accessible"]
         return (
-            <Container sx={{ width: "730px" }}>
+            <Container  sx={{width:'730px'}}>
                 <Typography
                     variant="h1"
                     align="left"

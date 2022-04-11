@@ -21,7 +21,7 @@ export default class DeviceTab extends Component {
     const needs = ["Je cherche la panne de mon appareil", "J'ai besoin d'une confirmation de diagnostique", "J'ai quelques questions techniques concernat mon appareil", "J\'ai besoin d\'aide pour remplacer ma pièce"]
 
     return (
-      <Container sx={{ width: '730px' }}>
+      <Container  sx={{width:'730px'}} >
         <Typography
           variant="h1"
           color="text"
@@ -29,8 +29,8 @@ export default class DeviceTab extends Component {
         >
           2. Décrivez ce dont vous avez besoin
         </Typography>
-        <Box sx={{width:650}}>
-          <StyledButton label={needs} handleChange={this.props.handleChange} width={620} state={"need"} />
+        <Box >
+          <StyledButton label={needs} handleChange={this.props.handleChange} width={"100%"} state={"need"} />
           <Piece values={this.props.values} handleChange={this.props.handleChange} />
 
           <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>

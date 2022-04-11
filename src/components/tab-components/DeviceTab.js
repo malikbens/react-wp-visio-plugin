@@ -16,7 +16,7 @@ export default class DeviceTab extends Component {
 
   render() {
     return (
-      <Container sx={{ width: '750px' }}>
+      <Container sx={{width:'730px'}}>
         <Typography
           variant="h1"
           color="text"
@@ -34,7 +34,7 @@ export default class DeviceTab extends Component {
           Choissisez votre appareil a réparer
         </Typography>
 
-        <Box sx={{ width: '750px' }}>
+        <Box >
           <SelectDevice
             handleChange={this.props.handleChange}
             values={this.props.values}

@@ -1,44 +1,50 @@
-import { Box, Grid, TextField } from '@mui/material'
-import React from 'react'
+import { Box } from '@mui/system'
+import React, { useState } from 'react'
+import LoginAPI from './API/LoginApi'
 
-export default function Login() {
-  return (
-    <Box>
-        <Grid container>
-            <Grid item xs={12}>
-                <TextField sx={{mr:2}}
-                    variant="outlined"
-                    id="outlined-basic"
-                    label="Prénom*"
-                />
-                <TextField 
-                    variant="outlined"
-                    id="outlined-basic"
-                    label="Nom*"
-                />
-            </Grid>
-            <Grid item >
-                <TextField sx={{width:500, mb:2, mt:2.5}}
-                    variant="outlined"
-                    id="outlined-basic"
-                    label="Votre adresse e-mail*"
-                />
-            </Grid>
-            <Grid item>
-                <TextField  sx={{width:500, mb:2.5}}
-                    variant="outlined"
-                    id="outlined-basic"
-                    label="Mot de passe*"
-                />
-            </Grid>
-            <Grid item>
-                <TextField  sx={{width:500}}
-                    variant="outlined"
-                    id="outlined-basic"
-                    label="Confirmation de mot de passe"
-                />
-            </Grid>
-        </Grid>
-    </Box>
-  )
+export default function Login(props) {
+    const [APIDetailsLogin, setAPIDetailsLogin] = useState({
+        user: '',
+        pass: '',
+    })
+
+    const [loginDetails, setLoginDetails] = useState({
+        user: '',
+        pass: '',
+    })
+
+    function handleChange(e) {
+        const { name, value } = e.target
+        setLoginDetails(prev => {
+            return (
+                { ...prev, [name]: value }
+            )
+        })
+    }
+
+    function handleSubmit() {
+        setAPIDetailsLogin({ ...loginDetails }) //check i need the ...here
+    }
+
+    console.log(loginDetails)
+
+    return (
+        <Box>
+            {/* <TextField sx={{ mb: 2.5, width:500}}
+                variant="outlined"
+                id="outlined-basic"
+                label="Votre adresse e-mail*"
+            />
+            <TextField sx={{ mb: 2.5, width:500 }}
+                variant="outlined"
+                id="outlined-basic"
+                label="Mot de passe"
+            /> */}
+
+            <input type="text" placeholder="User Name" name="user" value={loginDetails.user} onChange={handleChange} />
+            <input type="password" placeholder="Password" name="pass" value={loginDetails.pass} onChange={handleChange} />
+            <input type="submit" value="Go" onClick={handleSubmit} />
+            <LoginAPI APIDetailsLogin={APIDetailsLogin} setUsername={props.setUsername} setIsLoggedIn={props.setIsLoggedIn} setServerMessage={props.setServerMessage} nextStep={props.nextStep}/>
+        </Box>
+    )
 }

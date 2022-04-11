@@ -1,4 +1,5 @@
 import * as React from 'react';
+import useState from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -43,6 +44,10 @@ function a11yProps(index) {
 }
 
 export default function BasicTabs(props) {
+
+    const [username, setUsername] = React.useState('')
+    const [isLoggedIn, setIsLoggedIn] = React.useState(false)
+    const [serverMessage, setServerMessage] = React.useState(false)
     const [value, setValue] = React.useState(0);
 
     const continuer = e => {
@@ -60,26 +65,26 @@ export default function BasicTabs(props) {
     };
 
     return (
-        <Container sx={{ width: 730 }}>
+        <Container sx={{ width: '730px' }}>
             <Box >
-                <Typography 
+                <Typography
                     variant='h1'
                     align='left'
                     color='text'
                 >
                     6. Mon compte
                 </Typography>
-                <Box >
-                    <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                        <Tab sx={{ border: "solid 1px #C4C4C4" }} label="PAS ENCORE CLIENT ?" {...a11yProps(0)} />
-                        <Tab sx={{ border: "solid 1px #C4C4C4" }} label="Déjà client ?" {...a11yProps(1)} />
-                    </Tabs>
-                </Box>
+
+                <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+                    <Tab sx={{ border: "solid 1px #C4C4C4" }} label="PAS ENCORE CLIENT ?" {...a11yProps(0)} />
+                    <Tab sx={{ border: "solid 1px #C4C4C4" }} label="Déjà client ?" {...a11yProps(1)} />
+                </Tabs>
+
                 <TabPanel value={value} index={0}>
-                    <Login />
+                    <Register />
                 </TabPanel>
                 <TabPanel value={value} index={1}>
-                    <Register />
+                    <Login setUsername={setUsername} setIsLoggedIn={setIsLoggedIn} serverMessage={serverMessage} setServerMessage={setServerMessage} nextStep={props.nextStep}/>
                 </TabPanel>
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>

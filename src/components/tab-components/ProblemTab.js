@@ -16,7 +16,7 @@ export default class InfoTab extends Component {
 
     render() {
         return (
-            <Container sx={{ width: "730px" }}>
+            <Container  sx={{width:'730px'}}>
                 <Typography
                     variant="h1"
                     color="text"
