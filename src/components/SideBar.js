@@ -3,7 +3,8 @@ import { Box } from '@mui/system'
 import { Typography } from '@mui/material'
 
 export class SideBar extends Component {
-  render() {
+  render() {  
+    const values = Object.values(this.props.values)
     return (
       <Box>
         <Typography
@@ -13,7 +14,13 @@ export class SideBar extends Component {
         >
           Récapitulatif
         </Typography>
-        
+        <Box>
+          <Typography >
+            {values.map(value => 
+              <p key={value.id}>{value}</p>
+            )}
+          </Typography>
+        </Box>
       </Box>
     )
   }

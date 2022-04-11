@@ -13,8 +13,7 @@ export class VisioForm extends Component {
     render() {
         const  step  = this.props.values.step;
             switch (step) {
-                case 1: console.log("salut");
-                    
+                case 1: 
                     return (
                         <DeviceTab
                             nextStep={this.props.nextStep}
@@ -27,53 +26,53 @@ export class VisioForm extends Component {
                     );
                 case 2:
                     return (
-                        // <NeedTab
-                        //     nextStep={this.props.nextStep}
-                        //     prevStep={this.props.prevStep}
-                        //     handleChange={this.props.handleChange}
-                        //     values={this.props.values}
-                        // />
+                        <NeedTab
+                            nextStep={this.props.nextStep}
+                            prevStep={this.props.prevStep}
+                            handleChange={this.props.handleChange}
+                            values={this.props.values}
+                        />
                        
                     );
                 case 3:
                     return (
-                        // <ProblemTab
-                        //     nextStep={this.props.nextStep}
-                        //     prevStep={this.props.prevStep}
-                        //     handleChange={this.props.handleChange}
-                        //     values={values}
-                        // />
+                        <ProblemTab
+                            nextStep={this.props.nextStep}
+                            prevStep={this.props.prevStep}
+                            handleChange={this.props.handleChange}
+                            values={values}
+                        />
                         
                     );
                 case 4:
                     return (
-                    //     <InfoTab
-                    //         nextStep={this.props.nextStep}
-                    //         prevStep={this.props.prevStep}
-                    //         handleChange={this.props.handleChange}
-                    //         handleAge={this.props.handleAge}
-                    //         values={this.props.values}
-                    //     />
+                        <InfoTab
+                            nextStep={this.props.nextStep}
+                            prevStep={this.props.prevStep}
+                            handleChange={this.props.handleChange}
+                            handleAge={this.props.handleAge}
+                            values={this.props.values}
+                        />
                     
                     );
                 case 5:
                     return (
-                        // <ProductTab
-                        //     nextStep={this.props.nextStep}
-                        //     prevStep={this.props.prevStep}
-                        //     handleChange={this.props.handleChange}
-                        //     values={this.props.values}
-                        // />
+                        <ProductTab
+                            nextStep={this.props.nextStep}
+                            prevStep={this.props.prevStep}
+                            handleChange={this.props.handleChange}
+                            values={this.props.values}
+                        />
                         
                     );
                 case 6:
                     return (
-                        // <LoginRegisterTab
-                        //     nextStep={this.props.nextStep}
-                        //     prevStep={this.props.prevStep}
-                        //     handleChange={this.props.handleChange}
-                        //     values={this.props.values}
-                        // />
+                        <LoginRegisterTab
+                            nextStep={this.props.nextStep}
+                            prevStep={this.props.prevStep}
+                            handleChange={this.props.handleChange}
+                            values={this.props.values}
+                        />
                         
                     );
                 default:

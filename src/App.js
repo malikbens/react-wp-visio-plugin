@@ -107,6 +107,7 @@ class App extends Component {
   render() {
     const { device, brand, model, symptom, need, piece, prbDesc, age, access, level, tools, datas, step } = this.state;
     const values = { device, brand, model, symptom, need, piece, prbDesc, age, access, level, tools, datas, step };
+    const recap = {device, brand, model, symptom, need, piece, prbDesc, age, access, level, tools}
     return (
       <ThemeProvider theme={theme}>
         <Container maxWidth="xl" sx={{ display: 'inline-flex', justifyContent: 'center' }}>
@@ -119,7 +120,7 @@ class App extends Component {
             setData= {this.setData}
             values={values}
           />
-          <SideBar values={values}/>
+          <SideBar values={recap}/>
         </Container>
       </ThemeProvider>
 
