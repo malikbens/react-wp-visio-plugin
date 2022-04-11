@@ -9,6 +9,7 @@ function LoginAPI(props) {
             formData.append('username', props.APIDetailsLogin.user)
             formData.append('password', props.APIDetailsLogin.pass)
             formData.append('authkey', 'abc123')
+
             const url = 'http://localhost/wordpress/?rest_route=/simple-jwt-login/v1/auth'
             fetch(url, {
                 method: 'POST',

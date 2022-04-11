@@ -81,7 +81,7 @@ export default function BasicTabs(props) {
                 </Tabs>
 
                 <TabPanel value={value} index={0}>
-                    <Register />
+                    <Register setUsername={setUsername} setIsLoggedIn={setIsLoggedIn} serverMessage={serverMessage} setServerMessage={setServerMessage} nextStep={props.nextStep}/>
                 </TabPanel>
                 <TabPanel value={value} index={1}>
                     <Login setUsername={setUsername} setIsLoggedIn={setIsLoggedIn} serverMessage={serverMessage} setServerMessage={setServerMessage} nextStep={props.nextStep}/>

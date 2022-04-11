@@ -27222,7 +27222,13 @@ function BasicTabs(props) {
   }, a11yProps(1)))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(TabPanel, {
     value: value,
     index: 0
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_lr_components_Register__WEBPACK_IMPORTED_MODULE_4__["default"], null)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(TabPanel, {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_lr_components_Register__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    setUsername: setUsername,
+    setIsLoggedIn: setIsLoggedIn,
+    serverMessage: serverMessage,
+    setServerMessage: setServerMessage,
+    nextStep: props.nextStep
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(TabPanel, {
     value: value,
     index: 1
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_lr_components_Login__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -27921,6 +27927,70 @@ function LoginAPI(props) {
 
 /***/ }),
 
+/***/ "./src/components/tab-components/lr-components/API/RegisterApi.js":
+/*!************************************************************************!*\
+  !*** ./src/components/tab-components/lr-components/API/RegisterApi.js ***!
+  \************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+function RegisterApi(props) {
+  const [urlToLogin, setUrlToLogin] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)('');
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+    if (props.APIDetailsSignUp.user.length > 0) {
+      let formData = new FormData();
+      formData.append('user', props.APIDetailsSignUp.user);
+      formData.append('email', props.APIDetailsSignUp.email);
+      formData.append('password', props.APIDetailsSignUp.pass);
+      formData.append('authkey', 'abc123');
+      const url = 'http://localhost/wordpress/?rest_route=/simple-jwt-login/v1/users';
+      fetch(url, {
+        method: 'POST',
+        body: formData
+      }).then(response => response.json()) //json
+      .then(data => {
+        if (data['success'] === true) {
+          localStorage.setItem('jwt', data['data']['jwt']);
+          setUrlToLogin(`http://localhost/wordpress/?rest_route=/simple-jwt-login/v1/autologin&jwt=${data['data']['jwt']}`);
+          console.log(data);
+          console.log(data['data']['jwt']);
+        } else {
+          console.log(data);
+          console.log(data['data']['message']);
+          props.setServerMessage(data['data']['message']);
+        }
+      });
+    }
+  }, [props.APIDetailsSignUp]);
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+    if (urlToLogin.length > 0) {
+      fetch(urlToLogin, {
+        method: 'GET'
+      }).then(response => {
+        if (response.status == '200') {
+          props.setIsLoggedIn(true);
+          props.setUsername(props.APIDetailsSignUp.user);
+        } else {
+          console.log('error');
+        }
+      });
+    }
+  }, [urlToLogin]);
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (RegisterApi);
+
+/***/ }),
+
 /***/ "./src/components/tab-components/lr-components/Login.js":
 /*!**************************************************************!*\
   !*** ./src/components/tab-components/lr-components/Login.js ***!
@@ -28010,62 +28080,71 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Grid/Grid.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/TextField/TextField.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _API_RegisterApi__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./API/RegisterApi */ "./src/components/tab-components/lr-components/API/RegisterApi.js");
 
 
 
-function Register() {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    container: true
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    item: true,
-    xs: 12
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    sx: {
-      mr: 2
-    },
-    variant: "outlined",
-    id: "outlined-basic",
-    label: "Pr\xE9nom*"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    variant: "outlined",
-    id: "outlined-basic",
-    label: "Nom*"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    item: true
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    sx: {
-      width: 500,
-      mb: 2,
-      mt: 2.5
-    },
-    variant: "outlined",
-    id: "outlined-basic",
-    label: "Votre adresse e-mail*"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    item: true
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    sx: {
-      width: 500,
-      mb: 2.5
-    },
-    variant: "outlined",
-    id: "outlined-basic",
-    label: "Mot de passe*"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    item: true
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    sx: {
-      width: 500
-    },
-    variant: "outlined",
-    id: "outlined-basic",
-    label: "Confirmation de mot de passe"
-  }))));
+
+function Register(props) {
+  const [APIDetailsSignUp, setAPIDetailsSignUp] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
+    user: '',
+    email: '',
+    pass: ''
+  });
+  const [signUpDetails, setSignUpDetails] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
+    user: '',
+    email: '',
+    pass: ''
+  });
+  console.log(signUpDetails);
+
+  function handleChange(e) {
+    const {
+      name,
+      value
+    } = e.target;
+    setSignUpDetails(prev => {
+      return { ...prev,
+        [name]: value
+      };
+    });
+  }
+
+  function handleSubmit() {
+    setAPIDetailsSignUp({ ...signUpDetails
+    });
+  }
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "text",
+    placeholder: "User Name",
+    name: "user",
+    value: signUpDetails.user,
+    onChange: handleChange
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "email",
+    placeholder: "Email Adress",
+    name: "email",
+    value: signUpDetails.email,
+    onChange: handleChange
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "password",
+    placeholder: "Password",
+    name: "pass",
+    value: signUpDetails.pass,
+    onChange: handleChange
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "submit",
+    onClick: handleSubmit
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_API_RegisterApi__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    APIDetailsSignUp: APIDetailsSignUp,
+    setUsername: props.setUsername,
+    setIsLoggedIn: props.setIsLoggedIn,
+    setServerMessage: props.setServerMessage
+  }));
 }
 
 /***/ }),

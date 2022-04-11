@@ -20,3 +20,4 @@ function multistep_visio_form( $atts = array(), $content = null , $tag = 'multis
         <?php wp_enqueue_script( 'multistep_visio_form', plugins_url( 'build/index.js', __FILE__ ), array( 'wp-element' ), time(), true ); ?>
     <?php return ob_get_clean();
 }
+
