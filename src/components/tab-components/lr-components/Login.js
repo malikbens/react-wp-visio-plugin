@@ -26,8 +26,6 @@ export default function Login(props) {
         setAPIDetailsLogin({ ...loginDetails }) //check i need the ...here
     }
 
-    console.log(loginDetails)
-
     return (
         <Box>
             {/* <TextField sx={{ mb: 2.5, width:500}}
