@@ -67,7 +67,7 @@ export default function Register(props) {
             <input type="email" placeholder="Email Adress" name="email" value={signUpDetails.email} onChange={handleChange} />
             <input type="password" placeholder="Password" name="pass" value={signUpDetails.pass} onChange={handleChange} />
             <input type="submit" onClick={handleSubmit} />
-            <RegisterApi APIDetailsSignUp={APIDetailsSignUp} setUsername={props.setUsername} setIsLoggedIn={props.setIsLoggedIn} setServerMessage={props.setServerMessage}/>
+            <RegisterApi APIDetailsSignUp={APIDetailsSignUp} setUsername={props.setUsername} setIsLoggedIn={props.setIsLoggedIn} setServerMessage={props.setServerMessage} nextStep={props.nextStep}/>
         </Box>
     )
 }

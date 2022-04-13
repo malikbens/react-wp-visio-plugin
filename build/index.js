@@ -27942,10 +27942,10 @@ function RegisterApi(props) {
       }).then(response => response.json()) //json
       .then(data => {
         if (data['success'] === true) {
-          localStorage.setItem('jwt', data['data']['jwt']);
-          setUrlToLogin(`http://localhost/wordpress/?rest_route=/simple-jwt-login/v1/autologin&jwt=${data['data']['jwt']}`);
+          localStorage.setItem('jwt', data['jwt']);
+          setUrlToLogin(`http://localhost/wordpress/?rest_route=/simple-jwt-login/v1/autologin&jwt=${data['jwt']}`);
           console.log(data);
-          console.log(data['data']['jwt']);
+          console.log(data['jwt']);
         } else {
           console.log(data);
           console.log(data['data']['message']);
@@ -27960,8 +27960,9 @@ function RegisterApi(props) {
         method: 'GET'
       }).then(response => {
         if (response.status == '200') {
-          props.setIsLoggedIn(true);
+          props.setIsLoggedIn();
           props.setUsername(props.APIDetailsSignUp.user);
+          props.nextStep();
         } else {
           console.log('error');
         }
@@ -28356,7 +28357,8 @@ function Register(props) {
     APIDetailsSignUp: APIDetailsSignUp,
     setUsername: props.setUsername,
     setIsLoggedIn: props.setIsLoggedIn,
-    setServerMessage: props.setServerMessage
+    setServerMessage: props.setServerMessage,
+    nextStep: props.nextStep
   }));
 }
 

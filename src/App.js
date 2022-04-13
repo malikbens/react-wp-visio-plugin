@@ -5,8 +5,6 @@ import { Container } from '@mui/material';
 import SideBar from './components/SideBar';
 import Devices from '/data/devices.json'
 
-
-
 const theme = createTheme({
   palette: {
     primary: {
