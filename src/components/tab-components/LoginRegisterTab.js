@@ -5,16 +5,17 @@ import LoginRegister from './lr-components/LoginRegister'
 
 export default function LoginRegisterTab(props) {
 
-    const [username, setUsername] = useState('')
-    const [serverMessage, setServerMessage] = useState(false)
+    const username = props.values.username ;
+    const [serverMessage, setServerMessage] = useState(false);
 
-    console.log(props.values.isLoggedIn)
+    console.log(username)
 
     if (props.values.isLoggedIn === true ) {
         return (
             <IsLogged 
                 nextStep={props.nextStep}
                 prevStep={props.prevStep}
+                username={username}
             />
         )
     } return (
@@ -23,7 +24,7 @@ export default function LoginRegisterTab(props) {
                 nextStep={props.nextStep}
                 prevStep={props.prevStep}
                 handleChange={props.handleChange}
-                setUsername={setUsername}
+                setUsername={props.setUsername}
                 setIsLoggedIn={props.setIsLoggedIn}
                 serverMessage={serverMessage}
                 setServerMessage={setServerMessage}

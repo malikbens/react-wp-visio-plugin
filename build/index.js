@@ -26629,7 +26629,14 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__.Component {
       level: '',
       tools: '',
       datas: [],
-      isLoggedIn: false
+      isLoggedIn: false,
+      username: ''
+    });
+
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "setUsername", username => {
+      this.setState({
+        username: username
+      });
     });
 
     (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "setIsLoggedIn", () => {
@@ -26679,7 +26686,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__.Component {
 
     (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "handleAge", age => {
       this.setState({
-        age: [age]
+        age: age
       });
     });
   }
@@ -26699,7 +26706,8 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__.Component {
       tools,
       datas,
       step,
-      isLoggedIn
+      isLoggedIn,
+      username
     } = this.state;
     const values = {
       device,
@@ -26715,7 +26723,8 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__.Component {
       tools,
       datas,
       step,
-      isLoggedIn
+      isLoggedIn,
+      username
     };
     const recap = {
       device,
@@ -26746,6 +26755,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__.Component {
       fetchData: this.fetchData,
       setData: this.setData,
       setIsLoggedIn: this.setIsLoggedIn,
+      setUsername: this.setUsername,
       values: values
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_components_SideBar__WEBPACK_IMPORTED_MODULE_4__["default"], {
       values: recap
@@ -26884,6 +26894,7 @@ class VisioForm extends Component {
           prevStep: this.props.prevStep,
           handleChange: this.props.handleChange,
           setIsLoggedIn: this.props.setIsLoggedIn,
+          setUsername: this.props.setUsername,
           values: this.props.values
         });
 
@@ -27208,14 +27219,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function LoginRegisterTab(props) {
-  const [username, setUsername] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)('');
+  const username = props.values.username;
   const [serverMessage, setServerMessage] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
-  console.log(props.values.isLoggedIn);
+  console.log(username);
 
   if (props.values.isLoggedIn === true) {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_lr_components_IsLogged__WEBPACK_IMPORTED_MODULE_2__["default"], {
       nextStep: props.nextStep,
-      prevStep: props.prevStep
+      prevStep: props.prevStep,
+      username: username
     });
   }
 
@@ -27223,7 +27235,7 @@ function LoginRegisterTab(props) {
     nextStep: props.nextStep,
     prevStep: props.prevStep,
     handleChange: props.handleChange,
-    setUsername: setUsername,
+    setUsername: props.setUsername,
     setIsLoggedIn: props.setIsLoggedIn,
     serverMessage: serverMessage,
     setServerMessage: setServerMessage,
@@ -27886,7 +27898,6 @@ function LoginAPI(props) {
           props.setIsLoggedIn();
           props.setUsername(props.APIDetailsLogin.user);
           props.nextStep();
-          console.log(props.values.isLoggedIn);
         } else {
           console.log('error');
         }
@@ -27973,13 +27984,18 @@ function RegisterApi(props) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ IsLogged; }
+/* harmony export */   "IsLogged": function() { return /* binding */ IsLogged; }
 /* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
+/* harmony import */ var _mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/icons-material/ArrowForward */ "./node_modules/@mui/icons-material/ArrowForward.js");
+
 
 
 
@@ -27987,32 +28003,51 @@ const {
   Component,
   render
 } = wp.element;
-function IsLogged() {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    variant: "h2",
-    align: "left",
-    color: "text"
-  }, "Bonjour ", usrname), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Box, {
-    sx: {
-      display: 'flex',
-      justifyContent: 'flex-end'
-    }
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
-    sx: {
-      mt: 5,
-      color: 'black'
-    },
-    onClick: back
-  }, "Retour"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
-    sx: {
-      mt: 5,
-      ml: 3
-    },
-    variant: "contained",
-    onClick: continuer,
-    endIcon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ArrowForwardIcon, null)
-  }, "Continuer")));
+
+class IsLogged extends Component {
+  constructor() {
+    super(...arguments);
+
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "continuer", e => {
+      e.preventDefault();
+      this.props.nextStep();
+    });
+
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "back", e => {
+      e.preventDefault();
+      this.props.prevStep();
+    });
+  }
+
+  render() {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      variant: "h2",
+      align: "left",
+      color: "text"
+    }, "Bonjour ", this.props.username), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      sx: {
+        display: 'flex',
+        justifyContent: 'flex-end'
+      }
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      sx: {
+        mt: 5,
+        color: 'black'
+      },
+      onClick: this.back
+    }, "Retour"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      sx: {
+        mt: 5,
+        ml: 3
+      },
+      variant: "contained",
+      onClick: this.continuer,
+      endIcon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_6__["default"], null)
+    }, "Continuer")));
+  }
+
 }
+/* harmony default export */ __webpack_exports__["default"] = (IsLogged);
 
 /***/ }),
 
@@ -28278,7 +28313,6 @@ function Register(props) {
     email: '',
     pass: ''
   });
-  console.log(signUpDetails);
 
   function handleChange(e) {
     const {

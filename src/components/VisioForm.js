@@ -73,6 +73,7 @@ export class VisioForm extends Component {
                         prevStep={this.props.prevStep}
                         handleChange={this.props.handleChange}
                         setIsLoggedIn={this.props.setIsLoggedIn}
+                        setUsername={this.props.setUsername}
                         values={this.props.values}
                     />
 

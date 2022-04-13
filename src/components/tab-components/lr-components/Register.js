@@ -13,7 +13,6 @@ export default function Register(props) {
         email: '',
         pass: '',
     })
-    console.log(signUpDetails)
 
     function handleChange(e) {
         const { name, value } = e.target

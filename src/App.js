@@ -6,6 +6,7 @@ import SideBar from './components/SideBar';
 import Devices from '/data/devices.json'
 
 
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -65,6 +66,13 @@ class App extends Component {
     tools: '',
     datas: [],
     isLoggedIn : false ,
+    username : ''
+  }
+
+  setUsername = username => {
+    this.setState({
+      username : username
+    })
   }
   
   setIsLoggedIn = () => {
@@ -108,13 +116,13 @@ class App extends Component {
 
   handleAge = age => {
     this.setState({
-      age: [age]
+      age: age
     })
   }
 
   render() {
-    const { device, brand, model, symptom, need, piece, prbDesc, age, access, level, tools, datas, step, isLoggedIn} = this.state;
-    const values = { device, brand, model, symptom, need, piece, prbDesc, age, access, level, tools, datas, step, isLoggedIn};
+    const { device, brand, model, symptom, need, piece, prbDesc, age, access, level, tools, datas, step, isLoggedIn, username} = this.state;
+    const values = { device, brand, model, symptom, need, piece, prbDesc, age, access, level, tools, datas, step, isLoggedIn, username};
     const recap = {device, brand, model, symptom, need, piece, prbDesc, age, access, level, tools};
 
     return (
@@ -128,6 +136,7 @@ class App extends Component {
             fetchData={this.fetchData}
             setData= {this.setData}
             setIsLoggedIn={this.setIsLoggedIn}
+            setUsername={this.setUsername}
             values={values}
           />
           <SideBar values={recap}/>
