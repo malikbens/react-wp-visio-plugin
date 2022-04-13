@@ -39,9 +39,10 @@ function LoginAPI(props) {
             })
                 .then((response) => {
                     if (response.status == '200') {
-                        props.setIsLoggedIn(true)
+                        props.setIsLoggedIn()
                         props.setUsername(props.APIDetailsLogin.user)
                         props.nextStep()
+                        console.log(props.values.isLoggedIn)
                     }
                     else {
                         console.log('error')

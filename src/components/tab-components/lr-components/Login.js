@@ -42,7 +42,7 @@ export default function Login(props) {
             <input type="text" placeholder="User Name" name="user" value={loginDetails.user} onChange={handleChange} />
             <input type="password" placeholder="Password" name="pass" value={loginDetails.pass} onChange={handleChange} />
             <input type="submit" value="Go" onClick={handleSubmit} />
-            <LoginAPI APIDetailsLogin={APIDetailsLogin} setUsername={props.setUsername} setIsLoggedIn={props.setIsLoggedIn} setServerMessage={props.setServerMessage} nextStep={props.nextStep}/>
+            <LoginAPI APIDetailsLogin={APIDetailsLogin} setUsername={props.setUsername} setIsLoggedIn={props.setIsLoggedIn} setServerMessage={props.setServerMessage} nextStep={props.nextStep} />
         </Box>
     )
 }

@@ -44,10 +44,6 @@ function a11yProps(index) {
 }
 
 export default function BasicTabs(props) {
-
-    const [username, setUsername] = React.useState('')
-    const [isLoggedIn, setIsLoggedIn] = React.useState(false)
-    const [serverMessage, setServerMessage] = React.useState(false)
     const [value, setValue] = React.useState(0);
 
     const continuer = e => {
@@ -81,10 +77,10 @@ export default function BasicTabs(props) {
                 </Tabs>
                 
                 <TabPanel value={value} index={0}>
-                    <Register setUsername={setUsername} setIsLoggedIn={setIsLoggedIn} serverMessage={serverMessage} setServerMessage={setServerMessage} nextStep={props.nextStep}/>
+                    <Register setUsername={props.setUsername} setIsLoggedIn={props.setIsLoggedIn} serverMessage={props.serverMessage} setServerMessage={props.setServerMessage} nextStep={props.nextStep}/>
                 </TabPanel>
                 <TabPanel value={value} index={1}>
-                    <Login setUsername={setUsername} setIsLoggedIn={setIsLoggedIn} serverMessage={serverMessage} setServerMessage={setServerMessage} nextStep={props.nextStep}/>
+                    <Login  setUsername={props.setUsername} setIsLoggedIn={props.setIsLoggedIn} serverMessage={props.serverMessage} setServerMessage={props.setServerMessage} nextStep={props.nextStep} isLogged={props.isLogged}/>
                 </TabPanel>
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect } from 'react'
 import VisioForm from './components/VisioForm'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Container } from '@mui/material';
@@ -48,6 +48,7 @@ const theme = createTheme({
     },
   },
 })
+
 class App extends Component {
   state = {
     step: 1,
@@ -63,6 +64,13 @@ class App extends Component {
     level: '',
     tools: '',
     datas: [],
+    isLoggedIn : false ,
+  }
+  
+  setIsLoggedIn = () => {
+    this.setState({
+      isLoggedIn : true
+    })
   }
 
   fetchData = () => {
@@ -105,9 +113,10 @@ class App extends Component {
   }
 
   render() {
-    const { device, brand, model, symptom, need, piece, prbDesc, age, access, level, tools, datas, step } = this.state;
-    const values = { device, brand, model, symptom, need, piece, prbDesc, age, access, level, tools, datas, step };
-    const recap = {device, brand, model, symptom, need, piece, prbDesc, age, access, level, tools}
+    const { device, brand, model, symptom, need, piece, prbDesc, age, access, level, tools, datas, step, isLoggedIn} = this.state;
+    const values = { device, brand, model, symptom, need, piece, prbDesc, age, access, level, tools, datas, step, isLoggedIn};
+    const recap = {device, brand, model, symptom, need, piece, prbDesc, age, access, level, tools};
+
     return (
       <ThemeProvider theme={theme}>
         <Container maxWidth="xl" sx={{ display: 'inline-flex', justifyContent: 'center' }}>
@@ -118,6 +127,7 @@ class App extends Component {
             handleAge={this.handleAge}
             fetchData={this.fetchData}
             setData= {this.setData}
+            setIsLoggedIn={this.setIsLoggedIn}
             values={values}
           />
           <SideBar values={recap}/>

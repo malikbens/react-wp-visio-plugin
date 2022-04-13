@@ -1,21 +1,36 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect, useState } from 'react'
+import IsLogged from './lr-components/IsLogged'
 import LoginRegister from './lr-components/LoginRegister'
 
 
-export class LoginRegisterTab extends Component {
-    render() {
-        if (document.body.classList.contains('logged-in')) {
-            return (
-                <div>SALUT monsieur</div>
-            )
-        } return (
-            <LoginRegister nextStep={this.props.nextStep}
-                prevStep={this.props.prevStep}
-                handleChange={this.props.handleChange}
-                values={this.props.values} />
-        )
+export default function LoginRegisterTab(props) {
 
-    }
+    const [username, setUsername] = useState('')
+    const [serverMessage, setServerMessage] = useState(false)
+
+    console.log(props.values.isLoggedIn)
+
+    if (props.values.isLoggedIn === true ) {
+        return (
+            <IsLogged 
+                nextStep={props.nextStep}
+                prevStep={props.prevStep}
+            />
+        )
+    } return (
+        
+        <LoginRegister
+                nextStep={props.nextStep}
+                prevStep={props.prevStep}
+                handleChange={props.handleChange}
+                setUsername={setUsername}
+                setIsLoggedIn={props.setIsLoggedIn}
+                serverMessage={serverMessage}
+                setServerMessage={setServerMessage}
+                values={props.values}
+            />
+    )
+
+
 }
 
-export default LoginRegisterTab

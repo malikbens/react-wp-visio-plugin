@@ -26628,7 +26628,14 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__.Component {
       access: '',
       level: '',
       tools: '',
-      datas: []
+      datas: [],
+      isLoggedIn: false
+    });
+
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "setIsLoggedIn", () => {
+      this.setState({
+        isLoggedIn: true
+      });
     });
 
     (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "fetchData", () => {
@@ -26691,7 +26698,8 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__.Component {
       level,
       tools,
       datas,
-      step
+      step,
+      isLoggedIn
     } = this.state;
     const values = {
       device,
@@ -26706,7 +26714,8 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__.Component {
       level,
       tools,
       datas,
-      step
+      step,
+      isLoggedIn
     };
     const recap = {
       device,
@@ -26736,6 +26745,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__.Component {
       handleAge: this.handleAge,
       fetchData: this.fetchData,
       setData: this.setData,
+      setIsLoggedIn: this.setIsLoggedIn,
       values: values
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_components_SideBar__WEBPACK_IMPORTED_MODULE_4__["default"], {
       values: recap
@@ -26807,11 +26817,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tab_components_ProblemTab__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./tab-components/ProblemTab */ "./src/components/tab-components/ProblemTab.js");
 /* harmony import */ var _tab_components_ProductTab__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./tab-components/ProductTab */ "./src/components/tab-components/ProductTab.js");
 /* harmony import */ var _tab_components_LoginRegisterTab__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./tab-components/LoginRegisterTab */ "./src/components/tab-components/LoginRegisterTab.js");
+/* harmony import */ var _tab_components_CalendarTab__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./tab-components/CalendarTab */ "./src/components/tab-components/CalendarTab.js");
 
 const {
   Component,
   render
 } = wp.element;
+
 
 
 
@@ -26871,11 +26883,15 @@ class VisioForm extends Component {
           nextStep: this.props.nextStep,
           prevStep: this.props.prevStep,
           handleChange: this.props.handleChange,
+          setIsLoggedIn: this.props.setIsLoggedIn,
           values: this.props.values
         });
 
       case 7:
-        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "salut");
+        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_tab_components_CalendarTab__WEBPACK_IMPORTED_MODULE_8__["default"], {
+          nextStep: this.props.nextStep,
+          prevStep: this.props.prevStep
+        });
 
       default:
         console.log('This is a multi-step form built with React.');
@@ -26884,6 +26900,72 @@ class VisioForm extends Component {
 
 }
 /* harmony default export */ __webpack_exports__["default"] = (VisioForm);
+
+/***/ }),
+
+/***/ "./src/components/tab-components/CalendarTab.js":
+/*!******************************************************!*\
+  !*** ./src/components/tab-components/CalendarTab.js ***!
+  \******************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ CalendarTab; }
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
+/* harmony import */ var _mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/icons-material/ArrowForward */ "./node_modules/@mui/icons-material/ArrowForward.js");
+
+
+
+
+
+class CalendarTab extends react__WEBPACK_IMPORTED_MODULE_2__.Component {
+  constructor() {
+    super(...arguments);
+
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "continue", e => {
+      e.preventDefault();
+      this.props.nextStep();
+    });
+
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "back", e => {
+      e.preventDefault();
+      this.props.prevStep();
+    });
+  }
+
+  render() {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", null, "CalendarTab"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      sx: {
+        display: 'flex',
+        justifyContent: 'flex-end'
+      }
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      sx: {
+        mt: 5,
+        color: 'black'
+      },
+      onClick: this.back
+    }, "Retour"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      sx: {
+        mt: 5,
+        ml: 3
+      },
+      variant: "contained",
+      onClick: this.continue,
+      endIcon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_5__["default"], null)
+    }, "Continuer")));
+  }
+
+}
 
 /***/ }),
 
@@ -27113,32 +27195,41 @@ class InfoTab extends Component {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "LoginRegisterTab": function() { return /* binding */ LoginRegisterTab; }
+/* harmony export */   "default": function() { return /* binding */ LoginRegisterTab; }
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _lr_components_LoginRegister__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lr-components/LoginRegister */ "./src/components/tab-components/lr-components/LoginRegister.js");
+/* harmony import */ var _lr_components_IsLogged__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lr-components/IsLogged */ "./src/components/tab-components/lr-components/IsLogged.js");
+/* harmony import */ var _lr_components_LoginRegister__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./lr-components/LoginRegister */ "./src/components/tab-components/lr-components/LoginRegister.js");
 
 
 
-class LoginRegisterTab extends react__WEBPACK_IMPORTED_MODULE_1__.Component {
-  render() {
-    if (document.body.classList.contains('logged-in')) {
-      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "SALUT monsieur");
-    }
 
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_lr_components_LoginRegister__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      nextStep: this.props.nextStep,
-      prevStep: this.props.prevStep,
-      handleChange: this.props.handleChange,
-      values: this.props.values
+function LoginRegisterTab(props) {
+  const [username, setUsername] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)('');
+  const [serverMessage, setServerMessage] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
+  console.log(props.values.isLoggedIn);
+
+  if (props.values.isLoggedIn === true) {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_lr_components_IsLogged__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      nextStep: props.nextStep,
+      prevStep: props.prevStep
     });
   }
 
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_lr_components_LoginRegister__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    nextStep: props.nextStep,
+    prevStep: props.prevStep,
+    handleChange: props.handleChange,
+    setUsername: setUsername,
+    setIsLoggedIn: props.setIsLoggedIn,
+    serverMessage: serverMessage,
+    setServerMessage: setServerMessage,
+    values: props.values
+  });
 }
-/* harmony default export */ __webpack_exports__["default"] = (LoginRegisterTab);
 
 /***/ }),
 
@@ -27792,9 +27883,10 @@ function LoginAPI(props) {
         method: 'GET'
       }).then(response => {
         if (response.status == '200') {
-          props.setIsLoggedIn(true);
+          props.setIsLoggedIn();
           props.setUsername(props.APIDetailsLogin.user);
           props.nextStep();
+          console.log(props.values.isLoggedIn);
         } else {
           console.log('error');
         }
@@ -27869,6 +27961,58 @@ function RegisterApi(props) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (RegisterApi);
+
+/***/ }),
+
+/***/ "./src/components/tab-components/lr-components/IsLogged.js":
+/*!*****************************************************************!*\
+  !*** ./src/components/tab-components/lr-components/IsLogged.js ***!
+  \*****************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ IsLogged; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Typography/Typography.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+const {
+  Component,
+  render
+} = wp.element;
+function IsLogged() {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    variant: "h2",
+    align: "left",
+    color: "text"
+  }, "Bonjour ", usrname), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Box, {
+    sx: {
+      display: 'flex',
+      justifyContent: 'flex-end'
+    }
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
+    sx: {
+      mt: 5,
+      color: 'black'
+    },
+    onClick: back
+  }, "Retour"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Button, {
+    sx: {
+      mt: 5,
+      ml: 3
+    },
+    variant: "contained",
+    onClick: continuer,
+    endIcon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ArrowForwardIcon, null)
+  }, "Continuer")));
+}
 
 /***/ }),
 
@@ -28021,9 +28165,6 @@ function a11yProps(index) {
 }
 
 function BasicTabs(props) {
-  const [username, setUsername] = react__WEBPACK_IMPORTED_MODULE_2__.useState('');
-  const [isLoggedIn, setIsLoggedIn] = react__WEBPACK_IMPORTED_MODULE_2__.useState(false);
-  const [serverMessage, setServerMessage] = react__WEBPACK_IMPORTED_MODULE_2__.useState(false);
   const [value, setValue] = react__WEBPACK_IMPORTED_MODULE_2__.useState(0);
 
   const continuer = e => {
@@ -28066,20 +28207,21 @@ function BasicTabs(props) {
     value: value,
     index: 0
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Register__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    setUsername: setUsername,
-    setIsLoggedIn: setIsLoggedIn,
-    serverMessage: serverMessage,
-    setServerMessage: setServerMessage,
+    setUsername: props.setUsername,
+    setIsLoggedIn: props.setIsLoggedIn,
+    serverMessage: props.serverMessage,
+    setServerMessage: props.setServerMessage,
     nextStep: props.nextStep
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(TabPanel, {
     value: value,
     index: 1
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Login__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    setUsername: setUsername,
-    setIsLoggedIn: setIsLoggedIn,
-    serverMessage: serverMessage,
-    setServerMessage: setServerMessage,
-    nextStep: props.nextStep
+    setUsername: props.setUsername,
+    setIsLoggedIn: props.setIsLoggedIn,
+    serverMessage: props.serverMessage,
+    setServerMessage: props.setServerMessage,
+    nextStep: props.nextStep,
+    isLogged: props.isLogged
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material_Box__WEBPACK_IMPORTED_MODULE_5__["default"], {
     sx: {
       display: 'flex',
