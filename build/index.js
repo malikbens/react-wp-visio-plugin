@@ -26912,7 +26912,8 @@ class VisioForm extends Component {
       case 7:
         return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_tab_components_CalendarTab__WEBPACK_IMPORTED_MODULE_8__["default"], {
           nextStep: this.props.nextStep,
-          prevStep: this.props.prevStep
+          prevStep: this.props.prevStep,
+          values: this.props.values
         });
 
       default:
@@ -26941,9 +26942,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
-/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
-/* harmony import */ var _mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/icons-material/ArrowForward */ "./node_modules/@mui/icons-material/ArrowForward.js");
+/* harmony import */ var _calendar_components_Booked__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./calendar-components/Booked */ "./src/components/tab-components/calendar-components/Booked.js");
+
 
 
 
@@ -26965,26 +26965,9 @@ class CalendarTab extends react__WEBPACK_IMPORTED_MODULE_2__.Component {
   }
 
   render() {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", null, "CalendarTab"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      sx: {
-        display: 'flex',
-        justifyContent: 'flex-end'
-      }
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      sx: {
-        mt: 5,
-        color: 'black'
-      },
-      onClick: this.back
-    }, "Retour"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      sx: {
-        mt: 5,
-        ml: 3
-      },
-      variant: "contained",
-      onClick: this.continue,
-      endIcon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_5__["default"], null)
-    }, "Continuer")));
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      id: "test"
+    }, "CalendarTab"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_calendar_components_Booked__WEBPACK_IMPORTED_MODULE_3__["default"], null));
   }
 
 }
@@ -27232,7 +27215,6 @@ __webpack_require__.r(__webpack_exports__);
 function LoginRegisterTab(props) {
   const username = props.values.username;
   const [serverMessage, setServerMessage] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
-  console.log(username);
 
   if (props.values.isLoggedIn === true) {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_lr_components_IsLogged__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -27593,6 +27575,59 @@ function StyledButton(props) {
 
 /***/ }),
 
+/***/ "./src/components/tab-components/calendar-components/Booked.js":
+/*!*********************************************************************!*\
+  !*** ./src/components/tab-components/calendar-components/Booked.js ***!
+  \*********************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ Booked; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
+/* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
+
+
+
+
+function Booked() {
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+    const booked = document.getElementById('booked');
+    const app = document.getElementById('test');
+
+    while (booked.childNodes.length > 0) {
+      app.appendChild(booked.childNodes[0]);
+    }
+
+    console.log(app.childNodes);
+  });
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    sx: {
+      display: 'flex',
+      justifyContent: 'flex-end'
+    }
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    sx: {
+      mt: 5,
+      color: 'black'
+    }
+  }, "Retour"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    sx: {
+      mt: 5,
+      ml: 3
+    },
+    variant: "contained"
+  }, "Continuer"));
+}
+
+/***/ }),
+
 /***/ "./src/components/tab-components/device-components/SelectBrand.js":
 /*!************************************************************************!*\
   !*** ./src/components/tab-components/device-components/SelectBrand.js ***!
@@ -27889,7 +27924,6 @@ function LoginAPI(props) {
         body: formData
       }).then(response => response.json()).then(data => {
         if (data['success'] == true) {
-          console.log(data);
           localStorage.setItem('jwt', data['data']['jwt']);
           setUrlToLogin(`http://localhost/wordpress/?rest_route=/simple-jwt-login/v1/autologin&jwt=${data['data']['jwt']}`);
         } else {
@@ -28530,8 +28564,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function ProductChoice(props) {
-  console.log(props);
-
   if (props.values.need == 'Je cherche la panne de mon appareil' || props.values.need == "J'ai besoin d'aide pour remplacer ma pièce" || props.values.access == "Encastré mais difficilement accessible" || props.values.level == '0') {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Premium__WEBPACK_IMPORTED_MODULE_2__["default"], null);
   }

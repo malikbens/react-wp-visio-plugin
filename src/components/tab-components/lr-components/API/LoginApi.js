@@ -18,7 +18,6 @@ function LoginAPI(props) {
                 .then((response) => response.json())
                 .then((data) => {
                     if (data['success'] == true) {
-                        console.log(data)
                         localStorage.setItem('jwt', data['data']['jwt'])
                         setUrlToLogin(`http://localhost/wordpress/?rest_route=/simple-jwt-login/v1/autologin&jwt=${data['data']['jwt']}`)
                     }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Box, Button } from '@mui/material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import Booked from './calendar-components/Booked';
 
 export default class CalendarTab extends Component {
     continue = e => {
@@ -15,15 +16,9 @@ export default class CalendarTab extends Component {
 
     render() {
         return (<>
-            <div>CalendarTab</div>
-            <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <Button sx={{ mt: 5, color:'black' }} onClick={this.back}  >
-                Retour
-            </Button>
-            <Button sx={{ mt: 5, ml: 3 }} variant="contained" onClick={this.continue} endIcon={<ArrowForwardIcon />}  >
-                Continuer
-            </Button>
-        </Box>
+            <div id='test'>CalendarTab</div>
+            <Booked />
+            
         </>
         )
     }

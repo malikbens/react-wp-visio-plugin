@@ -82,7 +82,10 @@ export class VisioForm extends Component {
                 return (
                     <CalendarTab 
                         nextStep={this.props.nextStep}
-                        prevStep={this.props.prevStep} />
+                        prevStep={this.props.prevStep} 
+                        values={this.props.values}
+                    />
+                        
                 );
             default:
                 (console.log('This is a multi-step form built with React.'))

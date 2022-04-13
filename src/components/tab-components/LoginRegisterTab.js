@@ -7,9 +7,7 @@ export default function LoginRegisterTab(props) {
 
     const username = props.values.username ;
     const [serverMessage, setServerMessage] = useState(false);
-
-    console.log(username)
-
+    
     if (props.values.isLoggedIn === true ) {
         return (
             <IsLogged 
