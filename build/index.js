@@ -26691,6 +26691,17 @@ class App extends react__WEBPACK_IMPORTED_MODULE_2__.Component {
     });
   }
 
+  componentDidMount() {
+    const username = document.getElementById("username");
+
+    if (document.body.classList.contains('logged-in')) {
+      this.setState({
+        isLoggedIn: true,
+        username: username.value
+      });
+    }
+  }
+
   render() {
     const {
       device,

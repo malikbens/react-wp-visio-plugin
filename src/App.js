@@ -65,6 +65,16 @@ class App extends Component {
     datas: [],
     isLoggedIn : false ,
     username : ''
+  };
+
+  componentDidMount(){
+    const username = document.getElementById("username") ;
+    if(document.body.classList.contains('logged-in')){
+      this.setState({
+        isLoggedIn : true,
+        username : username.value
+      })
+    }
   }
 
   setUsername = username => {

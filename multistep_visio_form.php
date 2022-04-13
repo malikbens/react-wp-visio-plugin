@@ -25,14 +25,14 @@ function multistep_visio_form($atts = array(), $content = null, $tag = 'multiste
 <?php return ob_get_clean();
 };
 
-// add_action('init', 'getUsr');
-// function getUsr(){
-//     if( is_user_logged_in() ) {
-//         $current_user = wp_get_current_user();
-//         $current_username = $current_user->user_login;
-//         echo  $current_username ;
-//     }
-// }
+add_action('init', 'getUsr');
+function getUsr(){
+    if( is_user_logged_in() ) {
+        $current_user = wp_get_current_user();
+        $current_username = $current_user->user_login;
+        echo  '<input id="username" type="hidden" value="'.$current_username.'"/>' ;
+    }
+}
 
 
 // add_action('init', 'getPrices');
