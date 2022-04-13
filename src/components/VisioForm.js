@@ -8,7 +8,6 @@ import ProductTab from "./tab-components/ProductTab";
 import LoginRegisterTab from "./tab-components/LoginRegisterTab";
 import CalendarTab from './tab-components/CalendarTab';
 
-
 export class VisioForm extends Component {
 
     render() {

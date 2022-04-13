@@ -27,8 +27,10 @@ function getUsr(){
 }
 
 function booked(){
-    $booked = do_shortcode("[booked-calendar]");
-    echo $booked;
+    $booked_premium = do_shortcode("[booked-calendar=20]");
+    $booked_smart = do_shortcode("[booked-calendar=21]");
+    echo '<div id="booked-premium">'.$booked_premium.'</div>';
+    echo '<div id="booked-smart">'.$booked_smart.'</div>';
 }
 
 // add_action('init', 'getPrices');

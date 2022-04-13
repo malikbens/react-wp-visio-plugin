@@ -17,8 +17,7 @@ export default class CalendarTab extends Component {
     render() {
         return (<>
             <div id='test'>CalendarTab</div>
-            <Booked />
-            
+            <Booked nextStep={this.props.nextStep} prevStep={this.props.prevStep}/>
         </>
         )
     }

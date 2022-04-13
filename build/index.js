@@ -26967,7 +26967,10 @@ class CalendarTab extends react__WEBPACK_IMPORTED_MODULE_2__.Component {
   render() {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
       id: "test"
-    }, "CalendarTab"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_calendar_components_Booked__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+    }, "CalendarTab"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_calendar_components_Booked__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      nextStep: this.props.nextStep,
+      prevStep: this.props.prevStep
+    }));
   }
 
 }
@@ -27592,11 +27595,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Box/Box.js");
 /* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
+/* harmony import */ var _mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/icons-material/ArrowForward */ "./node_modules/@mui/icons-material/ArrowForward.js");
 
 
 
 
-function Booked() {
+function Booked(props) {
+  function test() {}
+
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
     const booked = document.getElementById('booked');
     const app = document.getElementById('test');
@@ -27616,13 +27622,16 @@ function Booked() {
     sx: {
       mt: 5,
       color: 'black'
-    }
+    },
+    onClick: props.prevStep
   }, "Retour"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_material__WEBPACK_IMPORTED_MODULE_3__["default"], {
     sx: {
       mt: 5,
       ml: 3
     },
-    variant: "contained"
+    variant: "contained",
+    onClick: props.nextStep,
+    endIcon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_4__["default"], null)
   }, "Continuer"));
 }
 
