@@ -40,7 +40,7 @@ export default class InfoTab extends Component {
                     min={0}
                     max={100}
                     onCountChange={data => this.props.handleAge(data)}
-                    wrapperStyle={{ border: "solid 1px #C4C4C4", width: 'fit-content' }}
+                    wrapperStyle={{ border: "solid 1px #C4C4C4", width: 'fit-content', marginTop:"10px", padding:"10px" ,marginLeft:"10px" }}
                 />
                 <Typography
                     variant="h2"
@@ -50,9 +50,9 @@ export default class InfoTab extends Component {
                     Votre appareil est-il facilement accessible ?
                 </Typography>
 
-                <StyledButton label={access} handleChange={this.props.handleChange} width={500} state={"access"} />
+                <StyledButton label={access} handleChange={this.props.handleChange} test={"inherit"} width={"100%"} state={"access"} />
                 <Grid item>
-                    <TextField sx={{ width: 500 }} variant="outlined" label="Autre"></TextField>
+                    <TextField sx={{ width: "100%" }} variant="outlined" label="Autre"></TextField>
                 </Grid>
 
                 <Typography
@@ -73,7 +73,7 @@ export default class InfoTab extends Component {
                     Quel outils avez vous à votre disposition ?
                 </Typography>
 
-                <Tools/>
+                {/* <Tools/> */}
                 
                 <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                     <Button sx={{ mt: 5, color:'black' }} onClick={this.back}  >

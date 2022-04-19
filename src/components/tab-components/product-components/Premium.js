@@ -8,10 +8,10 @@ export default function Premium() {
             variant='h2'
             color="text"
         >
-         FORFAIT PREMIUM 
+         Forfait Premium
         
         </Typography>
-        <Box sx={{background:"#8CBE22", color:"white" }}>   
+        <Box sx={{background:"#8CBE22", color:"white" , padding:'15px 25px 15px 25px' }}>   
             <Typography>
                 Ce forfait comprend :
             </Typography>
@@ -39,7 +39,7 @@ export default function Premium() {
             </List>
         </Box>
 
-        <Box sx={{border:"solid 1px #C4C4C4"}}>
+        <Box sx={{border:"solid 1px #C4C4C4",padding:'15px 25px 15px 25px'}}>
             <Typography
                 variant='h2'
                 color="primary"

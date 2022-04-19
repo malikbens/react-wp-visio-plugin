@@ -267,6 +267,7 @@ export default [
           'Il ne fonctionne plus',
           'Il sent mauvais ou sent le brûlé',
           'Il fait du bruit',
+          'Autre'
 
       ]
   },
@@ -321,6 +322,7 @@ export default [
           'Elle ne chauffe plus',
           'Elle ne fonctionne plus',
           'Le fer ne fonctionne plus',
+          'Autre'
       ],
   },
   {
@@ -590,7 +592,9 @@ export default [
           'Elle ne chauffe plus',
           'Elle ne fonctionne pas',
           'La porte ferme mal',
-          'Elle fait du bruit',],
+          'Elle fait du bruit',
+          'Autre'
+        ],
   },
   {
       'name': 'Fer à repasser',
@@ -912,7 +916,9 @@ export default [
       'symptoms': ['Il fait disjoncter',
           'Il ne chauffe plus',
           'Il ne fonctionne pas',
-          'La porte ferme mal', 'Il fait du bruit',],
+          'La porte ferme mal', 'Il fait du bruit',
+          'Autre'
+        ],
   },
   {
       'name': 'Hotte',
@@ -1053,7 +1059,9 @@ export default [
           'Elle n\'aspire plus',
           'Elle n\'émet plus de lumière',
           'Elle est bruyante',
-          'Il y a une fuite d\'eau',],
+          'Il y a une fuite d\'eau',
+          'Autre'
+        ],
   },
   {
       'name': 'Lavante-séchante',
@@ -1425,7 +1433,9 @@ export default [
           'Il ne démarre pas',
           'Il fait du bruit',
           'Il fuit',
-          'Elle ne sèche plus',],
+          'Elle ne sèche plus',
+          'Autre'
+        ],
   },
   {
       'name': 'Lave-linge',
@@ -1798,7 +1808,9 @@ export default [
           'Il ne démarre pas',
           'Il fait du bruit',
           'Il fuit',
-          'Le tambour ne tourne pas',],
+          'Le tambour ne tourne pas',
+          'Autre'
+        ],
   },
   {
       'name': 'Lave-vaisselle',
@@ -2070,7 +2082,7 @@ export default [
           'Il ne chauffe pas',
           'Il ne lave pas bien',
           'Il ne vidange plus',
-          'Il fait disjoncter',],
+          'Il fait disjoncter','Autre'],
   },
   {
       'name': 'Nettoyeur Vapeur',
@@ -2305,7 +2317,7 @@ export default [
           'Elle ne s\'allume plus',
           'Elle fait des bruits étranges',
           'Elle ne chauffe pas assez',
-          'Elle ne chauffe pas du tout',],
+          'Elle ne chauffe pas du tout','Autre'],
   },
   {
       'name': 'Plaque de cuisson électrique',
@@ -2489,7 +2501,7 @@ export default [
           'Elle affiche un code',
           'Elle fait disjoncter',
           'Elle ne fonctionne plus',
-          'La plaque est tachée ou fissurée',],
+          'La plaque est tachée ou fissurée','Autre'],
   },
   {
       'name': 'Plaque de cuisson gaz',
@@ -2673,7 +2685,7 @@ export default [
           'Les flammes ne sont pas belles',
           'Les flammes noircissent les poêles',
           'La flamme s\'éteint',
-          'La flamme brûle mal',],
+          'La flamme brûle mal','Autre'],
   },
   {
       'name': 'Sèche-linge',
@@ -2835,7 +2847,7 @@ export default [
           'Il ne tourne plus',
           'Il ne chauffe pas',
           'Il est bruyant',
-          'Il s\'arrête en cours de cycle',]
+          'Il s\'arrête en cours de cycle','Autre']
   },
 
 ]

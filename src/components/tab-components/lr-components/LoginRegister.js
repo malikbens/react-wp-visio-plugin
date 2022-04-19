@@ -71,9 +71,9 @@ export default function BasicTabs(props) {
                     6. Mon compte
                 </Typography>
 
-                <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                    <Tab sx={{ border: "solid 1px #C4C4C4" }} label="PAS ENCORE CLIENT ?" {...a11yProps(0)} />
-                    <Tab sx={{ border: "solid 1px #C4C4C4" }} label="Déjà client ?" {...a11yProps(1)} />
+                <Tabs value={value} onChange={handleChange} >
+                    <Tab sx={{ border: "solid 1px #C4C4C4" }} label="PAS ENCORE CLIENT ? Renseigner mes informations" {...a11yProps(0)} wrapped/>
+                    <Tab sx={{ border: "solid 1px #C4C4C4" }} label="Déjà client ? Je me connecte" {...a11yProps(1)} wrapped/>
                 </Tabs>
                 
                 <TabPanel value={value} index={0}>

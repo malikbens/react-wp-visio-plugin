@@ -15,9 +15,9 @@ function SelectSymtom(props) {
                     Les symptomes de panne
                 </Typography>
                 <StyledButton label={symptoms} handleChange={props.handleChange} width={350} state={"symptom"}/>
-                <Grid item>
+                {/* <Grid item>
                     <TextField sx={{width:350}} variant="outlined" label="Autre"></TextField>
-                </Grid>
+                </Grid> */}
             </Box>
         )
     }

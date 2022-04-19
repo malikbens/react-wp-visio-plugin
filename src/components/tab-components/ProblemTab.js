@@ -38,7 +38,7 @@ export default class InfoTab extends Component {
                 </List>
 
                 <TextField
-                    sx={{mt:2}}
+                    sx={{mt:4}}
                     id="outlined-multiline-static"
                     label="Quand j'essaye d'allumer mon appareil ..."
                     defaultValue={this.props.values.prbDesc}

@@ -29,21 +29,21 @@ const theme = createTheme({
       fontSize: 28,
       fontWeight: 700,
       lineHeight: 1.7,
-      letterSpacing: 1.92,
+      letterSpacing: 0.96,
       marginBottom: 25
     },
     h2: {
       fontSize: 18,
       fontWeight: 600,
-      letterSpacing: 1.92,
-      marginBottom: 15,
-      marginTop: 15
+      letterSpacing: 0.96,
+      marginBottom: 20,
+      marginTop: 20
     },
     body1: {
       fontSize: 18,
       fontWeight: 500,
       lineHeight: 1.7,
-      letterSpacing: 1.92,
+      letterSpacing: 0.96,
     },
   },
 })
@@ -137,7 +137,7 @@ class App extends Component {
 
     return (
       <ThemeProvider theme={theme}>
-        <Container  maxWidth="xl" sx={{ display: 'inline-flex', justifyContent: 'center' }}>
+        <Container sx={{ display: 'inline-flex', justifyContent: 'center',padding:"10px" }}>
           <VisioForm 
             nextStep={this.nextStep} 
             prevStep={this.prevStep}

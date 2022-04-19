@@ -268,7 +268,7 @@
                 "La brosse rotative ne fonctionne plus",
                 "Il ne fonctionne plus",
                 "Il sent mauvais ou sent le brûlé",
-                "Il fait du bruit"
+                "Il fait du bruit","Autre"
             ]
         },
         {
@@ -322,7 +322,7 @@
                 "Elle fuit",
                 "Elle ne chauffe plus",
                 "Elle ne fonctionne plus",
-                "Le fer ne fonctionne plus"
+                "Le fer ne fonctionne plus","Autre"
             ]
         },
         {
@@ -594,7 +594,7 @@
                 "Elle ne chauffe plus",
                 "Elle ne fonctionne pas",
                 "La porte ferme mal",
-                "Elle fait du bruit"
+                "Elle fait du bruit","Autre"
             ]
         },
         {
@@ -921,7 +921,7 @@
                 "Il ne chauffe plus",
                 "Il ne fonctionne pas",
                 "La porte ferme mal",
-                "Il fait du bruit"
+                "Il fait du bruit","Autre"
             ]
         },
         {
@@ -1064,7 +1064,7 @@
                 "Elle n'aspire plus",
                 "Elle n'émet plus de lumière",
                 "Elle est bruyante",
-                "Il y a une fuite d'eau"
+                "Il y a une fuite d'eau","Autre"
             ]
         },
         {
@@ -1439,7 +1439,7 @@
                 "Il ne démarre pas",
                 "Il fait du bruit",
                 "Il fuit",
-                "Elle ne sèche plus"
+                "Elle ne sèche plus","Autre"
             ]
         },
         {
@@ -1814,7 +1814,7 @@
                 "Il ne démarre pas",
                 "Il fait du bruit",
                 "Il fuit",
-                "Le tambour ne tourne pas"
+                "Le tambour ne tourne pas","Autre"
             ]
         },
         {
@@ -2089,7 +2089,7 @@
                 "Il ne chauffe pas",
                 "Il ne lave pas bien",
                 "Il ne vidange plus",
-                "Il fait disjoncter"
+                "Il fait disjoncter","Autre"
             ]
         },
         {
@@ -2331,7 +2331,7 @@
                 "Elle ne s'allume plus",
                 "Elle fait des bruits étranges",
                 "Elle ne chauffe pas assez",
-                "Elle ne chauffe pas du tout"
+                "Elle ne chauffe pas du tout","Autre"
             ]
         },
         {
@@ -2518,7 +2518,7 @@
                 "Elle affiche un code",
                 "Elle fait disjoncter",
                 "Elle ne fonctionne plus",
-                "La plaque est tachée ou fissurée"
+                "La plaque est tachée ou fissurée","Autre"
             ]
         },
         {
@@ -2705,7 +2705,7 @@
                 "Les flammes ne sont pas belles",
                 "Les flammes noircissent les poêles",
                 "La flamme s'éteint",
-                "La flamme brûle mal"
+                "La flamme brûle mal","Autre"
             ]
         },
         {
@@ -2870,7 +2870,7 @@
                 "Il ne tourne plus",
                 "Il ne chauffe pas",
                 "Il est bruyant",
-                "Il s'arrête en cours de cycle"
+                "Il s'arrête en cours de cycle","Autre"
             ]
         }
     ]

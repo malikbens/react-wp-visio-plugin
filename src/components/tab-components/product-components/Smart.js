@@ -8,10 +8,10 @@ export default function Smart() {
             variant='h2'
             color="text"
         >
-         FORFAIT SMART
+         Forfait Smart 
         
         </Typography>
-        <Box sx={{background:"#8CBE22", color:"white" }}>   
+        <Box sx={{background:"#8CBE22", color:"white",padding:'15px 25px 15px 25px' }}>   
             <Typography>
                 Ce forfait comprend :
             </Typography>
@@ -38,7 +38,7 @@ export default function Smart() {
             </List>
         </Box>
 
-        <Box sx={{border:"solid 1px #C4C4C4"}}>
+        <Box sx={{border:"solid 1px #C4C4C4", padding:'15px 25px 15px 25px'}}>
             <Typography
                 variant='h2'
                 color="primary"
@@ -47,14 +47,14 @@ export default function Smart() {
                 Remarque
             </Typography>
             <Typography 
-                variant='string'
+                variant='body1'
                 color="text"
             >
             Ce forfait de 20 minutes de visio avec un technicien est parfaitement adapté si vous avez une simple 
             question technique ou besoin d’une confirmation de diagnostic. Si vous souhaitez être accompagné pour réparer votre appareil, 
             nous vous conseillons le forfait premium qui comprend :
             </Typography>
-            <List sx={{ listStyle: 'initial' }}>
+            <List sx={{ listStyle: 'initial', marginRight : '3%' }}>
                 <ListItemText sx={{ display: 'list-item' }} >Un appel illimité avec notre expert</ListItemText>
                 <ListItemText sx={{ display: 'list-item' }} >Garantie diagnostiqué ou remboursé</ListItemText>
                 <ListItemText sx={{ display: 'list-item' }} >Un suivi personnalisé par email après la visio</ListItemText>
