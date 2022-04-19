@@ -1,6 +1,6 @@
 import React, { Component, useEffect } from 'react'
 import VisioForm from './components/VisioForm'
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider, responsiveFontSizes  } from '@mui/material/styles';
 import { Container } from '@mui/material';
 import SideBar from './components/SideBar';
 import Devices from '/data/devices.json'
@@ -47,6 +47,8 @@ const theme = createTheme({
     },
   },
 })
+
+// theme = responsiveFontSizes(theme);
 
 class App extends Component {
   state = {
@@ -147,7 +149,7 @@ class App extends Component {
             setUsername={this.setUsername}
             values={values}
           />
-          <SideBar values={recap}/>
+          <SideBar values={recap} />
         </Container>
       </ThemeProvider>
 

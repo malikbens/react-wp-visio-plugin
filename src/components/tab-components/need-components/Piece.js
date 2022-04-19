@@ -18,7 +18,13 @@ function Piece(props){
         </Typography>
 
        <StyledButton label={piece} handleChange={props.handleChange} width={300} state={"piece"}/>
-        <p>*Nous vous ferons parvenir un lien en fin de parcours pour acheter votre pièce</p>
+        <Typography
+          variant='body1'
+          color='text'
+          align="left"
+        >
+          *Nous vous ferons parvenir un lien en fin de parcours pour acheter votre pièce
+        </Typography>
       </Box>
     )
   }

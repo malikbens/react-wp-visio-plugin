@@ -16,7 +16,7 @@ export default class DeviceTab extends Component {
 
   render() {
     return (
-      <Container sx={{width:'730px'}}>
+      <Container sx={{ width: '800px' }}>
         <Typography
           variant="h1"
           color="text"
@@ -41,22 +41,21 @@ export default class DeviceTab extends Component {
             fetchData={this.props.fetchData}
             setData={this.props.setData}
           />
-        
+
           <SelectBrand
             handleChange={this.props.handleChange}
             values={this.props.values}
             fetchData={this.props.fetchData}
           />
-          <SelectSymptom 
-            handleChange={this.props.handleChange}
-            values={this.props.values}
-          />
-      
         </Box>
+        <SelectSymptom
+          handleChange={this.props.handleChange}
+          values={this.props.values}
+        />
         <br></br>
 
         <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <Button sx={{mt: 5, ml: 3 }} variant="contained" onClick={this.continuer} endIcon={<ArrowForwardIcon />} >
+          <Button sx={{ mt: 5, ml: 3 }} variant="contained" onClick={this.continuer} endIcon={<ArrowForwardIcon />} >
             Continuer
           </Button>
         </Box>

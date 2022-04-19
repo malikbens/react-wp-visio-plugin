@@ -3,10 +3,10 @@ import { Box } from '@mui/system'
 import { Typography } from '@mui/material'
 
 export class SideBar extends Component {
-  render() {  
+  render() {
     const values = Object.values(this.props.values)
     return (
-      <Box>
+      <Box sx={{ display : { xs: 'none' , sm:'none', md:'block'}, width:'300px'}}>
         <Typography
           variant="h2"
           color="primary"
@@ -16,7 +16,7 @@ export class SideBar extends Component {
         </Typography>
         <Box>
           <Typography >
-            {values.map(value => 
+            {values.map(value =>
               <p key={value.id}>{value}</p>
             )}
           </Typography>

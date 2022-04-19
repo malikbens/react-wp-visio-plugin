@@ -6,7 +6,7 @@ function SelectSymtom(props) {
     if (props.values.brand != "") {
         const symptoms = props.values.datas.symptoms
         return (
-            <Box >
+            <Box sx={{mt:4}}>
                 <Typography
                     variant="h2"
                     color="primary"
@@ -16,7 +16,7 @@ function SelectSymtom(props) {
                 </Typography>
                 <StyledButton label={symptoms} handleChange={props.handleChange} width={350} state={"symptom"}/>
                 <Grid item>
-                    <TextField sx={{width:330}} variant="outlined" label="Autre"></TextField>
+                    <TextField sx={{width:350}} variant="outlined" label="Autre"></TextField>
                 </Grid>
             </Box>
         )

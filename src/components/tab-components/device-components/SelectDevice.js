@@ -5,7 +5,7 @@ import Devices from '/data/devices.json'
 const SelectDevice = (props) => {
 
     return (
-        <FormControl sx={{ minWidth: 130, margin: '10px 10px 10px 0px' }}>
+        <FormControl sx={{ width: 200, margin: '10px 10px 10px 0px' }}>
             <InputLabel id="select-label">Appareil</InputLabel>
             <Select
                 value={props.values.device}

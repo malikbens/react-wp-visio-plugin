@@ -4,7 +4,6 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 export default function Booked(props) {
 
-    function test(){}
     useEffect(() => {
         const booked = document.getElementById('booked');
         const app = document.getElementById('test')
