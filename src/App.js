@@ -137,7 +137,7 @@ class App extends Component {
 
     return (
       <ThemeProvider theme={theme}>
-        <Container sx={{ display: 'inline-flex', justifyContent: 'center',padding:"10px" }}>
+        <Container sx={{ display: 'flex', justifyContent: 'center', padding:"10px" }}>
           <VisioForm 
             nextStep={this.nextStep} 
             prevStep={this.prevStep}
