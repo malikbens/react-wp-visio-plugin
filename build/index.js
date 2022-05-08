@@ -27022,9 +27022,14 @@ class DeviceTab extends Component {
   constructor() {
     super(...arguments);
 
-    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "continuer", e => {
+    (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "next", e => {
       e.preventDefault();
-      this.props.nextStep();
+
+      if (this.props.values.device && this.props.values.brand && this.props.values.symptom) {
+        this.props.nextStep();
+      } else {
+        console.log("Alert");
+      }
     });
   }
 
@@ -27064,7 +27069,7 @@ class DeviceTab extends Component {
         ml: 3
       },
       variant: "contained",
-      onClick: this.continuer,
+      onClick: this.next,
       endIcon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_mui_icons_material_ArrowForward__WEBPACK_IMPORTED_MODULE_9__["default"], null)
     }, "Continuer")));
   }

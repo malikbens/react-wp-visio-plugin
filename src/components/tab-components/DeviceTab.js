@@ -9,9 +9,14 @@ import SelectSymptom from "./device-components/SelectSymptom"
 
 
 export default class DeviceTab extends Component {
-  continuer = e => {
+
+  next = e => {
     e.preventDefault();
-    this.props.nextStep();
+    if(this.props.values.device && this.props.values.brand && this.props.values.symptom){
+      this.props.nextStep();
+    }else{
+      console.log("Alert")
+    }
   }
 
   render() {
@@ -55,7 +60,12 @@ export default class DeviceTab extends Component {
         <br></br>
 
         <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <Button sx={{ mt: 5, ml: 3 }} variant="contained" onClick={this.continuer} endIcon={<ArrowForwardIcon />} >
+          <Button 
+            sx={{ mt: 5, ml: 3 }} 
+            variant="contained" 
+            onClick={this.next} 
+            endIcon={<ArrowForwardIcon />} 
+          >
             Continuer
           </Button>
         </Box>
