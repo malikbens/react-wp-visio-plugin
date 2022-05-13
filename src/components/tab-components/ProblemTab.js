@@ -4,6 +4,16 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 const { Component, render } = wp.element;
 
 export default class InfoTab extends Component {
+
+    next = e => {
+        e.preventDefault();
+        if(this.props.values.prbDesc){
+          this.props.nextStep();
+        }else{
+          console.log("Alert")
+        }
+    }
+
     continue = e => {
         e.preventDefault();
         this.props.nextStep();

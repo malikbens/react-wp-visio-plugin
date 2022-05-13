@@ -7,6 +7,18 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 
 export default class DeviceTab extends Component {
+
+  next = e => {
+    e.preventDefault();
+    if(this.props.values.need){
+      this.props.nextStep();
+    }else if(this.props.values.need && this.props.values.piece){
+      this.props.nextStep();
+    }else{
+      alert("alert")
+    }
+  }
+
   continue = e => {
     e.preventDefault();
     this.props.nextStep();

@@ -8,6 +8,16 @@ import Level from './info-components/Level';
 import Tools from './info-components/Tools';
 
 export default class InfoTab extends Component {
+
+    next = e => {
+        e.preventDefault();
+        if( this.props.values.level ){
+          this.props.nextStep();
+        }else{
+          console.log("Alert")
+        }
+    }
+
     continue = e => {
         e.preventDefault();
         this.props.nextStep()
@@ -79,7 +89,7 @@ export default class InfoTab extends Component {
                     <Button sx={{ mt: 5, color:'black' }} onClick={this.back}  >
                         Retour
                     </Button>
-                    <Button sx={{ mt: 5, ml: 3 }} variant="contained" onClick={this.continue} endIcon={<ArrowForwardIcon />}  >
+                    <Button sx={{ mt: 5, ml: 3 }} variant="contained" onClick={this.next} endIcon={<ArrowForwardIcon />}  >
                         Continuer
                     </Button>
                 </Box>

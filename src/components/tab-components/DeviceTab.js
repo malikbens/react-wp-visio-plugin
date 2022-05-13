@@ -6,8 +6,6 @@ import SelectBrand from "./device-components/SelectBrand"
 import SelectSymptom from "./device-components/SelectSymptom"
 
 
-
-
 export default class DeviceTab extends Component {
 
   next = e => {
@@ -15,8 +13,13 @@ export default class DeviceTab extends Component {
     if(this.props.values.device && this.props.values.brand && this.props.values.symptom){
       this.props.nextStep();
     }else{
-      console.log("Alert")
+      alert("Alert")
     }
+  }
+
+  continue = e => {
+    e.preventDefault();
+    this.props.nextStep();
   }
 
   render() {
@@ -63,7 +66,7 @@ export default class DeviceTab extends Component {
           <Button 
             sx={{ mt: 5, ml: 3 }} 
             variant="contained" 
-            onClick={this.next} 
+            onClick={this.continue} 
             endIcon={<ArrowForwardIcon />} 
           >
             Continuer
